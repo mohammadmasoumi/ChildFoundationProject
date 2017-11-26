@@ -3,8 +3,8 @@ import requests
 # Create your views here.
 
 
-def homepage(request):
+def mainpage(request):
 
-    return render(request, "homepage.html", {})
+    return render(request, "mainpage.html", {})
 
 

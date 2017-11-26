@@ -564,6 +564,7 @@ input:-ms-input-placeholder {
 .home{
     background: url(../images/homebg.jpg) no-repeat 100% 100%;
     text-align: center;
+    /*../images/homebg.jpg*/
 }
 
 
