@@ -1,0 +1,74 @@
+# Tips:
+#   * [ci skip] in commits messages
+#   * https://secure.travis-ci.org/:username/:project.png
+#   * Use travislint
+
+
+
+language: python
+
+python:
+
+  - '3.6.0'
+
+services:
+
+  - redis-server
+
+
+env:
+
+  - DJANGO=1.11.7 DB=mysql
+
+
+# Comand to install dependencies
+addons:
+
+  firefox: "53.0"
+
+install:
+
+  - pip install Django
+  - pip install -r requirements.txt
+
+before_script:
+
+  - echo 'Hello'
+  - python manage.py makemigrations
+  - python manage.py migrate
+  - python manage.py makemigrations childf_app
+  - python manage.py migrate childf_app
+  - sudo redis-server /etc/redis/redis.conf --port 6379
+  - python manage.py collectstatic --noinput
+  - 'export DISPLAY=:99.0'
+  - 'sh -e /etc/init.d/xvfb start'
+  - sleep 3 # give xvfb some time to start
+  - python manage.py runserver 127.0.0.1:8000 &
+  - sleep 3
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
+  - tar -xvzf geckodriver-v0.18.0-linux64.tar.gz
+  - rm geckodriver-v0.18.0-linux64.tar.gz
+  - chmod +x geckodriver
+  - sudo cp geckodriver /usr/local/bin/
+
+after_script:
+
+  - echo 'Bye'
+
+# command to run test
+
+script:
+  - python manage.py test
+
+notifications:
+
+  email:
+
+    recipients:
+
+      - mohammad.masoomy74@gmail.com
+
+    on_success: never
+
+    on_failure: always
+
