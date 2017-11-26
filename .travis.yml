@@ -67,6 +67,8 @@ notifications:
     recipients:
 
       - mohammad.masoomy74@gmail.com
+      - hamed.shirzad74@gmail.com
+      - Alireza.naeiji@gmail.com
 
     on_success: never
 
