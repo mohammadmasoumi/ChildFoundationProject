@@ -19,14 +19,19 @@ from childf_app import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^login/', views.login, name='login')
+
+    url(r'^$', views.mainpage, name='mainpage'),
+    url(r'^development_team/', views.development_team, name='development_team'),
+    url(r'^history/', views.history, name='history'),
+    url(r'^organizational_chart/', views.organizational_chart, name='organizational_chart'),
+
+    # url(r'^$', views.homepage, name='homepage')
+    # url(r'^$', views.homepage, name='homepage')
+#    url(r'^login/', views.login, name='login')
     # url(r'^registration/', views.registration, name='registration')
     # url(r'^join-to-the-Institute/', views.join_to_the_Institute, name='join_to_the-_Institute')
     # url(r'^Introduction-to-the-Institute/', views.Introduction_to_the_Institute, name='Introduction_to_the_Institute')
     # url(r'^homepage', views.homepage, name='homepage')
-    url(r'^$', views.mainpage, name='mainpage')
-    # url(r'^$', views.homepage, name='homepage')
-    # url(r'^$', views.homepage, name='homepage')
     #
 
 

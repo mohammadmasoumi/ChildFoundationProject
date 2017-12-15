@@ -9,7 +9,7 @@
     Document Title
     =============================================
     -->
-    <title>بنیاد حمایت از کودکان</title>
+    <title>تیم توسعه دهنده</title>
     <!--
     Favicons
     =============================================
@@ -26,6 +26,7 @@
     Stylesheets
     =============================================
 
+    -->
     <!-- Default stylesheets-->
     <link href="{% static 'assets/lib/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Template specific stylesheets-->
@@ -41,8 +42,8 @@
     <link href="{% static 'assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css' %}" rel="stylesheet">
     <link href="{% static 'assets/lib/magnific-popup/dist/magnific-popup.css' %}" rel="stylesheet">
     <link href="{% static 'assets/lib/simple-text-rotator/simpletextrotator.css' %}" rel="stylesheet">
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <!-- Main stylesheet and color file-->
-
     <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
     <link id="color-scheme" href="{% static 'assets/css/colors/default.css' %}" rel="stylesheet">
   </head>
@@ -51,7 +52,7 @@
       <div class="page-loader">
         <div class="loader">صبور باشید ...</div>
       </div>
-      <nav class="navbar navbar-custom navbar-fixed-top navbar-transparent" role="navigation">
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
@@ -86,67 +87,88 @@
           </div>
         </div>
       </nav>
-      <!-- Slider -->
-      <section class="home-section home-full-height photography-page" id="home">
-        <div class="hero-slider">
-          <ul class="slides">
-            <li class="bg-dark bg-dark-30 restaurant-page-header" style="background-image:url(&quot;static/assets/images/homepage/image1.jpg&quot;);">
-              <div class="titan-caption">
-                <div class="caption-content">
-                  <div class="font-alt mb-30 titan-title-size-1"> Take a look at</div>
-                  <div class="font-alt mb-40 titan-title-size-3">our specialities</div><a class="section-scroll btn btn-border-w btn-round" href="#specialities">Learn More</a>
-                </div>
-              </div>
-            </li>
-            <li class="bg-dark bg-dark-30 restaurant-page-header" style="background-image:url(&quot;static/assets/images/homepage/image2.jpg&quot;);">
-              <div class="titan-caption">
-                <div class="caption-content">
-                  <div class="font-alt mb-30 titan-title-size-2">Titan is creative multipurpose html template for<br>web developers who change the world</div><a class="btn btn-border-w btn-round" href="about1.html">Discover our story</a>
-                </div>
-              </div>
-            </li>
-            <li class="bg-dark bg-dark-30 restaurant-page-header" style="background-image:url(&quot;static/assets/images/homepage/image3.jpg&quot;);">
-              <div class="titan-caption">
-                <div class="caption-content">
-                  <div class="font-alt mb-30 titan-title-size-1"> Hello & welcome</div>
-                  <div class="font-alt mb-40 titan-title-size-4">We are Titan</div><a class="section-scroll btn btn-border-w btn-round" href="#menu">Check Our Menu</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </section>
       <div class="main">
-        <section class="module-medium">
+        <section class="module bg-dark-60 about-page-header" data-background="{% static 'assets/images/about_bg.png' %}">
           <div class="container">
-            <ul class="works-grid works-grid-gut works-hover-d" id="works-grid">
-              <li class="work-item illustration webdesign"><a href="portfolio_single_featured_image1.html">
-                  <div class="work-image"><img src="{% static 'assets/images/photography/portrait.jpg' %}" alt="Portfolio Item"/></div>
-                  <div class="work-caption font-alt">
-                    <h3 class="work-title">Portrait</h3>
-                    <div class="work-descr">Lorem ipsum</div>
-                  </div></a></li>
-              <li class="work-item marketing photography"><a href="portfolio_single_featured_image2.html">
-                  <div class="work-image"><img src="{% static 'assets/images/photography/landscape.jpg' %}" alt="Portfolio Item"/></div>
-                  <div class="work-caption font-alt">
-                    <h3 class="work-title">Landscape</h3>
-                    <div class="work-descr">Dolor sit</div>
-                  </div></a></li>
-              <li class="work-item illustration photography"><a href="portfolio_single_featured_slider1.html">
-                  <div class="work-image"><img src="{% static 'assets/images/photography/architecture.jpg' %}" alt="Portfolio Item"/></div>
-                  <div class="work-caption font-alt">
-                    <h3 class="work-title">Architecture</h3>
-                    <div class="work-descr">Amet Consectetur</div>
-                  </div></a></li>
-              <li class="work-item marketing photography"><a href="portfolio_single_featured_slider2.htmll">
-                  <div class="work-image"><img src="{% static 'assets/images/photography/lifestyle.jpg' %}" alt="Portfolio Item"/></div>
-                  <div class="work-caption font-alt">
-                    <h3 class="work-title">Life Style</h3>
-                    <div class="work-descr">Adipisicing elit</div>
-                  </div></a></li>
-            </ul>
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <h2 class="module-title font-alt">تیم فنی</h2>
+                <div class="module-subtitle font-serif">
+                    <i class="em em-muscle"></i>
+                    ما میتونیم هر کاری را انجام بدیم
+
+                </div>
+              </div>
+            </div>
           </div>
         </section>
+        <hr class="divider-w">
+        <section class="module" id="team">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <h2 class="module-title font-alt">تیم فنی </h2>
+                <div class="module-subtitle font-serif">
+                    <i class="em em-muscle"></i>
+                    ما میتونیم هر کاری را انجام بدیم
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-4" onclick="wow fadeInUp">
+                <div class="team-item">
+                  <div class="team-image"><img src="{% static 'assets/images/developerTeam/mohammad.jpg' %}" alt="Mohammad Masoumi Photo"/>
+                    <div class="team-detail">
+                      <h5 class="font-alt">سلام به همه</h5>
+                      <p class="font-serif">
+                          <i class="em em-slightly_smiling_face"></i>
+                           امیدوارم از طراحی سایت راضی باشید.
+                      </p>
+                      <div class="team-social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a></div>
+                    </div>
+                  </div>
+                  <div class="team-descr font-alt">
+                    <div class="team-name">محمد معصومی</div>
+                    <div class="team-role">طراح واسط کاربری و توصعه دهنده وب</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-4" onclick="wow fadeInUp">
+                <div class="team-item">
+                  <div class="team-image"><img src="{% static 'assets/images/developerTeam/alireza.jpg' %}" alt="Alireza naeiji"/>
+                    <div class="team-detail">
+                      <h5 class="font-alt">سلام</h5>
+                      <p class="font-serif">
+                          امیدوارم روز خوبی را داشته باشین
+                      </p>
+                      <div class="team-social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a></div>
+                    </div>
+                  </div>
+                  <div class="team-descr font-alt">
+                    <div class="team-name">علیرضا نائجی</div>
+                    <div class="team-role">توسعه دهنده اندروید</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-4" onclick="wow fadeInUp">
+                <div class="team-item">
+                  <div class="team-image"><img src="{% static 'assets/images/developerTeam/hamed.jpg' %}" alt="Hamed Shirzad"/>
+                    <div class="team-detail">
+                      <h5 class="font-alt">سلام</h5>
+                      <p class="font-serif">
+                                                امیدوارم روز خوبی را داشته باشین
+                      </p>
+                      <div class="team-social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a></div>
+                    </div>
+                  </div>
+                  <div class="team-descr font-alt">
+                    <div class="team-name">حامد شیرزاد</div>
+                    <div class="team-role">طراح الکوریتم و پایگاه داده</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+         </section>
         <div class="module-small bg-dark">
           <div class="container">
             <div class="row">
@@ -187,14 +209,14 @@
                   <h5 class="widget-title font-alt">Popular Posts</h5>
                   <ul class="widget-posts">
                     <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="{% static 'assets/images/rp-1.jpg' %}" alt="Post Thumbnail"/></a></div>
+                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail"/></a></div>
                       <div class="widget-posts-body">
                         <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
                         <div class="widget-posts-meta">23 january</div>
                       </div>
                     </li>
                     <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="{% static 'assets/images/rp-2.jpg' %}" alt="Post Thumbnail"/></a></div>
+                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail"/></a></div>
                       <div class="widget-posts-body">
                         <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
                         <div class="widget-posts-meta">15 February</div>
@@ -220,13 +242,13 @@
             </div>
           </div>
         </footer>
-        <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
       </div>
+      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
     </main>
     <!--
     JavaScripts
     =============================================
-     -->
+    -->
     <script src="{% static 'assets/lib/jquery/dist/jquery.js' %}"></script>
     <script src="{% static 'assets/lib/bootstrap/dist/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'assets/lib/wow/dist/wow.js' %}"></script>
