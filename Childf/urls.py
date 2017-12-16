@@ -24,6 +24,8 @@ urlpatterns = [
     url(r'^development_team/', views.development_team, name='development_team'),
     url(r'^history/', views.history, name='history'),
     url(r'^organizational_chart/', views.organizational_chart, name='organizational_chart'),
+    url(r'^goals/', views.goals, name='goals'),
+    url(r'^activities/', views.activities, name='activities'),
 
     # url(r'^$', views.homepage, name='homepage')
     # url(r'^$', views.homepage, name='homepage')

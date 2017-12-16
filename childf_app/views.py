@@ -18,3 +18,11 @@ def history(request):
 
 def organizational_chart(request):
     return render(request, 'organizational_chart.html', {})
+
+
+def goals(request):
+    return render(request, 'goals.html', {})
+
+
+def activities(request):
+    return render(request, 'activities.html', {})

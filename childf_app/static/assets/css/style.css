@@ -1940,7 +1940,7 @@ Google map
 }
 
 .work-descr {
-  color: #aaa;
+  color: #434343;
 }
 
 .work-item:hover .work-image:after {
@@ -1965,6 +1965,9 @@ Google map
 /* Work item white background*/
 .works-grid.works-hover-w .work-title {
   color: #111;
+  font-family: IRAN-web;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .works-grid.works-hover-w .work-item:hover .work-image:after {
@@ -1977,7 +1980,9 @@ Google map
 }
 
 .works-grid.works-hover-g .work-descr {
-  color: #fff;
+  color: #4d4d4d;
+  font-size: 14px;
+  font-family: IRAN-web;
 }
 
 .works-grid.works-hover-g .work-item:hover .work-image:after {
