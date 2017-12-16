@@ -26,6 +26,9 @@ urlpatterns = [
     url(r'^organizational_chart/', views.organizational_chart, name='organizational_chart'),
     url(r'^goals/', views.goals, name='goals'),
     url(r'^activities/', views.activities, name='activities'),
+    url(r'^test/', views.test, name='test'),
+    url(r'^registration/', views.registration, name='registration'),
+    url(r'^accept_registration_terms/', views.accept_registration_terms, name='accept_registration_terms'),
 
     # url(r'^$', views.homepage, name='homepage')
     # url(r'^$', views.homepage, name='homepage')

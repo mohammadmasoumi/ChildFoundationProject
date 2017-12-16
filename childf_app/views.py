@@ -26,3 +26,15 @@ def goals(request):
 
 def activities(request):
     return render(request, 'activities.html', {})
+
+
+def test(request):
+    return render(request, 'sidebar test.html', {})
+
+
+def registration(request):
+    return render(request, 'registration.html', {})
+
+
+def accept_registration_terms(request):
+    return render(request, 'accept_registration_terms.html', {})

@@ -1,0 +1,15 @@
+@charset "utf-8";
+@font-face {
+ font-family: 'IRAN-web';
+ src: url('b-nazanin-p30download-com.eot') ;  /* IE6–8 */
+ src: url('b-nazanin-p30download-com.eot?#') format('eot'), /* IE6–8 */
+url('b-nazanin-p30download-com.ttf') format('truetype'), /* Saf3—5,*/
+url('b-nazanin-p30download-com.woff') format('woff2'),  /* Chrome36+, Opera24+*/
+url('b-nazanin-p30download-com.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+ font-weight: bold;
+}
+
+body {
+font-family: IRAN-web;
+font-size: inherit;
+}

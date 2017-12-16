@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  
+    Document Title
+    =============================================
+    -->
+    <title>تاریخچه موسسه</title>
+    <!--
+    Favicons
+    =============================================
+    -->
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'assets/images/favicons/logo-icon-final.png' %}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <link rel="manifest" href="{% static 'assets/images/favicons/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <meta name="theme-color" content="#ffffff">
+    <!--
+    Stylesheets
+    =============================================
+
+    <!-- Default stylesheets-->
+    <link href="{% static 'assets/lib/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Template specific stylesheets-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="{% static 'assets/lib/animate.css/animate.css' %}" rel="stylesheet">
+    <link rel="stylesheet" media="all and (max-width: 1024px)" type="text/css" href="{% static 'assets/fonts/style.css' %}" />
+    <link href="{% static 'assets/lib/components-font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/lib/et-line-font/et-line-font.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/lib/flexslider/flexslider.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/lib/owl.carousel/dist/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/lib/magnific-popup/dist/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/lib/simple-text-rotator/simpletextrotator.css' %}" rel="stylesheet">
+    <!-- Main stylesheet and color file-->
+
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link id="color-scheme" href="{% static 'assets/css/colors/default.css' %}" rel="stylesheet">
+  </head>
+  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+      <div class="page-loader">
+        <div class="loader">Loading...</div>
+      </div>
+      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button><a class="navbar-brand" href="/">بنیاد حمایت از کودکان</a>
+{#              <img src="{% static 'assets/images/favicons/logo-small.png' %}" />#}
+          </div>
+          <div class="collapse navbar-collapse" id="custom-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="contact_us">ارتباط با ما</a></li>
+              <li ><a href="/payment">پرداخت به بنیاد</a></li>
+              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">پیوستن به بنیاد</a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="/registration">تکمیل فرم همیاری</a></li>
+                  <li><a href="/Honorary_co-operation">همکاری افتخاری</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a class="dropdown-toggle" href="/" data-toggle="dropdown">آشنایی با بنیاد</a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="/history">تاریخچه</a></li>
+                  <li><a href="/organizational_chart">چارت سازمانی</a></li>
+                  <li><a href="/goals">اهداف</a></li>
+                  <li><a href="/activities">فعالیت ها</a></li>
+                  <li><a href="/development_team">معرفی تیم توسعه دهنده</a></li>
+                </ul>
+              </li>
+              <li><a href="/">صفحه اصلی </a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="main">
+        <section class="module bg-dark-60 portfolio-page-header" data-background="{% static 'assets/images/history/History.jpg' %}">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3">
+                <h2 class="module-title font-alt">تاریخچه بنیاد حمابت از کودکان</h2>
+                <div class="module-subtitle font-serif">
+مروری بر تاریخچه بنیاد حمایت از کودکان
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2 col-sm-offset-5">
+                <div class="large-text align-center"><a class="section-scroll" href="#about"><i class="fa fa-angle-down"></i></a></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="module" id="about">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-8 col-sm-offset-2">
+                <h2 class="module-title font-alt">تاریخچه بنیاد حمایت از کودکان</h2>
+                <p style="direction: rtl;text-align: justify;font-family: 'B Nazanin';font-size: medium">
+بنیادکودک از سال 1373 در ایران و آمریکا فعالیت خود را آغاز کرده‌‌است. این مؤسسه در ایران با نام "مؤسسه خیریه رفاه‌ کودک" و در آمریکا با نام "Child Foundation" به ثبت رسیده‌است. درسال 1378 بنیادکودک در ایران ثبت‌ رسمی شد و از ثبت شرکت‌ها در شیراز مجوزی به شماره 398 دریافت کرد. سپس دفترمرکزی بنیادکودک از شیراز به تهران منتقل ‌شد و پس از انتقال رسمی اسناد، مجدداً از ثبت شرکت‌ها در سال 1388 مجوزی به شماره 25540 دریافت‌کرد.
+                </p>
+                <p style="direction: rtl;text-align: justify;font-family: 'B Nazanin';font-size: medium">
+این مؤسسه، یک مؤسسه خیریه مردم‌نهاد، غیردولتی، غیرسیاسی، غیرانتفاعی، فرامذهبی و فرامرزی است که رویکردی کاملاً انسان‌دوستانه دارد. هدف این مؤسسه دستیابی به این آرمان است که "هیچ دانش‌آموز با استعدادی به دلیل مشکلات اقتصادی از تحصیل و تلاش باز نماند."
+                </p>
+                <p style="direction: rtl;text-align: justify;font-family: 'B Nazanin';font-size: medium">
+این مؤسسه با دریافت مجوزملی از وزارت کشور توانست دامنه‌ی فعالیت خود را به‌ بسیاری از استان‌ها بگستراند و اینک 28 نمایندگی در آمل، اردبیل، اهواز، ارومیه، ایلام، اصفهان، بروجرد، بم، بوشهر، بیرجند، تبریز، تهران، جیرفت، داراب، رشت، زاهدان، زابل، سنندج، شیراز، شهرکرد، کاشان، کرمانشاه، کرج، مراغه، مشهد، مهاباد، یاسوج و یزد دارد. ضمن اینکه در برخی از استان‌ها به‌ فراخور شرایط اقتصادی و جغرافیایی نمایندگی‌های اقماری نیز فعال شده که از آن جمله می‌توان به خاش، ایرانشهر، فنوج، نیک‌شهر، سراوان در سیستان و بلوچستان، کفران در اصفهان، مرودشت و جهرم در فارس، شهربابک، ریگان و رستم‌آباد در بم، اشاره‌ کرد.
+                </p>
+                <p style="direction: rtl;text-align: justify;font-family: 'B Nazanin';font-size: medium">
+بنیادکودک با ایجاد شعب برون‌مرزی خود توانست رابطه‌ای عاطفی بین ایرانیان مقیم خارج از کشور را با هموطنانشان در ایران سبب‌‌شود. شعب بین‌المللی بنیاد در کشورهای آمریکا، سوئیس، آلمان، انگلیس، سوئد و کانادا مشغول به فعالیت هستند.
+                </p>
+                <p style="direction: rtl;text-align: justify;font-family: 'B Nazanin';font-size: medium">
+بنیادکودک از آغازِ فعالیت تاکنون توانسته‌است بیش از دوازده‌هزار دانش‌آموز و به تبع آن خانواده‌های آنها را تحت حمایت قراردهد و امروز نیز بیش از 9000 دانش‌آموز را در سراسر ایران حمایت می‌کند که حدود هزارنفر از این دانش‌آموزان توانسته‌اند به دانشگاه‌های کشور وارد شوند.
+                </p>
+                <p style="direction: rtl;text-align: justify;font-family: 'B Nazanin';font-size: medium">
+
+از آنجا که بنیادکودک از ابتدای فعالیت خود معتقد به عملکردی فراگیر، پیشرو، مدرن، پاسخگو و شفاف بوده‌است، همواره در جهت توسعه فناوری اطلاعات بسیار کوشیده‌است. پس با اعتقاد به این رویکرد متناسب با نیاز، اهداف، چشم‌انداز و... نسبت به طراحی یک نرم‌افزار جامع تحت وب به نام وندا اقدام‌کرد و در سال 87 به‌طور رسمی از این نرم‌افزار بهره‌برداری شد و از آن پس تمامی اطلاعات دانش‌آموزان، همیاران، همکاران، مالی و... بر روی این نرم‌افزار قرارگرفت و این نرم‌افزار توانست جامعه‌ جهانی بنیادکودک را به یک دهکده‌ی اطلاعاتی و ارتباطی تبدیل‌کند.
+                </p>
+                <p style="direction: rtl;text-align: justify;font-family: 'B Nazanin';font-size: medium">
+بنیادکودک برای بیان فعالیت شفاف خود از سال 81 از حسابرسان رسمی دعوت به‌عمل آورد تا گردش مالی مؤسسه موردحسابرسی قرارگیرد.
+                </p>
+                <p style="direction: rtl;text-align: justify;font-family: 'B Nazanin';font-size: medium">
+بنیادکودک در سال 2005 توانست از کمیسیون اقتصادی- اجتماعی سازمان ملل (Ecosoc) مقام مشورتی دریافت‌کند و تاکنون نیز هر پنج سال یک‌بار با ارائه‌ی عملکرد شفاف و انسان‌دوستانه‌ی خود موفق شده‌است این گواهینامه را تمدید کند.
+                </p>
+                <p style="direction: rtl;text-align: justify;font-family: 'B Nazanin';font-size: medium">
+همچنین این مؤسسه در سال 86 موفق به کسب مجوز معافیت مالیاتی از هیأت دولت شد که مبتنی بر این مجوز همیاران می‌توانند کمک‌های خود را در قالب هزینه‌های قابل‌ قبول مالیاتی به سازمان امور مالیاتی ارائه‌کنند.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="module-small bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">About Titan</h5>
+                  <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
+                  <p>Phone: +1 234 567 89 10</p>Fax: +1 234 567 89 10
+                  <p>Email:<a href="#">somecompany@example.com</a></p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Recent Comments</h5>
+                  <ul class="icon-list">
+                    <li>Maria on <a href="#">Designer Desk Essentials</a></li>
+                    <li>John on <a href="#">Realistic Business Card Mockup</a></li>
+                    <li>Andy on <a href="#">Eco bag Mockup</a></li>
+                    <li>Jack on <a href="#">Bottle Mockup</a></li>
+                    <li>Mark on <a href="#">Our trip to the Alps</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Blog Categories</h5>
+                  <ul class="icon-list">
+                    <li><a href="#">Photography - 7</a></li>
+                    <li><a href="#">Web Design - 3</a></li>
+                    <li><a href="#">Illustration - 12</a></li>
+                    <li><a href="#">Marketing - 1</a></li>
+                    <li><a href="#">Wordpress - 16</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="widget">
+                  <h5 class="widget-title font-alt">Popular Posts</h5>
+                  <ul class="widget-posts">
+                    <li class="clearfix">
+                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail"/></a></div>
+                      <div class="widget-posts-body">
+                        <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
+                        <div class="widget-posts-meta">23 january</div>
+                      </div>
+                    </li>
+                    <li class="clearfix">
+                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail"/></a></div>
+                      <div class="widget-posts-body">
+                        <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
+                        <div class="widget-posts-meta">15 February</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="divider-d">
+        <footer class="footer bg-dark">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
+              </div>
+              <div class="col-sm-6">
+                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+      </div>
+    </main>
+    <!--
+    JavaScripts
+    =============================================
+     -->
+    <script src="{% static 'assets/lib/jquery/dist/jquery.js' %}"></script>
+    <script src="{% static 'assets/lib/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/lib/wow/dist/wow.js' %}"></script>
+    <script src="{% static 'assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js' %}"></script>
+    <script src="{% static 'assets/lib/isotope/dist/isotope.pkgd.js' %}"></script>
+    <script src="{% static 'assets/lib/imagesloaded/imagesloaded.pkgd.js' %}"></script>
+    <script src="{% static 'assets/lib/flexslider/jquery.flexslider.js' %}"></script>
+    <script src="{% static 'assets/lib/owl.carousel/dist/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/lib/smoothscroll.js' %}"></script>
+    <script src="{% static 'assets/lib/magnific-popup/dist/jquery.magnific-popup.js' %}"></script>
+    <script src="{% static 'assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+  </body>
+</html>

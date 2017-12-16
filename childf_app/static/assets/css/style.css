@@ -46,6 +46,13 @@ a,
   transition: all 0.125s ease-in-out 0s;
 }
 
+.persian-text-style {
+  direction: rtl;
+  text-align: justify;
+  font-family: 'B Nazanin';
+  font-size: medium
+}
+
 .client-logo,
 .gallery-caption,
 .gallery-image:after,
@@ -816,14 +823,28 @@ a,
   text-transform: uppercase;
   letter-spacing: normal;
   font-size: 11px;
-  height: 33px;
+  margin-top: 5px;
+  height: 37px;
   border: 1px solid #EAEAEA;
   border-radius: 2px;
   transition: all 0.4s ease-in-out 0s;
 }
 
+.form-border{
+  border: solid 2px grey;
+  padding: 20px;
+}
+
 .form-control:focus {
   border-color: #CACACA;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
 }
 
 /* Forms size */
@@ -887,8 +908,13 @@ blockquote {
   padding: 0;
 }
 
+.persian-direction {
+    float: right;
+    direction: rtl
+}
+
 .font-alt {
-  font-family: IRAN-web;
+  font-family: "B Nazanin";
   text-transform: uppercase;
   letter-spacing: normal;
 }
