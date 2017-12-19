@@ -913,6 +913,10 @@ blockquote {
     direction: rtl
 }
 
+.rtl-direction {
+    direction: rtl;
+}
+
 .font-alt {
   font-family: "B Nazanin";
   text-transform: uppercase;

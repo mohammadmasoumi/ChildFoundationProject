@@ -63,6 +63,8 @@ def send_code(request):
 
 @csrf_exempt
 def login(request):
+    if request.method == 'POST':
+        return render(request, 'home.html', {})
     return render(request, 'login.html', {})
 
 
@@ -73,7 +75,7 @@ def verification(request):
         thanks_msg = ("حساب کاربری شما با موفقیت ساخته شد!")
         redirect_to_home_msg = ("صفحه اصلی خود را ببینید")
         html = '<p class="swal-text">%s</p>' \
-               ' <hr> <a class="swal-text" href="/fa-ir/home/">%s </a><br/>' \
+               ' <hr> <a class="swal-text" href="/home/">%s </a><br/>' \
                 % (thanks_msg, redirect_to_home_msg)
         result = {'result': 1, 'html': html}
         return HttpResponse(json.dumps(result))
@@ -81,4 +83,43 @@ def verification(request):
 
 @csrf_exempt
 def payment(request):
-    render((request, 'payment.html', {}))
+    if request.is_ajax():
+        swal_type = 'success'
+        text = 'پرداخت شما با موفقیت ارسال شد.'
+        html = '<p class="swal-text alert alert-success" style>%s</p>' % text
+        name = request.POST.get("name", "")
+        email = request.POST.get("email", "")
+        mobileNo = request.POST.get("mobileNo", "")
+        national_code = request.POST.get("national_code", "")
+        amount = request.POST.get("amount", "")
+        if not name or not email or not amount or not national_code or not mobileNo:
+            swal_type = 'error'
+            text = 'لطفا فرم را کامل کنید.'
+            html = '<p class="swal-text alert alert-danger" style>%s</p>' % text
+        result = {'html': html, 'swal_type': swal_type}
+        return HttpResponse(json.dumps(result))
+    return render(request, 'payment.html', {})
+
+
+@csrf_exempt
+def home(request):
+    return render(request, 'home.html', {})
+
+
+@csrf_exempt
+def contact_us(request):
+    if request.is_ajax():
+        swal_type = 'success'
+        text = 'درخواست شما با موفقیت ارسال شد.'
+        html = '<p class="swal-text alert alert-success" style>%s</p>' % text
+        name = request.POST.get("name", "")
+        email = request.POST.get("email", "")
+        message = request.POST.get("message", "")
+        if not name or not email  or not message:
+            swal_type = 'error'
+            text = 'لطفا فرم را کامل کنید.'
+            html = '<p class="swal-text alert alert-danger" style>%s</p>' % text
+        result = {'html': html, 'swal_type':swal_type}
+        return HttpResponse(json.dumps(result))
+
+    return  render(request, 'contact_us.html', {})

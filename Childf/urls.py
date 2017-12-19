@@ -34,6 +34,8 @@ urlpatterns = [
     url(r'^login/$', views.login, name='login'),
     url(r'^verification/$', views.verification, name='verification'),
     url(r'^payment/$', views.payment, name='payment'),
+    url(r'^home/$', views.home, name='home'),
+    url(r'^contact_us/$', views.contact_us, name='contact_us'),
 
     # url(r'^$', views.homepage, name='homepage')
     # url(r'^$', views.homepage, name='homepage')
