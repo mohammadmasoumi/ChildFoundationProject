@@ -9,7 +9,7 @@
     Document Title
     =============================================
     -->
-    <title>تیم توسعه دهنده</title>
+    <title>کد فعال سازی</title>
     <!--
     Favicons
     =============================================
@@ -26,7 +26,6 @@
     Stylesheets
     =============================================
 
-    -->
     <!-- Default stylesheets-->
     <link href="{% static 'assets/lib/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Template specific stylesheets-->
@@ -42,10 +41,14 @@
     <link href="{% static 'assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css' %}" rel="stylesheet">
     <link href="{% static 'assets/lib/magnific-popup/dist/magnific-popup.css' %}" rel="stylesheet">
     <link href="{% static 'assets/lib/simple-text-rotator/simpletextrotator.css' %}" rel="stylesheet">
-    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/bower_components/sweetalert2/sweetalert2.min.css' %}"/>
     <!-- Main stylesheet and color file-->
+
     <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
     <link id="color-scheme" href="{% static 'assets/css/colors/default.css' %}" rel="stylesheet">
+    <!-- Ajax-->
+    <script src="{% static 'assets/ajax/verification.js' %}"></script>
+    <script src="{% static 'assets/ajax/resendsmscode.js' %}"></script>
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
     <main>
@@ -88,88 +91,32 @@
           </div>
         </div>
       </nav>
-      <div class="main">
-        <section class="module bg-dark-60 about-page-header" data-background="{% static 'assets/images/about_bg.png' %}">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">تیم فنی</h2>
-                <div class="module-subtitle font-serif">
-                    <i class="em em-muscle"></i>
-                    ما میتونیم هر کاری را انجام بدیم
 
+      <div class="main">
+        <section class="module" style="padding: 140px;">
+          <div class="container">
+            <div class="row ">
+              <div class="col-sm-6 col-sm-offset-2 form-border">
+                <h4 class="font-alt mb-0" style="float: right;font-weight: bold; padding-right: 10px ">کد فعال سازی </h4>
+                <hr class="divider-w mt-10 mb-20">
+                <hr class="divider-w mt-10 mb-20">
+                <div class="form">
+                  <div class="form-group">
+                    <input id="verification-code" class="form-control font-alt persian-direction" type="number" placeholder="کد فعال سازی"/>
+                  </div>
+                  <div class="form-group">
+                    <button id="submit_btn" onclick="verification_entered_code()" type="submit" class="font-alt persian-direction btn btn-round btn-b" style="margin-top: 20px" value="فعال سازی">فعال سازی</button>
+                  </div>
+                  <div class="form-group ">
+                      <a class="font-alt" id="resend_sms_code" onclick="resend_sms()" style="margin-top: 25px; float: left; direction: rtl">ارسال دوباره کد?</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <hr class="divider-w">
-        <section class="module" id="team">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <h2 class="module-title font-alt">تیم فنی </h2>
-                <div class="module-subtitle font-serif">
-                    <i class="em em-muscle"></i>
-                    ما میتونیم هر کاری را انجام بدیم
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-4" onclick="wow fadeInUp">
-                <div class="team-item">
-                  <div class="team-image"><img src="{% static 'assets/images/developerTeam/mohammad.jpg' %}" alt="Mohammad Masoumi Photo"/>
-                    <div class="team-detail">
-                      <h5 class="font-alt">سلام به همه</h5>
-                      <p class="font-serif">
-                          <i class="em em-slightly_smiling_face"></i>
-                           امیدوارم از طراحی سایت راضی باشید.
-                      </p>
-                      <div class="team-social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a></div>
-                    </div>
-                  </div>
-                  <div class="team-descr font-alt">
-                    <div class="team-name">محمد معصومی</div>
-                    <div class="team-role">طراح واسط کاربری و توصعه دهنده وب</div>
-                  </div>
-                </div>
-              </div>
-              <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-4" onclick="wow fadeInUp">
-                <div class="team-item">
-                  <div class="team-image"><img src="{% static 'assets/images/developerTeam/alireza.jpg' %}" alt="Alireza naeiji"/>
-                    <div class="team-detail">
-                      <h5 class="font-alt">سلام</h5>
-                      <p class="font-serif">
-                          امیدوارم روز خوبی را داشته باشین
-                      </p>
-                      <div class="team-social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a></div>
-                    </div>
-                  </div>
-                  <div class="team-descr font-alt">
-                    <div class="team-name">علیرضا نائجی</div>
-                    <div class="team-role">توسعه دهنده اندروید</div>
-                  </div>
-                </div>
-              </div>
-              <div class="mb-sm-20 wow fadeInUp col-sm-6 col-md-4" onclick="wow fadeInUp">
-                <div class="team-item">
-                  <div class="team-image"><img src="{% static 'assets/images/developerTeam/hamed.jpg' %}" alt="Hamed Shirzad"/>
-                    <div class="team-detail">
-                      <h5 class="font-alt">سلام</h5>
-                      <p class="font-serif">
-                                                امیدوارم روز خوبی را داشته باشین
-                      </p>
-                      <div class="team-social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a></div>
-                    </div>
-                  </div>
-                  <div class="team-descr font-alt">
-                    <div class="team-name">حامد شیرزاد</div>
-                    <div class="team-role">طراح الکوریتم و پایگاه داده</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-         </section>
+
+
         <div class="module-small bg-dark">
           <div class="container">
             <div class="row">
@@ -243,13 +190,13 @@
             </div>
           </div>
         </footer>
+        <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
       </div>
-      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
     </main>
     <!--
     JavaScripts
     =============================================
-    -->
+     -->
     <script src="{% static 'assets/lib/jquery/dist/jquery.js' %}"></script>
     <script src="{% static 'assets/lib/bootstrap/dist/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'assets/lib/wow/dist/wow.js' %}"></script>
@@ -263,5 +210,7 @@
     <script src="{% static 'assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js' %}"></script>
     <script src="{% static 'assets/js/plugins.js' %}"></script>
     <script src="{% static 'assets/js/main.js' %}"></script>
+    <script src="{% static 'assets/bower_components/sweetalert2/sweetalert2.min.js' %}"></script>
+
   </body>
 </html>

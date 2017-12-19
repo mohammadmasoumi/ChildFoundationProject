@@ -830,10 +830,10 @@ a,
   transition: all 0.4s ease-in-out 0s;
 }
 
-.form-border{
-  border: solid 2px grey;
-  padding: 20px;
-}
+/*.form-border{*/
+  /*border: solid 2px grey;*/
+  /*padding: 20px;*/
+/*}*/
 
 .form-control:focus {
   border-color: #CACACA;
@@ -1302,7 +1302,7 @@ General Styles - Owlcarousel
 
 .navbar-custom .dropdown-menu > li > a {
   border-bottom: 1px solid rgba(73, 71, 71, 0.15) !important;
-  float: right;
+  /*float: right;*/
   padding: 11px 15px ;
   color: #999;
 }
@@ -1391,6 +1391,16 @@ General Styles - Owlcarousel
 	color: #999;
 	margin-top: -20px;
 }*/
+/*--------------------------------------------------------------
+	Swal
+--------------------------------------------------------------*/
+.swal-text {
+  direction: rtl;
+  text-align: center;
+  font-family: "B Nazanin";
+  font-size: medium;
+}
+
 /*--------------------------------------------------------------
 	Header
 --------------------------------------------------------------*/
@@ -2728,6 +2738,10 @@ Google map
 	Responsive Styles - Media Queries
 --------------------------------------------------------------*/
 @media (min-width: 768px) {
+  .form-border{
+    border: solid 2px grey;
+    padding: 20px;
+  }
   .navbar-transparent {
     background: transparent;
     padding-bottom: 15px;
@@ -2810,6 +2824,7 @@ Google map
 
 @media (max-width: 767px) {
   /* Navbar */
+
   .navbar-custom .navbar-nav {
     letter-spacing: normal;
     margin-top: 1px;

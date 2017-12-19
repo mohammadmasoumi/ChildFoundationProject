@@ -27,8 +27,13 @@ urlpatterns = [
     url(r'^goals/', views.goals, name='goals'),
     url(r'^activities/', views.activities, name='activities'),
     url(r'^test/', views.test, name='test'),
-    url(r'^registration/', views.registration, name='registration'),
+    url(r'^registration/$', views.registration, name='registration'),
     url(r'^accept_registration_terms/', views.accept_registration_terms, name='accept_registration_terms'),
+    url(r'^activation_code/$', views.activation_code, name='activation_code'),
+    url(r'^sms/$', views.resend_sms, name='resend_sms'),
+    url(r'^login/$', views.login, name='login'),
+    url(r'^verification/$', views.verification, name='verification'),
+    url(r'^payment/$', views.payment, name='payment'),
 
     # url(r'^$', views.homepage, name='homepage')
     # url(r'^$', views.homepage, name='homepage')
