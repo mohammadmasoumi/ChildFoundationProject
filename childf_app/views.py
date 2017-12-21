@@ -32,7 +32,7 @@ def activities(request):
 
 
 def test(request):
-    return render(request, 'sidebar test.html', {})
+    return render(request, 'afterLogin/index.html', {})
 
 
 @csrf_exempt
