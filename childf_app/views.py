@@ -122,4 +122,22 @@ def contact_us(request):
         result = {'html': html, 'swal_type':swal_type}
         return HttpResponse(json.dumps(result))
 
-    return  render(request, 'contact_us.html', {})
+    return render(request, 'contact_us.html', {})
+
+
+@csrf_exempt
+def forget_password(request):
+    if request.is_ajax():
+        swal_type = 'success'
+        text = 'ایمیل تغیر کلمه عبور برای شما ارسال شد.'
+        html = '<p class="swal-text alert alert-success" style>%s</p>' % text
+        username = request.POST.get("username", "")
+        email = request.POST.get("email", "")
+        if not username or not email:
+            swal_type = 'error'
+            text = 'لطفا فرم را کامل کنید.'
+            html = '<p class="swal-text alert alert-danger" style>%s</p>' % text
+        result = {'html': html, 'swal_type':swal_type}
+        return HttpResponse(json.dumps(result))
+
+    return render(request, 'forget_password.html', {})
