@@ -11317,7 +11317,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "بعدی",
 	
 	
 				/**
@@ -11340,7 +11340,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "قبلی"
 			},
 	
 			/**
@@ -11363,8 +11363,9 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
-	
+			// "sEmptyTable": "No data available in table",
+			"sEmptyTable": "داده قابل قبولی یاقت نشد!",
+
 	
 			/**
 			 * This string gives information to the end user about the information
@@ -11395,8 +11396,9 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
-	
+			// "sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "نمایش "+ "_START_"+ " تا " +"_END_"+ " از " +"_TOTAL_"+ " داده یافت شده",
+
 	
 			/**
 			 * Display information string for when the table is empty. Typically the
@@ -11416,8 +11418,9 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
-	
+			// "sInfoEmpty": "Showing" "0" "to 0 of 0 entries",0 entries",
+			"sInfoEmpty": "نمایش "+ "0"+ " تا " +"0"+ " از " +"0"+ " داده یافت شده",
+
 	
 			/**
 			 * When a user filters the information in a table, this string is appended
@@ -11438,8 +11441,9 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
-	
+			// "sInfoFiltered": "(filtered from _MAX_ total entries)",
+			"sInfoFiltered": "جستجو در"+"_MAX_"+ " داده",
+
 	
 			/**
 			 * If can be useful to append extra information to the info string at times,
@@ -11556,8 +11560,9 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
-	
+			// "sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "نمایش "+ "_MENU_"+ " داده",
+
 	
 			/**
 			 * When using Ajax sourced data and during the first draw when DataTables is
@@ -11601,8 +11606,9 @@
 			 *      } );
 			 *    } );
 			 */
-			"sProcessing": "Processing...",
-	
+			// "sProcessing": "Processing...",
+			"sProcessing": "در حال پردازش...",
+
 	
 			/**
 			 * Details the actions that will be taken when the user types into the
@@ -11636,7 +11642,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "جستجو",
 	
 	
 			/**
@@ -11694,7 +11700,8 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			// "sZeroRecords": "No matching records found"
+			"sZeroRecords": "داده ای یافت نشده!"
 		},
 	
 	

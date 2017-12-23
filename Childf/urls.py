@@ -34,20 +34,17 @@ urlpatterns = [
     url(r'^login/$', views.login, name='login'),
     url(r'^verification/$', views.verification, name='verification'),
     url(r'^payment/$', views.payment, name='payment'),
-    url(r'^home/$', views.home, name='home'),
+    url(r'^homepage/$', views.homepage, name='homepage'),
     url(r'^contact_us/$', views.contact_us, name='contact_us'),
     url(r'^forget_password/$', views.forget_password, name='forget_password'),
-
-    # url(r'^$', views.homepage, name='homepage')
-    # url(r'^$', views.homepage, name='homepage')
-#    url(r'^login/', views.login, name='login')
-    # url(r'^registration/', views.registration, name='registration')
-    # url(r'^join-to-the-Institute/', views.join_to_the_Institute, name='join_to_the-_Institute')
-    # url(r'^Introduction-to-the-Institute/', views.Introduction_to_the_Institute, name='Introduction_to_the_Institute')
-    # url(r'^homepage', views.homepage, name='homepage')
-    #
-
+    url(r'^userprofile/$', views.userprofile, name='userprofile'),
+    url(r'^userpayment/$', views.userpayment, name='userpayment'),
+    url(r'^show_poor_children/$', views.show_poor_children, name='show_poor_children'),
+    url(r'^supported_children/$', views.supported_children, name='supported_children'),
+    url(r'^trans_history/$', views.trans_history, name='trans_history'),
+    url(r'^letters/$', views.letters, name='letters'),
+    url(r'^information_poor_children/(?P<children_id>\d+)/$', views.information_poor_children, name='information_poor_children'),
+    url(r'^information_poor_children/$', views.information_poor_children, name='information_poor_children'),
 
 
-    # url(r'^/', admin.site.urls),
 ]

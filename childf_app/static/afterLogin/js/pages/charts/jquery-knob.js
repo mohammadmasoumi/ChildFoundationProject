@@ -10,7 +10,6 @@ $(function () {
                     , ea                            // Previous end angle
                     , eat = sat + a                 // End angle
                     , r = true;
-
                 this.g.lineWidth = this.lineWidth;
 
                 this.o.cursor
@@ -26,6 +25,7 @@ $(function () {
                     this.g.strokeStyle = this.previousColor;
                     this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
                     this.g.stroke();
+
                 }
 
                 this.g.beginPath();
@@ -38,7 +38,6 @@ $(function () {
                 this.g.strokeStyle = this.o.fgColor;
                 this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
                 this.g.stroke();
-
                 return false;
             }
         }

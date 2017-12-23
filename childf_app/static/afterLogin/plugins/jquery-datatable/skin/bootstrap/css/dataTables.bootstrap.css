@@ -16,11 +16,16 @@ table.dataTable.nowrap td {
 }
 
 div.dataTables_wrapper div.dataTables_length label {
+  font-family: "B Nazanin";
+  font-size: 18px;
   font-weight: normal;
   text-align: left;
   white-space: nowrap;
 }
 div.dataTables_wrapper div.dataTables_length select {
+  direction: rtl;
+  font-family: "B Nazanin";
+  font-size: 18px;
   width: 75px;
   display: inline-block;
 }
@@ -28,20 +33,28 @@ div.dataTables_wrapper div.dataTables_filter {
   text-align: right;
 }
 div.dataTables_wrapper div.dataTables_filter label {
+  font-family: "B Nazanin";
+  font-size: 18px;
   font-weight: normal;
   white-space: nowrap;
   text-align: left;
 }
 div.dataTables_wrapper div.dataTables_filter input {
+  font-family: "B Nazanin";
+  font-size: 18px;
   margin-left: 0.5em;
   display: inline-block;
   width: auto;
 }
 div.dataTables_wrapper div.dataTables_info {
+  font-family: "B Nazanin";
+  font-size: 18px;
   padding-top: 8px;
   white-space: nowrap;
 }
 div.dataTables_wrapper div.dataTables_paginate {
+  font-family: "B Nazanin";
+  font-size: 18px;
   margin: 0;
   white-space: nowrap;
   text-align: right;
@@ -53,7 +66,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 
 table.dataTable thead > tr > th,
 table.dataTable thead > tr > td {
-  padding-right: 30px;
+  padding-right: 9px;
 }
 table.dataTable thead > tr > th:active,
 table.dataTable thead > tr > td:active {
@@ -74,7 +87,7 @@ table.dataTable thead .sorting_asc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:after {
   position: absolute;
   bottom: 8px;
-  right: 8px;
+  left: 8px;
   display: block;
   font-family: 'Glyphicons Halflings';
   opacity: 0.5;
@@ -149,6 +162,10 @@ table.table-bordered.dataTable td {
 table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child,
 table.table-bordered.dataTable td:last-child,
 table.table-bordered.dataTable td:last-child {
+    font-family: "B Nazanin";
+    direction: rtl;
+    text-align: right;
+    font-size: 18px;
   border-right-width: 0;
 }
 table.table-bordered.dataTable tbody th,

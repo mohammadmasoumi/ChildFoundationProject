@@ -1,168 +1,482 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en-US" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--
-    Document Title
-    =============================================
-    -->
-    <title>چارت سازمانی موسسه</title>
-    <!--
-    Favicons
-    =============================================
-    -->
-    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'assets/images/favicons/logo-icon-final.png' %}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
-    <link rel="manifest" href="{% static 'assets/images/favicons/manifest.json' %}">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{% static 'assets/images/favicons/logo-icon-final.png' %}">
-    <meta name="theme-color" content="#ffffff">
-    <!--
-    Stylesheets
-    =============================================
+<html>
 
-    <!-- Default stylesheets-->
-    <link href="{% static 'assets/lib/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
-    <!-- Template specific stylesheets-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-    <link href="{% static 'assets/lib/animate.css/animate.css' %}" rel="stylesheet">
-    <link rel="stylesheet" media="all and (max-width: 1024px)" type="text/css" href="{% static 'assets/fonts/style.css' %}" />
-    <link href="{% static 'assets/lib/components-font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/lib/et-line-font/et-line-font.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/lib/flexslider/flexslider.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/lib/owl.carousel/dist/assets/owl.carousel.min.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/lib/magnific-popup/dist/magnific-popup.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/lib/simple-text-rotator/simpletextrotator.css' %}" rel="stylesheet">
+<head>
+   <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Jquery DataTable | Bootstrap Based Admin Template - Material Design</title>
+    <!-- Favicon-->
+{#    <link rel="icon" href="../../favicon.ico" type="image/x-icon">#}
 
-    <!-- Main stylesheet and color file-->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
-    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
-    <link id="color-scheme" href="{% static 'assets/css/colors/default.css' %}" rel="stylesheet">
-  </head>
-  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
-    <main>
-      <div class="page-loader">
-        <div class="loader">صبور باشید ...</div>
-      </div>
-      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button><a class="navbar-brand" href="/">بنیاد حمایت از کودکان</a>
-{#              <img src="{% static 'assets/images/favicons/logo-small.png' %}" />#}
-          </div>
-          <div class="collapse navbar-collapse" id="custom-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="contact_us">ارتباط با ما</a></li>
-              <li ><a href="/payment">پرداخت به بنیاد</a></li>
-              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">پیوستن به بنیاد</a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="/registration">تکمیل فرم همیاری</a></li>
-                  <li><a href="/Honorary_co-operation">همکاری افتخاری</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a class="dropdown-toggle" href="/" data-toggle="dropdown">آشنایی با بنیاد</a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="/history">تاریخچه</a></li>
-                  <li><a href="/organizational_chart">چارت سازمانی</a></li>
-                  <li><a href="/goals">اهداف</a></li>
-                  <li><a href="/activities">فعالیت ها</a></li>
-                  <li><a href="/development_team">معرفی تیم توسعه دهنده</a></li>
-                </ul>
-              </li>
-              <li><a href="/">صفحه اصلی </a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <!-- Bootstrap Core Css -->
+    <link href="{% static 'afterLogin/plugins/bootstrap/css/bootstrap.css' %}" rel="stylesheet"/>
 
-      <div class="section section-signup" style="background-image: url('assets/img/bg11.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
-                <div class="container">
-                    <div class="row">
-                        <div class="card card-signup" data-background-color="orange">
-                            <form class="form" method="post" action="">
-                                <div class="header text-center">
-                                    <h4 class="title title-up">Sign Up</h4>
-                                    <div class="social-line">
-                                        <a href="#pablo" class="btn btn-neutral btn-facebook btn-icon btn-round">
-                                            <i class="fa fa-facebook-square"></i>
-                                        </a>
-                                        <a href="#pablo" class="btn btn-neutral btn-twitter btn-icon btn-lg btn-round">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                        <a href="#pablo" class="btn btn-neutral btn-google btn-icon btn-round">
-                                            <i class="fa fa-google-plus"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="input-group form-group-no-border">
-                                        <span class="input-group-addon">
-                                            <i class="now-ui-icons users_circle-08"></i>
-                                        </span>
-                                        <input type="text" class="form-control" placeholder="First Name...">
-                                    </div>
-                                    <div class="input-group form-group-no-border">
-                                        <span class="input-group-addon">
-                                            <i class="now-ui-icons text_caps-small"></i>
-                                        </span>
-                                        <input type="text" placeholder="Last Name..." class="form-control" />
-                                    </div>
-                                    <div class="input-group form-group-no-border">
-                                        <span class="input-group-addon">
-                                            <i class="now-ui-icons ui-1_email-85"></i>
-                                        </span>
-                                        <input type="text" class="form-control" placeholder="Email...">
-                                    </div>
-                                    <!-- If you want to add a checkbox to this form, uncomment this code -->
-                                    <!-- <div class="checkbox">
-	  								<input id="checkboxSignup" type="checkbox">
-	  									<label for="checkboxSignup">
-	  									Unchecked
-	  									</label>
-	  						  		</div> -->
-                                </div>
-                                <div class="footer text-center">
-                                    <a href="#pablo" class="btn btn-neutral btn-round btn-lg">Get Started</a>
-                                </div>
-                            </form>
-                        </div>
+    <!-- Waves Effect Css -->
+    <link href="{% static 'afterLogin/plugins/node-waves/waves.css' %}" rel="stylesheet" />
+
+     <!-- Jquery Knob Plugin Js -->
+
+    <!-- Animation Css -->
+    <link href="{% static 'afterLogin/plugins/animate-css/animate.css' %}" rel="stylesheet" />
+
+    <!-- JQuery DataTable Css -->
+    <link href="{% static 'afterLogin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css' %}" rel="stylesheet"/>
+
+    <!-- Custom Css -->
+    <link href="{% static 'afterLogin/css/style.css' %}" rel="stylesheet"/>
+
+    <script>
+        function test() {
+            var x = document.getElementById('test1');
+            console.log(x.value);
+            x.setAttribute()
+        }
+    </script>
+</head>
+
+<body class="theme-red">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
                     </div>
-                    <div class="col text-center">
-                        <a href="examples/login-page.html" class="btn btn-simple btn-round btn-white btn-lg" target="_blank">View Login Page</a>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
                     </div>
                 </div>
             </div>
-      <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
-    </main>
-    <!--
-    JavaScripts
-    =============================================
-     -->
-    <script src="{% static 'assets/lib/jquery/dist/jquery.js' %}"></script>
-    <script src="{% static 'assets/lib/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'assets/lib/wow/dist/wow.js' %}"></script>
-    <script src="{% static 'assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js' %}"></script>
-    <script src="{% static 'assets/lib/isotope/dist/isotope.pkgd.js' %}"></script>
-    <script src="{% static 'assets/lib/imagesloaded/imagesloaded.pkgd.js' %}"></script>
-    <script src="{% static 'assets/lib/flexslider/jquery.flexslider.js' %}"></script>
-    <script src="{% static 'assets/lib/owl.carousel/dist/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'assets/lib/smoothscroll.js' %}"></script>
-    <script src="{% static 'assets/lib/magnific-popup/dist/jquery.magnific-popup.js' %}"></script>
-    <script src="{% static 'assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js' %}"></script>
-    <script src="{% static 'assets/js/plugins.js' %}"></script>
-    <script src="{% static 'assets/js/main.js' %}"></script>
-  </body>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand persian-text-style" href="homepage.html">همیار گرامی خوش آمدید </a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="{% static 'afterLogin/images/user.png' %}" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">محمد معصومی</div>
+                    <div class="email persian-text-style ">Mohammad.Masoumi@gmail.com</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a class="persian-text-style" href="/userprofile"><i class="material-icons">person</i>اطلاعات کاربری</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a class="persian-text-style" href="/userpayment"><i class="material-icons">shopping_cart</i>گزارش پرداخت </a></li>
+{#                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>#}
+                            <li role="seperator" class="divider"></li>
+                            <li><a class="persian-text-style" href="/login"><i class="material-icons">input</i>خروج</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header persian-text-style">نوار دسترسی</li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/">
+                            <i class="material-icons">home</i>
+                            <span>صفحه اصلی</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/show_poor_children">
+                            <i class="material-icons">person_add</i>
+                            <span> کودکان نیازمند</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/supported_children">
+                            <i class="material-icons">supervisor_account</i>
+                            <span>کودکان تحت تکفل</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/trans_history">
+                            <i class="material-icons">content_paste</i>
+                            <span> پرداختی ها</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/letters">
+                            <i class="material-icons">drafts</i>
+                            <span>نامه ها</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/payment">
+                            <i class="material-icons">payment</i>
+                            <span>پرداخت به موسسه</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- #END# Left Sidebar -->
+    </section>
+
+   <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>
+                    JQUERY KNOB
+                    <small>Taken from <a href="https://github.com/aterrien/jQuery-Knob" target="_blank">github.com/aterrien/jQuery-Knob</a></small>
+                </h2>
+            </div>
+
+            <!-- Basic Example -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>BASIC EXAMPLES</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-md-2">
+                                    <input type="text" id="test1" class="knob" value="86"
+                                           data-width="125" data-height="125" data-thickness="0.25" data-fgColor="#F44336" onmouseover="test()">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="92" data-width="125" data-height="125" data-thickness="0.25" data-fgColor="#E91E63">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="93" data-width="125" data-height="125" data-thickness="0.25" data-fgColor="#00BCD4">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="89" data-width="125" data-height="125" data-thickness="0.25" data-fgColor="#009688">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="91" data-width="125" data-height="125" data-thickness="0.25" data-fgColor="#FF9800">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="93" data-width="125" data-height="125" data-thickness="0.25" data-fgColor="#9C27B0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Example -->
+            <!-- Rounded Corners -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>ROUNDED CORNERS</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-linecap="round" value="42" data-width="125" data-height="125" data-thickness="0.25"
+                                           data-fgColor="#F44336">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-linecap="round" value="56" data-width="125" data-height="125" data-thickness="0.25"
+                                           data-fgColor="#E91E63">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-linecap="round" value="48" data-width="125" data-height="125" data-thickness="0.25"
+                                           data-fgColor="#00BCD4">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-linecap="round" value="65" data-width="125" data-height="125" data-thickness="0.25"
+                                           data-fgColor="#009688">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-linecap="round" value="72" data-width="125" data-height="125" data-thickness="0.25"
+                                           data-fgColor="#FF9800">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-linecap="round" value="18" data-width="125" data-height="125" data-thickness="0.25"
+                                           data-fgColor="#9C27B0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Rounded Corners -->
+            <!-- Different Sizes -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>DIFFERENT SIZES</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="86" data-width="90" data-height="90" data-thickness="0.1" data-fgColor="#F44336">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="92" data-width="120" data-height="120" data-thickness="0.32" data-fgColor="#E91E63">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="93" data-width="120" data-height="120" data-thickness="0.50" data-fgColor="#00BCD4">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="89" data-width="80" data-height="80" data-thickness="0.16" data-fgColor="#009688">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="91" data-width="75" data-height="75" data-thickness="0.2" data-fgColor="#FF9800">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="93" data-width="120" data-height="120" data-thickness="0.12" data-fgColor="#9C27B0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Different Sizes -->
+            <!-- Different Angles & Offsets -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>DIFFERENT ANGLES & OFFSETS</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="35" data-width="125" data-height="125" data-thickness="0.25" data-angleArc="250" data-angleoffset="-125"
+                                           data-fgColor="#F44336">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="45" data-width="125" data-height="125" data-thickness="0.25" data-angleArc="250" data-angleoffset="-305"
+                                           data-fgColor="#E91E63">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="40" data-width="125" data-height="125" data-thickness="0.25" data-angleArc="250" data-angleoffset="-35"
+                                           data-fgColor="#00BCD4">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="36" data-width="125" data-height="125" data-thickness="0.25" data-angleArc="250" data-angleoffset="145"
+                                           data-fgColor="#009688">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="43" data-width="125" data-height="125" data-thickness="0.25" data-angleArc="270" data-angleoffset="-0"
+                                           data-fgColor="#FF9800">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="52" data-width="125" data-height="125" data-thickness="0.25" data-angleArc="270" data-angleoffset="90"
+                                           data-fgColor="#9C27B0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Different Angles & Offsets -->
+            <!-- Readonly -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>READ-ONLY</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="42" data-width="125" data-height="125" data-thickness="0.25" data-fgColor="#F44336"
+                                           readonly>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="56" data-width="125" data-height="125" data-thickness="0.25" data-fgColor="#E91E63"
+                                           readonly>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="48" data-width="125" data-height="125" data-thickness="0.25" data-fgColor="#00BCD4"
+                                           readonly>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="65" data-width="125" data-height="125" data-thickness="0.25" data-fgColor="#009688"
+                                           readonly>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="72" data-width="140" data-height="140" data-thickness="0.20" data-fgColor="#FF9800"
+                                           data-skin="tron" readonly>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" value="18" data-width="125" data-height="125" data-thickness="0.25" data-fgColor="#9C27B0"
+                                           data-anglearc="250" data-angleoffset="-125" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Readonly -->
+            <!-- Tron Style -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>TRON STYLE</h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-skin="tron" value="45" data-width="135" data-height="135" data-thickness="0.2" data-fgColor="#F44336">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-skin="tron" value="58" data-width="135" data-height="135" data-thickness="0.2" data-fgColor="#E91E63">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-skin="tron" value="45" data-width="135" data-height="135" data-thickness="0.2" data-fgColor="#00BCD4">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-skin="tron" value="42" data-width="135" data-height="135" data-thickness="0.2" data-fgColor="#009688">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-skin="tron" value="100" data-width="135" data-height="135" data-thickness="0.2" data-angleArc="270"
+                                           data-angleoffset="90" data-fgColor="#FF9800">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="knob" data-skin="tron" value="100" data-width="135" data-height="135" data-thickness="0.2" data-angleArc="250"
+                                           data-angleoffset="-125" data-fgColor="#9C27B0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Tron Style -->
+        </div>
+    </section>
+
+<!-- Jquery Core Js -->
+    <script src="{% static 'afterLogin/plugins/jquery/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="{% static 'afterLogin/plugins/bootstrap/js/bootstrap.js' %}"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="{% static 'afterLogin/plugins/bootstrap-select/js/bootstrap-select.js' %}"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="{% static 'afterLogin/plugins/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="{% static 'afterLogin/plugins/node-waves/waves.js' %}"></script>
+    <script src="{% static 'afterLogin/plugins/jquery-knob/jquery.knob.min.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'afterLogin/js/admin.js' %}"></script>
+    <script src="{% static 'afterLogin/js/pages/charts/jquery-knob.js' %}"></script>
+
+    <!-- Demo Js -->
+    <script src="{% static 'afterLogin/js/demo.js' %}"></script>
+</body>
+
 </html>

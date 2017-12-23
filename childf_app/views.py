@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 import requests
 import json
@@ -32,7 +32,7 @@ def activities(request):
 
 
 def test(request):
-    return render(request, 'afterLogin/index.html', {})
+    return render(request, 'sidebar test.html', {})
 
 
 @csrf_exempt
@@ -64,7 +64,7 @@ def send_code(request):
 @csrf_exempt
 def login(request):
     if request.method == 'POST':
-        return render(request, 'home.html', {})
+        return HttpResponseRedirect('/homepage')
     return render(request, 'login.html', {})
 
 
@@ -75,7 +75,7 @@ def verification(request):
         thanks_msg = ("حساب کاربری شما با موفقیت ساخته شد!")
         redirect_to_home_msg = ("صفحه اصلی خود را ببینید")
         html = '<p class="swal-text">%s</p>' \
-               ' <hr> <a class="swal-text" href="/home/">%s </a><br/>' \
+               ' <hr> <a class="swal-text" href="/homepage/">%s </a><br/>' \
                 % (thanks_msg, redirect_to_home_msg)
         result = {'result': 1, 'html': html}
         return HttpResponse(json.dumps(result))
@@ -102,8 +102,8 @@ def payment(request):
 
 
 @csrf_exempt
-def home(request):
-    return render(request, 'home.html', {})
+def homepage(request):
+    return render(request, 'afterLogin/homepage.html', {})
 
 
 @csrf_exempt
@@ -141,3 +141,138 @@ def forget_password(request):
         return HttpResponse(json.dumps(result))
 
     return render(request, 'forget_password.html', {})
+
+
+@csrf_exempt
+def userprofile(request):
+    return render(request, 'afterLogin/userprofile.html', {})
+
+
+@csrf_exempt
+def userpayment(request):
+    return render(request, 'afterLogin/userpayment.html', {})
+
+
+
+selected_children = []
+@csrf_exempt
+def show_poor_children(request):
+    print(request.method)
+    if request.is_ajax():
+        if request.method == "GET":
+
+            selected_children.clear()
+
+        else:
+            selected_children.append(request.POST.get['id'])
+
+    return render(request, 'afterLogin/show_poor_children.html', {})
+
+
+@csrf_exempt
+def supported_children(request):
+    return render(request, 'afterLogin/supported_children.html', {})
+
+
+@csrf_exempt
+def trans_history(request):
+    return render(request, 'afterLogin/trans_history.html', {})
+
+
+@csrf_exempt
+def letters(request):
+    return render(request, 'afterLogin/letters.html', {})
+
+
+
+@csrf_exempt
+def information_poor_children(request, children_id):
+    if True :
+        id = 1
+        name = 'علی'
+        sex = 'مذکر'
+        age = 16
+        birth_day = '1380/12/16'
+        physical_condition = 'سالم'
+        type_of_disease  = ''
+        general_condition = 'سالم'
+
+        address = 'تهران-ورامین'
+        housing_ownership = 'استیجاری'
+        number_of_rooms = 1
+        rent_of_house = 12000000
+        residence_status = 'محمد به همراه برادرش در خانه زندگی میکنند'
+
+        father_employment_status = 'بی کار'
+        father_income_per_month = 0
+        father_job = ''
+        mother_employment_status = 'بی کار'
+        mother_income_per_month = 0
+        mother_job = ''
+        help_from_foreign_source = 'خیر'
+        foregin_source = ''
+        income_from_foreign_source = 0
+        decription = 'نیازمند کمک فوری'
+
+        mother_education = 'بی سواد'
+        mother_birthday = '1357/12/16'
+        mother_physical_condition = 'سالم'
+        mother_type_of_disease = ''
+        the_cause_of_death_or_lack_of_mother = ''
+
+        father_education = 'بی سواد'
+        father_birthday = '1354/12/16'
+        father_physical_condition = 'سالم'
+        father_type_of_disease = ''
+        the_cause_of_death_or_lack_of_father = ''
+
+        household_head = 'پدر'
+        number_of_sister = 0
+        number_of_brother = 1
+
+        content = {
+            'id': id,
+            'name': name,
+            'sex': sex,
+            'age': age,
+            'birth_day': birth_day,
+            'physical_condition': physical_condition,
+            'type_of_disease': type_of_disease,
+            'general_condition': general_condition,
+
+            'address': address,
+            'housing_ownership': housing_ownership,
+            'number_of_rooms': number_of_rooms,
+            'rent_of_house': rent_of_house,
+            'residence_status': residence_status,
+
+            'father_employment_status': father_employment_status,
+            'father_income_per_month': father_income_per_month,
+            'father_job': father_job,
+            'mother_employment_status': mother_employment_status,
+            'mother_income_per_month': mother_income_per_month,
+            'mother_job': mother_job,
+            'help_from_foreign_source': help_from_foreign_source,
+            'foregin_source': foregin_source,
+            'income_from_foreign_source': income_from_foreign_source,
+            'decription': decription,
+
+            'mother_education': mother_education,
+            'mother_birthday': mother_birthday,
+            'mother_physical_condition': mother_physical_condition,
+            'mother_type_of_disease': mother_type_of_disease,
+            'the_cause_of_death_or_lack_of_mother': the_cause_of_death_or_lack_of_mother,
+            'father_education': father_education,
+            'father_birthday': father_birthday,
+            'father_physical_condition': father_physical_condition,
+            'father_type_of_disease': father_type_of_disease,
+            'the_cause_of_death_or_lack_of_father': the_cause_of_death_or_lack_of_father,
+
+            'household_head': household_head,
+            'number_of_sister': number_of_sister,
+            'number_of_brother': number_of_brother,
+        }
+
+        return render(request, 'afterLogin/information_poor_children.html', content)
+
+    return render(request, 'afterLogin/information_poor_children.html', {})
