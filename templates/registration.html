@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -45,241 +45,241 @@
 
     <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
     <link id="color-scheme" href="{% static 'assets/css/colors/default.css' %}" rel="stylesheet">
-  </head>
-  <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
-    <main>
-      <div class="page-loader">
+</head>
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+<main>
+    <div class="page-loader">
         <div class="loader">صبور باشید ...</div>
-      </div>
-      <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    </div>
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
-          <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button><a class="navbar-brand" href="/">بنیاد حمایت از کودکان</a>
-{#              <img src="{% static 'assets/images/favicons/logo-small.png' %}" />#}
-          </div>
-          <div class="collapse navbar-collapse" id="custom-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="/contact_us">ارتباط با ما</a></li>
-              <li ><a href="/payment">پرداخت به بنیاد</a></li>
-              <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">پیوستن به بنیاد</a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="/accept_registration_terms">تکمیل فرم همیاری</a></li>
-                  <li><a href="/Honorary_co-operation">همکاری افتخاری</a></li>
-                </ul>
-              </li>
-              <li class="dropdown"><a class="dropdown-toggle" href="/" data-toggle="dropdown">آشنایی با بنیاد</a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="/history">تاریخچه</a></li>
-                  <li><a href="/organizational_chart">چارت سازمانی</a></li>
-                  <li><a href="/goals">اهداف</a></li>
-                  <li><a href="/activities">فعالیت ها</a></li>
-                  <li><a href="/development_team">معرفی تیم توسعه دهنده</a></li>
-                </ul>
-              </li>
-              <li><a href="/login">ورود</a></li>
-              <li><a href="/">صفحه اصلی </a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-      <div class="main">
-        <section class="module" style="padding: 40px;">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3 form-border">
-                <h4 class="font-alt mb-0" style="float: right;font-weight: bold; padding-right: 10px ">تکمیل فرم همیاری </h4>
-                <hr class="divider-w mt-10 mb-20">
-                <hr class="divider-w mt-10 mb-20">
-                <form class="form" role="form" method="post" action="/activation_code/">
-                  <div class="form-group">
-                    <input id="first_name" class="form-control font-alt persian-direction" type="text" placeholder="نام"/>
-                  </div>
-                  <div class="form-group">
-                    <input id="last_name" class="form-control font-alt persian-direction"  type="text" placeholder="نام خانوادگی"/>
-                  </div>
-                  <div class="form-group">
-                    <input id="national_code" class="form-control font-alt persian-direction" type="number" placeholder="کد ملی"/>
-                  </div>
-                  <div class="form-group">
-                    <input id="job" class="form-control font-alt persian-direction" type="text" placeholder="شفل"/>
-                  </div>
-                  <div class="form-group">
-                    <select id="sex" class="form-control font-alt persian-direction">
-                        <option value="" disabled selected style="display:none;">
-                    جنسیت
-                        </option>
-                        <option value="male">
-                              مذکر
-                        </option>
-                        <option value="female">
-                              مونث
-                        </option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <select id="education" class="form-control font-alt persian-direction">
-                        <option value="" disabled selected style="display:none;">
-                    تحصیلات
-                        </option>
-                        <option value="illiterate">
-                              بی سواد
-                        </option>
-                        <option value="elementary">
-                              ابتدایی
-                        </option>
-                        <option value="diploma">
-                              دیپلم
-                        </option>
-                        <option value="bachelor">
-                              لیسانس
-                        </option>
-                        <option value="MA">
-                              فوق لبسانس
-                        </option>
-                        <option value="doctoral">
-                              دکترا
-                        </option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <input id="username" class="form-control font-alt persian-direction" type="text" placeholder="نام کاریری"/>
-                  </div>
-                  <div class="form-group">
-                    <input id="password" class="form-control font-alt persian-direction" type="password" placeholder="کلمه عبور"/>
-                  </div>
-                  <div class="form-group">
-                    <input id="confirm_password" class="form-control font-alt persian-direction" type="password" placeholder="تکرار کلمه عبور"/>
-                  </div>
-                  <div class="form-group">
-                    <input id="email_address" class="form-control font-alt persian-direction" type="email" placeholder="پست الکترونیکی"/>
-                  </div>
-                  <div class="form-group">
-                    <select id="payment_period" class="form-control font-alt persian-direction">
-                        <option value="" disabled selected style="display:none;">
-                    دوره پرداخت
-                        </option>
-                        <option value="1_per_month">
-                              1 ماهه
-                        </option>
-                        <option value="2_per_month">
-                              2 ماهه
-                        </option>
-                        <option value="3_per_month">
-                              3 ماهه
-                        </option>
-                        <option value="6_per_month">
-                              6 ماهه
-                        </option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <input id="submit_btn" class="form-control font-alt persian-direction btn btn-block btn-round btn-b" style="margin-top: 30px" type="submit" value="ثبت نام"/>
-                  </div>
-                </form>
-              </div>
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button><a class="navbar-brand" href="/">بنیاد حمایت از کودکان</a>
+                {#              <img src="{% static 'assets/images/favicons/logo-small.png' %}" />#}
             </div>
-          </div>
+            <div class="collapse navbar-collapse" id="custom-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/contact_us">ارتباط با ما</a></li>
+                    <li ><a href="/payment">پرداخت به بنیاد</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">پیوستن به بنیاد</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/accept_registration_terms">تکمیل فرم همیاری</a></li>
+                            <li><a href="/Honorary_co-operation">همکاری افتخاری</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" href="/" data-toggle="dropdown">آشنایی با بنیاد</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/history">تاریخچه</a></li>
+                            <li><a href="/organizational_chart">چارت سازمانی</a></li>
+                            <li><a href="/goals">اهداف</a></li>
+                            <li><a href="/activities">فعالیت ها</a></li>
+                            <li><a href="/development_team">معرفی تیم توسعه دهنده</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/login">ورود</a></li>
+                    <li><a href="/">صفحه اصلی </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main">
+        <section class="module" style="padding: 40px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 form-border">
+                        <h4 class="font-alt mb-0" style="float: right;font-weight: bold; padding-right: 10px ">تکمیل فرم همیاری </h4>
+                        <hr class="divider-w mt-10 mb-20">
+                        <hr class="divider-w mt-10 mb-20">
+                        <form class="form" role="form" method="post" action="">
+                            <div class="form-group">
+                                <input id="first_name" name="first_name" class="form-control font-alt persian-direction" type="text" placeholder="نام"/>
+                            </div>
+                            <div class="form-group">
+                                <input id="last_name" name="last_name" class="form-control font-alt persian-direction"  type="text" placeholder="نام خانوادگی"/>
+                            </div>
+                            <div class="form-group">
+                                <input id="code_melli" name="code_melli" class="form-control font-alt persian-direction" type="number" placeholder="کد ملی"/>
+                            </div>
+                            <div class="form-group">
+                                <input id="job" name="job" class="form-control font-alt persian-direction" type="text" placeholder="شفل"/>
+                            </div>
+                            <div class="form-group">
+                                <select id="gender" name="gender" class="form-control font-alt persian-direction">
+                                    <option value="" disabled selected style="display:none;">
+                                        جنسیت
+                                    </option>
+                                    <option value="1">
+                                        مذکر
+                                    </option>
+                                    <option value="2">
+                                        مونث
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <select id="education" name="education" class="form-control font-alt persian-direction">
+                                    <option value="" disabled selected style="display:none;">
+                                        تحصیلات
+                                    </option>
+                                    <option value="1">
+                                        بی سواد
+                                    </option>
+                                    <option value="2">
+                                        ابتدایی
+                                    </option>
+                                    <option value="3">
+                                        دیپلم
+                                    </option>
+                                    <option value="4">
+                                        لیسانس
+                                    </option>
+                                    <option value="5">
+                                        فوق لبسانس
+                                    </option>
+                                    <option value="6">
+                                        دکترا
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input id="username" name="username" class="form-control font-alt persian-direction" type="text" placeholder="نام کاریری"/>
+                            </div>
+                            <div class="form-group">
+                                <input id="password" name="password" class="form-control font-alt persian-direction" type="password" placeholder="کلمه عبور"/>
+                            </div>
+                            <div class="form-group">
+                                <input id="confirm_password" class="form-control font-alt persian-direction" type="password" placeholder="تکرار کلمه عبور"/>
+                            </div>
+                            <div class="form-group">
+                                <input id="email" name="email" class="form-control font-alt persian-direction" type="email" placeholder="پست الکترونیکی"/>
+                            </div>
+                            <div class="form-group">
+                                <select id="payment_period" name="payment_period" class="form-control font-alt persian-direction">
+                                    <option value="" disabled selected style="display:none;">
+                                        دوره پرداخت
+                                    </option>
+                                    <option value="1">
+                                        1 ماهه
+                                    </option>
+                                    <option value="2">
+                                        2 ماهه
+                                    </option>
+                                    <option value="3">
+                                        3 ماهه
+                                    </option>
+                                    <option value="6">
+                                        6 ماهه
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input id="submit_btn" class="form-control font-alt persian-direction btn btn-block btn-round btn-b" style="margin-top: 30px" type="submit" value="ثبت نام"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
 
 
         <div class="module-small bg-dark">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">About Titan</h5>
-                  <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
-                  <p>Phone: +1 234 567 89 10</p>Fax: +1 234 567 89 10
-                  <p>Email:<a href="#">somecompany@example.com</a></p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">About Titan</h5>
+                            <p>The languages only differ in their grammar, their pronunciation and their most common words.</p>
+                            <p>Phone: +1 234 567 89 10</p>Fax: +1 234 567 89 10
+                            <p>Email:<a href="#">somecompany@example.com</a></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">Recent Comments</h5>
+                            <ul class="icon-list">
+                                <li>Maria on <a href="#">Designer Desk Essentials</a></li>
+                                <li>John on <a href="#">Realistic Business Card Mockup</a></li>
+                                <li>Andy on <a href="#">Eco bag Mockup</a></li>
+                                <li>Jack on <a href="#">Bottle Mockup</a></li>
+                                <li>Mark on <a href="#">Our trip to the Alps</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">Blog Categories</h5>
+                            <ul class="icon-list">
+                                <li><a href="#">Photography - 7</a></li>
+                                <li><a href="#">Web Design - 3</a></li>
+                                <li><a href="#">Illustration - 12</a></li>
+                                <li><a href="#">Marketing - 1</a></li>
+                                <li><a href="#">Wordpress - 16</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="widget">
+                            <h5 class="widget-title font-alt">Popular Posts</h5>
+                            <ul class="widget-posts">
+                                <li class="clearfix">
+                                    <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail"/></a></div>
+                                    <div class="widget-posts-body">
+                                        <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
+                                        <div class="widget-posts-meta">23 january</div>
+                                    </div>
+                                </li>
+                                <li class="clearfix">
+                                    <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail"/></a></div>
+                                    <div class="widget-posts-body">
+                                        <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
+                                        <div class="widget-posts-meta">15 February</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Recent Comments</h5>
-                  <ul class="icon-list">
-                    <li>Maria on <a href="#">Designer Desk Essentials</a></li>
-                    <li>John on <a href="#">Realistic Business Card Mockup</a></li>
-                    <li>Andy on <a href="#">Eco bag Mockup</a></li>
-                    <li>Jack on <a href="#">Bottle Mockup</a></li>
-                    <li>Mark on <a href="#">Our trip to the Alps</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Blog Categories</h5>
-                  <ul class="icon-list">
-                    <li><a href="#">Photography - 7</a></li>
-                    <li><a href="#">Web Design - 3</a></li>
-                    <li><a href="#">Illustration - 12</a></li>
-                    <li><a href="#">Marketing - 1</a></li>
-                    <li><a href="#">Wordpress - 16</a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="widget">
-                  <h5 class="widget-title font-alt">Popular Posts</h5>
-                  <ul class="widget-posts">
-                    <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-1.jpg" alt="Post Thumbnail"/></a></div>
-                      <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Designer Desk Essentials</a></div>
-                        <div class="widget-posts-meta">23 january</div>
-                      </div>
-                    </li>
-                    <li class="clearfix">
-                      <div class="widget-posts-image"><a href="#"><img src="assets/images/rp-2.jpg" alt="Post Thumbnail"/></a></div>
-                      <div class="widget-posts-body">
-                        <div class="widget-posts-title"><a href="#">Realistic Business Card Mockup</a></div>
-                        <div class="widget-posts-meta">15 February</div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
-          </div>
         </div>
         <hr class="divider-d">
         <footer class="footer bg-dark">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-6">
-                <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
-              </div>
-              <div class="col-sm-6">
-                <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p class="copyright font-alt">&copy; 2017&nbsp;<a href="index.html">TitaN</a>, All Rights Reserved</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </footer>
         <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
-      </div>
-    </main>
-    <!--
-    JavaScripts
-    =============================================
-     -->
-    <script src="{% static 'assets/lib/jquery/dist/jquery.js' %}"></script>
-    <script src="{% static 'assets/lib/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'assets/lib/wow/dist/wow.js' %}"></script>
-    <script src="{% static 'assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js' %}"></script>
-    <script src="{% static 'assets/lib/isotope/dist/isotope.pkgd.js' %}"></script>
-    <script src="{% static 'assets/lib/imagesloaded/imagesloaded.pkgd.js' %}"></script>
-    <script src="{% static 'assets/lib/flexslider/jquery.flexslider.js' %}"></script>
-    <script src="{% static 'assets/lib/owl.carousel/dist/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'assets/lib/smoothscroll.js' %}"></script>
-    <script src="{% static 'assets/lib/magnific-popup/dist/jquery.magnific-popup.js' %}"></script>
-    <script src="{% static 'assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js' %}"></script>
-    <script src="{% static 'assets/js/plugins.js' %}"></script>
-    <script src="{% static 'assets/js/main.js' %}"></script>
-  </body>
+    </div>
+</main>
+<!--
+JavaScripts
+=============================================
+ -->
+<script src="{% static 'assets/lib/jquery/dist/jquery.js' %}"></script>
+<script src="{% static 'assets/lib/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/lib/wow/dist/wow.js' %}"></script>
+<script src="{% static 'assets/lib/jquery.mb.ytplayer/dist/jquery.mb.YTPlayer.js' %}"></script>
+<script src="{% static 'assets/lib/isotope/dist/isotope.pkgd.js' %}"></script>
+<script src="{% static 'assets/lib/imagesloaded/imagesloaded.pkgd.js' %}"></script>
+<script src="{% static 'assets/lib/flexslider/jquery.flexslider.js' %}"></script>
+<script src="{% static 'assets/lib/owl.carousel/dist/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/lib/smoothscroll.js' %}"></script>
+<script src="{% static 'assets/lib/magnific-popup/dist/jquery.magnific-popup.js' %}"></script>
+<script src="{% static 'assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js' %}"></script>
+<script src="{% static 'assets/js/plugins.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+</body>
 </html>
