@@ -291,3 +291,13 @@ def madadkar_dashboard(request):
 @csrf_exempt
 def register_poor_children(request):
     return render(request, 'afterLogin_madadkar/register_poor_children.html')
+
+
+@csrf_exempt
+def supported_children_madadkar(request):
+    return render(request, 'afterLogin_madadkar/supported_children_madadkar.html')
+
+
+@csrf_exempt
+def letters_madadkar(request):
+    return render(request, 'afterLogin_madadkar/letters.html')

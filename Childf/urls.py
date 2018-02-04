@@ -48,6 +48,8 @@ urlpatterns = [
     url(r'pay_to_selected_children/$', views.pay_to_selected_children, name='pay_to_selected_children'),
     url(r'madadkar_dashboard/$', views.madadkar_dashboard, name='madadkar_dashboard'),
     url(r'register_poor_children/$', views.register_poor_children, name='register_poor_children'),
+    url(r'supported_children_madadkar/$', views.supported_children_madadkar, name='supported_children_madadkar'),
+    url(r'letters_madadkar/$', views.letters_madadkar, name='letters_madadkar'),
 
 
 ]
