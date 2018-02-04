@@ -5,12 +5,13 @@ from django.urls.base import reverse
 import requests
 import json
 from django.views.decorators.csrf import csrf_exempt
+
+
 # Create your views here.
 from childf_app.models import HamYar
 
 
 def mainpage(request):
-
     return render(request, "mainpage.html", {})
 
 
@@ -65,6 +66,7 @@ def registration(request):
 def accept_registration_terms(request):
     return render(request, 'accept_registration_terms.html', {})
 
+
 @csrf_exempt
 def activation_code(request):
     return render(request, 'activation_code.html', {})
@@ -72,8 +74,8 @@ def activation_code(request):
 
 @csrf_exempt
 def resend_sms(request):
-    text='کد فعال سازی ارسال شد'
-    html = '<p class="swal-text">%s</p>' %text
+    text = 'کد فعال سازی ارسال شد'
+    html = '<p class="swal-text">%s</p>' % text
     return HttpResponse(html)
 
 
@@ -137,11 +139,11 @@ def contact_us(request):
         name = request.POST.get("name", "")
         email = request.POST.get("email", "")
         message = request.POST.get("message", "")
-        if not name or not email  or not message:
+        if not name or not email or not message:
             swal_type = 'error'
             text = 'لطفا فرم را کامل کنید.'
             html = '<p class="swal-text alert alert-danger" style>%s</p>' % text
-        result = {'html': html, 'swal_type':swal_type}
+        result = {'html': html, 'swal_type': swal_type}
         return HttpResponse(json.dumps(result))
 
     return render(request, 'contact_us.html', {})
@@ -159,7 +161,7 @@ def forget_password(request):
             swal_type = 'error'
             text = 'لطفا فرم را کامل کنید.'
             html = '<p class="swal-text alert alert-danger" style>%s</p>' % text
-        result = {'html': html, 'swal_type':swal_type}
+        result = {'html': html, 'swal_type': swal_type}
         return HttpResponse(json.dumps(result))
 
     return render(request, 'forget_password.html', {})
@@ -175,16 +177,15 @@ def userpayment(request):
     return render(request, 'afterLogin/userpayment.html', {})
 
 
-
 selected_children = []
+
+
 @csrf_exempt
 def show_poor_children(request):
     print(request.method)
     if request.is_ajax():
         if request.method == "GET":
-
             selected_children.clear()
-
         else:
             selected_children.append(request.POST.get['id'])
 
@@ -206,17 +207,16 @@ def letters(request):
     return render(request, 'afterLogin/letters.html', {})
 
 
-
 @csrf_exempt
 def information_poor_children(request, children_id):
-    if True :
+    if True:
         id = 1
         name = 'علی'
         sex = 'مذکر'
         age = 16
         birth_day = '1380/12/16'
         physical_condition = 'سالم'
-        type_of_disease  = ''
+        type_of_disease = ''
         general_condition = 'سالم'
 
         address = 'تهران-ورامین'
@@ -298,3 +298,18 @@ def information_poor_children(request, children_id):
         return render(request, 'afterLogin/information_poor_children.html', content)
 
     return render(request, 'afterLogin/information_poor_children.html', {})
+
+
+@csrf_exempt
+def pay_to_selected_children(request):
+    return render(request, 'afterLogin/pay_to_selected_children.html', {})
+
+
+@csrf_exempt
+def madadkar_dashboard(request):
+    return render(request, 'afterLogin_madadkar/dashboard.html', {})
+
+
+@csrf_exempt
+def register_poor_children(request):
+    return render(request, 'afterLogin_madadkar/register_poor_children.html')

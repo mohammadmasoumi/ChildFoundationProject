@@ -5,7 +5,7 @@
 <head>
    <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>لیست کودکان نیازمند</title>
+    <title>Jquery DataTable | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
 {#    <link rel="icon" href="../../favicon.ico" type="image/x-icon">#}
 
@@ -138,103 +138,115 @@
                     </li>
                 </ul>
             </div>
-            <!-- #Menu -->
-            <!-- Footer -->
-{#            <div class="legal">#}
-{#                <div class="copyright">#}
-{#                    &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.#}
-{#                </div>#}
-{#                <div class="version">#}
-{#                    <b>Version: </b> 1.0.5#}
-{#                </div>#}
-{#            </div>#}
-            <!-- #Footer -->
         </aside>
         <!-- #END# Left Sidebar -->
     </section>
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2 class="persian-font-size persian-text-style">
-                    نمایش لیست تراکنش های اخیر
-                </h2>
-            </div>
-            <!-- Basic Examples -->
+            <!-- Tabs With Icon Title -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
-                        <div class="row header">
-                            <h2 class="persian-text-style col-sm-6">
-                                لیست تراکنش ها
+                        <div class="header">
+                            <h2 class="persian-text-style">
+                                نیازمندان انتخاب شده
                             </h2>
-
                         </div>
                         <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th class="persian-text-style-thead">مبلغ</th>
-                                            <th class="persian-text-style-thead">تاریخ</th>
-                                            <th class="persian-text-style-thead"> پرداخت شده به</th>
-                                            <th class="persian-text-style-thead">شماره تراکنش</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th class="persian-text-style-thead">مبلغ</th>
-                                            <th class="persian-text-style-thead">تاریخ</th>
-                                            <th class="persian-text-style-thead"> پرداخت شده به</th>
-                                            <th class="persian-text-style-thead">شماره تراکنش</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td class="persian-text-style">10000000</td>
-                                            <td class="persian-text-style">1396/12/12</td>
-                                            <td class="persian-text-style">موسسه</td>
-                                            <td class="persian-text-style"> 1</td>
-                                        </tr>
-                                          <tr>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
 
-                                            <td class="persian-text-style">10000000</td>
-                                            <td class="persian-text-style">1396/12/12</td>
-                                            <td class="persian-text-style">موسسه</td>
-                                            <td class="persian-text-style"> 1</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="persian-text-style">10000000</td>
-                                            <td class="persian-text-style">1396/12/12</td>
-                                            <td class="persian-text-style">موسسه</td>
-                                            <td class="persian-text-style"> 1</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="persian-text-style">10000000</td>
-                                            <td class="persian-text-style">1396/12/12</td>
-                                            <td class="persian-text-style">موسسه</td>
-                                            <td class="persian-text-style"> 1</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="persian-text-style">10000000</td>
-                                            <td class="persian-text-style">1396/12/12</td>
-                                            <td class="persian-text-style">موسسه</td>
-                                            <td class="persian-text-style"> 1</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="persian-text-style">10000000</td>
-                                            <td class="persian-text-style">1396/12/12</td>
-                                            <td class="persian-text-style">موسسه</td>
-                                            <td class="persian-text-style"> 1</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div  class="tab-pane fade in active" id="personal_information">
+                                    <div class="body table-responsive" style="border: none">
+                                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                            <tbody>
+                                                <tr style="border: none;">
+                                                    <th rowspan="20" style="width: 230px">
+                                                        <img src="{% static 'afterLogin/images/ali.jpg' %}" width="150" height="150" alt="User" />
+                                                    </th>
+                                                    <td style="height: 10px">
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="persian-text-style-thead" style="display: inline-block">
+                                                            شماره پرونده:
+                                                        </div>
+                                                        <span class="persian-text-style-thead">
+{{ id }}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="persian-text-style-thead" style="display: inline-block">
+اسم:
+                                                        </div>
+                                                        <span class="persian-text-style-thead">
+{{ name }}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="persian-text-style-thead" style="display: inline-block">
+                                                          تاریخ تولد:
+                                                        </div>
+                                                        <span class="persian-text-style-thead">
+{{ birth_day }}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                         <div class="input-group">
+                                                            <span class="input-group-addon ">
+                                                                <i class="material-icons persian-text-style-thead">:حمایت مالی </i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="text" class="form-control money-dollar" placeholder="ريال">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                         <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <a href="#"  style="float: right;">
+                                                                    <span class="persian-text-style-thead">
+                                                                        حذف
+                                                                    </span>
+                                                                    <i class="material-icons">delete</i>
+                                                                </a>
+                                                            </span>
+                                                            <span class="input-group-addon">
+                                                                <a href="#"  style="float: right;">
+                                                                    <span class="persian-text-style-thead">
+                                                                        دریافت اطلاعات بیشتر درباره مددجو
+                                                                    </span>
+                                                                    <i class="material-icons ">info</i>
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <button type="button" class="btn btn-success m-t-15 waves-effect"> پرداخت  <i class="material-icons red">done</i></button>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #END# Basic Examples -->
+            <!-- #END# Tabs With Icon Title -->
 
         </div>
     </section>
@@ -252,17 +264,6 @@
 
     <!-- Waves Effect Plugin Js -->
     <script src="{% static 'afterLogin/plugins/node-waves/waves.js' %}"></script>
-
-    <!-- Jquery DataTable Plugin Js -->
-    <script src="{% static 'afterLogin/plugins/jquery-datatable/jquery.dataTables.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/buttons.flash.min.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/jszip.min.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/vfs_fonts.js' %}x"></script>
-    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/vfs_fonts.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/buttons.html5.min.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/buttons.print.min.js' %}"></script>
 
     <!-- Custom Js -->
     <script src="{% static 'afterLogin/js/admin.js' %}"></script>
