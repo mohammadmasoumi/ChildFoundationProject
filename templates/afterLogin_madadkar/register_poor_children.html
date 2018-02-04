@@ -1,20 +1,36 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
-
-<head>
-   <meta charset="UTF-8">
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Jquery DataTable | Bootstrap Based Admin Template - Material Design</title>
+
+    <!--
+    Document Title
+    =============================================
+    -->
+    <title>داشبورد</title>
+    <!--
+    Favicons
+    =============================================
+    -->
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'assets/images/favicons/logo-icon-final.png' %}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <link rel="manifest" href="{% static 'assets/images/favicons/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <meta name="theme-color" content="#ffffff">
     <!-- Favicon-->
-{#    <link rel="icon" href="../../favicon.ico" type="image/x-icon">#}
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
-    <link href="{% static 'afterLogin/plugins/bootstrap/css/bootstrap.css' %}" rel="stylesheet"/>
+    <link href="{% static 'afterLogin/plugins/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
 
     <!-- Waves Effect Css -->
     <link href="{% static 'afterLogin/plugins/node-waves/waves.css' %}" rel="stylesheet" />
@@ -22,11 +38,11 @@
     <!-- Animation Css -->
     <link href="{% static 'afterLogin/plugins/animate-css/animate.css' %}" rel="stylesheet" />
 
-    <!-- JQuery DataTable Css -->
-    <link href="{% static 'afterLogin/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css' %}" rel="stylesheet"/>
+    <!-- Morris Chart Css-->
+    <link href="{% static 'afterLogin/plugins/morrisjs/morris.css' %}" rel="stylesheet" />
 
     <!-- Custom Css -->
-    <link href="{% static 'afterLogin/css/style.css' %}" rel="stylesheet"/>
+    <link href="{% static 'afterLogin/css/style.css' %}" rel="stylesheet">
 </head>
 
 <body class="theme-red">
@@ -107,41 +123,35 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a class="persian-text-style" href="/show_poor_children">
+                        <a class="persian-text-style" href="/register_poor_children">
                             <i class="material-icons">person_add</i>
-                            <span> کودکان نیازمند</span>
+                            <span>ثبت نام نیازمند</span>
                         </a>
                     </li>
                     <li class="active">
-                        <a class="persian-text-style" href="/supported_children">
+                        <a class="persian-text-style" href="/supported_children_madadkar">
                             <i class="material-icons">supervisor_account</i>
-                            <span>کودکان تحت تکفل</span>
+                            <span>نیازمند تحت سرپرستی</span>
                         </a>
                     </li>
                     <li class="active">
-                        <a class="persian-text-style" href="/trans_history">
-                            <i class="material-icons">content_paste</i>
-                            <span> پرداختی ها</span>
+                        <a class="persian-text-style" href="/show_poor_children">
+                            <i class="material-icons">face</i>
+                            <span>کودکان نیازمند</span>
                         </a>
                     </li>
                     <li class="active">
-                        <a class="persian-text-style" href="/letters">
+                        <a class="persian-text-style" href="/poor_children_letters">
                             <i class="material-icons">drafts</i>
-                            <span>نامه ها</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/payment">
-                            <i class="material-icons">payment</i>
-                            <span>پرداخت به موسسه</span>
+                            <span>نامه های نیازمندان</span>
                         </a>
                     </li>
                 </ul>
             </div>
+            <!-- Footer -->
         </aside>
-        <!-- #END# Left Sidebar -->
-    </section>
 
+    </section>
     <section class="content">
         <div class="container-fluid">
             <!-- Tabs With Icon Title -->
@@ -192,7 +202,21 @@
                                             <tbody>
                                                 <tr style="border: none;">
                                                     <th rowspan="20" style="width: 230px">
-                                                        <img src="{% static 'afterLogin/images/ali.jpg' %}" width="200" height="200" alt="User" />
+                                                        <div class="body">
+                                                            <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
+                                                                <div class="dz-message">
+                                                                    <div class="drag-icon-cph">
+                                                                        <i class="material-icons">touch_app</i>
+                                                                    </div>
+                                                                    <h3 class="persian-text-style">عکس مددجو را بارگذاری کنید.</h3>
+{#                                                                    <em>(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</em>#}
+                                                                </div>
+                                                                <div class="fallback">
+                                                                    <input name="file" type="file" multiple />
+                                                                </div>
+                                                            </form>
+                                                        </div>
+{#                                                        <img src="{% static 'afterLogin/images/ali.jpg' %}" width="200" height="200" alt="User" />#}
                                                     </th>
                                                     <td style="height: 10px">
 
@@ -200,84 +224,94 @@
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <div class="persian-text-style-thead" style="display: inline-block">
-                                                            شماره پرونده:
+                                                         <div class="input-group">
+                                                            <span class="input-group-addon ">
+                                                                <i class="material-icons persian-text-style-thead">:شماره پرونده </i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="text" class="form-control money-dollar" placeholder="شماره پرونده">
+                                                            </div>
                                                         </div>
-                                                        <span class="persian-text-style-thead">
-{{ id }}
-                                                        </span>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <div class="persian-text-style-thead" style="display: inline-block">
-اسم:
+                                                         <div class="input-group">
+                                                            <span class="input-group-addon ">
+                                                                <i class="material-icons persian-text-style-thead">:اسم </i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="text" class="form-control money-dollar" placeholder="اسم مددجو">
+                                                            </div>
                                                         </div>
-                                                        <span class="persian-text-style-thead">
-{{ name }}
-                                                        </span>
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                        <div class="persian-text-style-thead" style="display: inline-block">
-                                                           جنسیت:
+                                                         <div class="input-group">
+                                                            <span class="input-group-addon ">
+                                                                <i class="material-icons persian-text-style-thead">:جنسیت </i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="text" class="form-control money-dollar" placeholder="جنسیت مددجو">
+                                                            </div>
                                                         </div>
-                                                        <span class="persian-text-style-thead">
-{{ sex }}
-                                                        </span>
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                        <div class="persian-text-style-thead" style="display: inline-block">
-                                                            سن:
+                                                         <div class="input-group">
+                                                            <span class="input-group-addon ">
+                                                                <i class="material-icons persian-text-style-thead">:تاریخ تولد </i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="text" class="form-control money-dollar" placeholder="تاریخ تولد مددجو">
+                                                            </div>
                                                         </div>
-                                                        <span class="persian-text-style-thead">
-{{ age }}
-                                                        </span>
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                        <div class="persian-text-style-thead" style="display: inline-block">
-                                                          تاریخ تولد:
+                                                         <div class="input-group">
+                                                            <span class="input-group-addon ">
+                                                                <i class="material-icons persian-text-style-thead">:شرایط جسمانی </i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="text" class="form-control money-dollar" placeholder="شرایط جسمانی مددجو">
+                                                            </div>
                                                         </div>
-                                                        <span class="persian-text-style-thead">
-{{ birth_day }}
-                                                        </span>
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                        <div class="persian-text-style-thead" style="display: inline-block">
-                                                           شرایط جسمانی:
+                                                         <div class="input-group">
+                                                            <span class="input-group-addon ">
+                                                                <i class="material-icons persian-text-style-thead">:نوع بیماری </i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="text" class="form-control money-dollar" placeholder="نوع بیماری مددجو">
+                                                            </div>
                                                         </div>
-                                                        <span class="persian-text-style-thead">
-{{ physical_condition }}
-                                                        </span>
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                        <div class="persian-text-style-thead" style="display: inline-block">
-                                                            نوع بیماری:
+                                                         <div class="input-group">
+                                                            <span class="input-group-addon ">
+                                                                <i class="material-icons persian-text-style-thead">:وضعیت عمومی </i>
+                                                            </span>
+                                                            <div class="form-line">
+                                                                <input type="text" class="form-control money-dollar" placeholder="وضعیت عمومی مددجو">
+                                                            </div>
                                                         </div>
-                                                        <span class="persian-text-style-thead">
-{{ type_of_disease }}
-                                                        </span>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <div class="persian-text-style-thead" style="display: inline-block">
-                                                           وضعیت عمومی:
-                                                        </div>
-                                                        <span class="persian-text-style-thead">
-{{ general_condition }}
-                                                        </span>
-                                                    </td>
-                                                </tr>
+{#
 
                                             </tbody>
                                         </table>
@@ -680,6 +714,7 @@
                                 </div>
 
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -688,7 +723,7 @@
 
         </div>
     </section>
-<!-- Jquery Core Js -->
+    <!-- Jquery Core Js -->
     <script src="{% static 'afterLogin/plugins/jquery/jquery.min.js' %}"></script>
 
     <!-- Bootstrap Core Js -->
@@ -703,9 +738,29 @@
     <!-- Waves Effect Plugin Js -->
     <script src="{% static 'afterLogin/plugins/node-waves/waves.js' %}"></script>
 
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="{% static 'afterLogin/plugins/jquery-countto/jquery.countTo.js' %}"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="{% static 'afterLogin/plugins/raphael/raphael.min.js' %}"></script>
+    <script src="{% static 'afterLogin/plugins/morrisjs/morris.js' %}"></script>
+
+    <!-- ChartJs -->
+    <script src="{% static 'afterLogin/plugins/chartjs/Chart.bundle.js' %}"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="{% static 'afterLogin/plugins/flot-charts/jquery.flot.js' %}"></script>
+    <script src="{% static 'afterLogin/plugins/flot-charts/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'afterLogin/plugins/flot-charts/jquery.flot.pie.js' %}"></script>
+    <script src="{% static 'afterLogin/plugins/flot-charts/jquery.flot.categories.js' %}"></script>
+    <script src="{% static 'afterLogin/plugins/flot-charts/jquery.flot.time.js' %}"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="{% static 'afterLogin/plugins/jquery-sparkline/jquery.sparkline.js' %}"></script>
+
     <!-- Custom Js -->
     <script src="{% static 'afterLogin/js/admin.js' %}"></script>
-    <script src="{% static 'afterLogin/js/pages/tables/jquery-datatable.js' %}"></script>
+    <script src="{% static 'afterLogin/js/pages/index.js' %}"></script>
 
     <!-- Demo Js -->
     <script src="{% static 'afterLogin/js/demo.js' %}"></script>

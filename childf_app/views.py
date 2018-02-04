@@ -281,3 +281,13 @@ def information_poor_children(request, children_id):
 @csrf_exempt
 def pay_to_selected_children(request):
     return render(request, 'afterLogin/pay_to_selected_children.html', {})
+
+
+@csrf_exempt
+def madadkar_dashboard(request):
+    return render(request, 'afterLogin_madadkar/dashboard.html', {})
+
+
+@csrf_exempt
+def register_poor_children(request):
+    return render(request, 'afterLogin_madadkar/register_poor_children.html')

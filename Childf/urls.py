@@ -46,6 +46,8 @@ urlpatterns = [
     url(r'^information_poor_children/(?P<children_id>\d+)/$', views.information_poor_children, name='information_poor_children'),
     url(r'^information_poor_children/$', views.information_poor_children, name='information_poor_children'),
     url(r'pay_to_selected_children/$', views.pay_to_selected_children, name='pay_to_selected_children'),
+    url(r'madadkar_dashboard/$', views.madadkar_dashboard, name='madadkar_dashboard'),
+    url(r'register_poor_children/$', views.register_poor_children, name='register_poor_children'),
 
 
 ]
