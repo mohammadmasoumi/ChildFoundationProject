@@ -1,11 +1,14 @@
+from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls.base import reverse
 import requests
 import json
 from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
+from childf_app.models import HamYar
 
 
 def mainpage(request):
@@ -38,7 +41,26 @@ def test(request):
 
 @csrf_exempt
 def registration(request):
-    return render(request, 'registration.html', {})
+    if request.method == 'GET':
+        return render(request, 'registration.html', {})
+    if request.method == 'POST':
+        try:
+            print(request.POST)
+            HamYar.objects.create(username=request.POST.get('username'),
+                                  first_name=request.POST.get('first_name'),
+                                  last_name=request.POST.get('last_name'),
+                                  code_melli=request.POST.get('code_melli'),
+                                  job=request.POST.get('job'),
+                                  gender=request.POST.get('gender'),
+                                  education=request.POST.get('education'),
+                                  password=request.POST.get('password'),
+                                  email=request.POST.get('email'),
+                                  payment_period=request.POST.get('payment_period'),
+                                  )
+            return redirect(reverse('mainpage'))
+        except:
+            return render(request, 'registration.html', {})
+    return PermissionDenied
 
 
 def accept_registration_terms(request):
