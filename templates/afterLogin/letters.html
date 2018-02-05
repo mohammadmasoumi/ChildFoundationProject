@@ -107,47 +107,87 @@
             </div>
             <!-- #User Info -->
             <!-- Menu -->
-            <div class="menu">
-                <ul class="list">
-                    <li class="header persian-text-style">نوار دسترسی</li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/">
-                            <i class="material-icons">home</i>
-                            <span>صفحه اصلی</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/show_poor_children">
-                            <i class="material-icons">person_add</i>
-                            <span> کودکان نیازمند</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/supported_children">
-                            <i class="material-icons">supervisor_account</i>
-                            <span>کودکان تحت تکفل</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/trans_history">
-                            <i class="material-icons">content_paste</i>
-                            <span> پرداختی ها</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/letters">
-                            <i class="material-icons">drafts</i>
-                            <span>نامه ها</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/payment">
-                            <i class="material-icons">payment</i>
-                            <span>پرداخت به موسسه</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            {% if request.is_hamyar %}
+                <div class="menu">
+                    <ul class="list">
+                        <li class="header persian-text-style">نوار دسترسی</li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/">
+                                <i class="material-icons">home</i>
+                                <span>صفحه اصلی</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/show_poor_children">
+                                <i class="material-icons">person_add</i>
+                                <span> کودکان نیازمند</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/supported_children">
+                                <i class="material-icons">supervisor_account</i>
+                                <span>کودکان تحت تکفل</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/trans_history">
+                                <i class="material-icons">content_paste</i>
+                                <span> پرداختی ها</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/letters">
+                                <i class="material-icons">drafts</i>
+                                <span>نامه ها</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/payment">
+                                <i class="material-icons">payment</i>
+                                <span>پرداخت به موسسه</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {%  elif request.is_madadkar %}
+                <div class="menu">
+                    <ul class="list">
+                        <li class="header persian-text-style">نوار دسترسی</li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/">
+                                <i class="material-icons">home</i>
+                                <span>صفحه اصلی</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/register_poor_children">
+                                <i class="material-icons">person_add</i>
+                                <span>ثبت نام نیازمند</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/supported_children">
+                                <i class="material-icons">supervisor_account</i>
+                                <span>نیازمند تحت سرپرستی</span>
+                            </a>
+                        </li>
+
+                        <li class="active">
+                            <a class="persian-text-style" href="/show_poor_children">
+                                <i class="material-icons">face</i>
+                                <span>کودکان نیازمند</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/letters">
+                                <i class="material-icons">drafts</i>
+                                <span>نامه های نیازمندان</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+
             <!-- #Menu -->
         </aside>
         <!-- #END# Left Sidebar -->
@@ -217,7 +257,6 @@
         </div>
     </section>
 
-
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -233,7 +272,7 @@
                                 <div class="card">
                                     <div class="header bg-cyan">
                                         <h2>
-                                            item.message_decscription
+{#                                            item.message_decscription#}
                                             محمد معصومی <small>تشکر بابت کمکهانتون</small>
                                         </h2>
                                         <ul class="header-dropdown m-r--5">
@@ -245,7 +284,7 @@
                                         </ul>
                                     </div>
                                     <div class="body persian-text-style">
-                                        item .message.body
+{#                                        item.message.body#}
                                     </div>
                                 </div>
                             </div>
@@ -258,7 +297,7 @@
                                 <div class="card">
                                     <div class="header bg-cyan">
                                         <h2>
-                                            item.message_decscription
+{#                                            item.message_decscription#}
                                             محمد معصومی <small>تشکر بابت کمکهانتون</small>
                                         </h2>
                                         <ul class="header-dropdown m-r--5">
@@ -270,7 +309,7 @@
                                         </ul>
                                     </div>
                                     <div class="body persian-text-style">
-                                        item .message.body
+{#                                        item.message.body#}
                                     </div>
                                 </div>
                             </div>
@@ -295,17 +334,6 @@
 
     <!-- Waves Effect Plugin Js -->
     <script src="{% static 'afterLogin/plugins/node-waves/waves.js' %}"></script>
-
-    <!-- Jquery DataTable Plugin Js -->
-{#    <script src="{% static 'afterLogin/plugins/jquery-datatable/jquery.dataTables.js' %}"></script>#}
-{#    <script src="{% static 'afterLogin/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js' %}"></script>#}
-{#    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js' %}"></script>#}
-{#    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/buttons.flash.min.js' %}"></script>#}
-{#    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/jszip.min.js' %}"></script>#}
-{#    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/vfs_fonts.js' %}x"></script>#}
-{#    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/vfs_fonts.js' %}"></script>#}
-{#    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/buttons.html5.min.js' %}"></script>#}
-{#    <script src="{% static 'afterLogin/plugins/jquery-datatable/extensions/export/buttons.print.min.js' %}"></script>#}
 
     <!-- Sparkline Chart Plugin Js -->
     <script src="{% static 'afterLogin/plugins/jquery-sparkline/jquery.sparkline.js'%}"></script>

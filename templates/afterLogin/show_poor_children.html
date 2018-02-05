@@ -107,55 +107,8 @@
                     </div>
                 </div>
             </div>
-            <!-- #User Info -->
-            <!-- Menu -->
 
-{#        TODO after setting request must remove this part#}
-            <div class="menu">
-                    <ul class="list">
-                        <li class="header persian-text-style">نوار دسترسی</li>
-                        <li class="active">
-                            <a class="persian-text-style" href="/">
-                                <i class="material-icons">home</i>
-                                <span>صفحه اصلی</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a class="persian-text-style" href="/show_poor_children">
-                                <i class="material-icons">person_add</i>
-                                <span> کودکان نیازمند</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a class="persian-text-style" href="/supported_children">
-                                <i class="material-icons">supervisor_account</i>
-                                <span>کودکان تحت تکفل</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a class="persian-text-style" href="/trans_history">
-                                <i class="material-icons">content_paste</i>
-                                <span> پرداختی ها</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a class="persian-text-style" href="/letters">
-                                <i class="material-icons">drafts</i>
-                                <span>نامه ها</span>
-                            </a>
-                        </li>
-                        <li class="active">
-                            <a class="persian-text-style" href="/payment">
-                                <i class="material-icons">payment</i>
-                                <span>پرداخت به موسسه</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-{#        TODO must be removed #}
-
-{#        TODO must remain this part#}
-            {% if request.is_hamyar %}
+        {% if request.is_hamyar %}
                 <div class="menu">
                     <ul class="list">
                         <li class="header persian-text-style">نوار دسترسی</li>
@@ -214,7 +167,7 @@
                             </a>
                         </li>
                         <li class="active">
-                            <a class="persian-text-style" href="/supported_children_madadkar">
+                            <a class="persian-text-style" href="/supported_children">
                                 <i class="material-icons">supervisor_account</i>
                                 <span>نیازمند تحت سرپرستی</span>
                             </a>
@@ -227,7 +180,7 @@
                             </a>
                         </li>
                         <li class="active">
-                            <a class="persian-text-style" href="/poor_children_letters">
+                            <a class="persian-text-style" href="/letters">
                                 <i class="material-icons">drafts</i>
                                 <span>نامه های نیازمندان</span>
                             </a>
@@ -235,6 +188,7 @@
                     </ul>
                 </div>
             {% endif %}
+
         </aside>
     </section>
 
