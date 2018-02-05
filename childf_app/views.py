@@ -11,6 +11,7 @@ from django.shortcuts import render, redirect
 from django.urls.base import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic.base import TemplateView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, FormView
 from django.views.generic.list import ListView
 import requests
@@ -223,6 +224,15 @@ class SupportChild(FormView):
         return redirect(self.success_url)
 
 
+class SupportedChildrenView(DashboardMixin, ListView):
+    model = MadadJou
+    template_name = 'afterLogin/supported_children.html'
+    context_object_name = 'poor_children_list'
+
+    def get_queryset(self):
+        return self.request.user.hamyar.supported_children.all()
+
+
 @csrf_exempt
 def trans_history(request):
     return render(request, 'afterLogin/trans_history.html', {})
@@ -233,98 +243,10 @@ def letters(request):
     return render(request, 'afterLogin/letters.html', {})
 
 
-@csrf_exempt
-def information_poor_children(request, children_id):
-    if True:
-        id = 1
-        name = 'علی'
-        sex = 'مذکر'
-        age = 16
-        birth_day = '1380/12/16'
-        physical_condition = 'سالم'
-        type_of_disease = ''
-        general_condition = 'سالم'
-
-        address = 'تهران-ورامین'
-        housing_ownership = 'استیجاری'
-        number_of_rooms = 1
-        rent_of_house = 12000000
-        residence_status = 'محمد به همراه برادرش در خانه زندگی میکنند'
-
-        father_employment_status = 'بی کار'
-        father_income_per_month = 0
-        father_job = ''
-        mother_employment_status = 'بی کار'
-        mother_income_per_month = 0
-        mother_job = ''
-        help_from_foreign_source = 'خیر'
-        foregin_source = ''
-        income_from_foreign_source = 0
-        decription = 'نیازمند کمک فوری'
-
-        mother_education = 'بی سواد'
-        mother_birthday = '1357/12/16'
-        mother_physical_condition = 'سالم'
-        mother_type_of_disease = ''
-        the_cause_of_death_or_lack_of_mother = ''
-
-        father_education = 'بی سواد'
-        father_birthday = '1354/12/16'
-        father_physical_condition = 'سالم'
-        father_type_of_disease = ''
-        the_cause_of_death_or_lack_of_father = ''
-
-        household_head = 'پدر'
-        number_of_sister = 0
-        number_of_brother = 1
-
-        content = {
-            'id': id,
-            'name': name,
-            'sex': sex,
-            'age': age,
-            'birth_day': birth_day,
-            'physical_condition': physical_condition,
-            'type_of_disease': type_of_disease,
-            'general_condition': general_condition,
-
-            'address': address,
-            'housing_ownership': housing_ownership,
-            'number_of_rooms': number_of_rooms,
-            'rent_of_house': rent_of_house,
-            'residence_status': residence_status,
-
-            'father_employment_status': father_employment_status,
-            'father_income_per_month': father_income_per_month,
-            'father_job': father_job,
-            'mother_employment_status': mother_employment_status,
-            'mother_income_per_month': mother_income_per_month,
-            'mother_job': mother_job,
-            'help_from_foreign_source': help_from_foreign_source,
-            'foregin_source': foregin_source,
-            'income_from_foreign_source': income_from_foreign_source,
-            'decription': decription,
-
-            'mother_education': mother_education,
-            'mother_birthday': mother_birthday,
-            'mother_physical_condition': mother_physical_condition,
-            'mother_type_of_disease': mother_type_of_disease,
-            'the_cause_of_death_or_lack_of_mother': the_cause_of_death_or_lack_of_mother,
-            'father_education': father_education,
-            'father_birthday': father_birthday,
-            'father_physical_condition': father_physical_condition,
-            'father_type_of_disease': father_type_of_disease,
-            'the_cause_of_death_or_lack_of_father': the_cause_of_death_or_lack_of_father,
-
-            'household_head': household_head,
-            'number_of_sister': number_of_sister,
-            'number_of_brother': number_of_brother,
-        }
-
-        return render(request, 'afterLogin/information_poor_children.html', content)
-
-    return render(request, 'afterLogin/information_poor_children.html', {})
-
+class InformationPoorChildren(DetailView):
+    model = MadadJou
+    template_name = 'afterLogin/information_poor_children.html'
+    context_object_name = 'madadjou'
 
 @csrf_exempt
 def pay_to_selected_children(request):
