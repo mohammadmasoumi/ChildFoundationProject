@@ -36,7 +36,9 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^verification/$', views.verification, name='verification'),
     url(r'^payment/$', BonyadPaymentView.as_view(), name='payment'),
+    # dash board
     url(r'^homepage/$', views.homepage, name='homepage'),
+
     url(r'^contact_us/$', views.contact_us, name='contact_us'),
     url(r'^forget_password/$', views.forget_password, name='forget_password'),
     url(r'^userprofile/$', views.userprofile, name='userprofile'),
@@ -48,7 +50,7 @@ urlpatterns = [
     url(r'^information_poor_children/(?P<children_id>\d+)/$', views.information_poor_children, name='information_poor_children'),
     url(r'^information_poor_children/$', views.information_poor_children, name='information_poor_children'),
     url(r'pay_to_selected_children/$', views.pay_to_selected_children, name='pay_to_selected_children'),
-    url(r'madadkar_dashboard/$', views.madadkar_dashboard, name='madadkar_dashboard'),
+    # url(r'madadkar_dashboard/$', views.madadkar_dashboard, name='madadkar_dashboard'),
     url(r'register_poor_children/$', views.register_poor_children, name='register_poor_children'),
     url(r'supported_children_madadkar/$', views.supported_children_madadkar, name='supported_children_madadkar'),
     url(r'letters_madadkar/$', views.letters_madadkar, name='letters_madadkar'),
@@ -59,7 +61,7 @@ urlpatterns = [
     url(r'send_letter_to_madadkar/$', views.send_letter_to_madadkar, name='send_letter_to_madadkar'),
     url(r'submit_req_to_madadkar/$', views.submit_req_to_madadkar, name='submit_req_to_madadkar'),
     url(r'submit_change_req_for_madadkar/$', views.submit_change_req_for_madadkar, name='submit_change_req_for_madadkar'),
-    url(r'madadjo_dashboard/$', views.madadjo_dashboard, name='madadjo_dashboard'),
+    # url(r'madadjo_dashboard/$', views.madadjo_dashboard, name='madadjo_dashboard'),
 
 
 ]
