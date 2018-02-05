@@ -99,6 +99,7 @@
                         <hr class="divider-w mt-10 mb-20">
                         <div>
                             <form method="post" action="">
+                                {% csrf_token %}
                                 <div class="form-group">
                                     {{ form.as_p }}
 {#                                    <input id="amount" class="form-control font-alt persian-direction" type="number" placeholder= "مبلغ (ریال)"/>#}
