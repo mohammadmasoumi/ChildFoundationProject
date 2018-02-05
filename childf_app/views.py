@@ -1,12 +1,11 @@
-from django import forms
-from django.contrib.admin import forms
+import json
+
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import login
 from django.core.exceptions import PermissionDenied
-from django.forms import forms
 from django.forms.widgets import HiddenInput
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls.base import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
@@ -14,13 +13,12 @@ from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, FormView
 from django.views.generic.list import ListView
-import requests
-import json
 from django.views.decorators.csrf import csrf_exempt
 
 
+
 # Create your views here.
-from childf_app.models import HamYar, BonyadPayment, MadadJou, Message
+from childf_app.models import HamYar, BonyadPayment, MadadJou, Message, HelpRequest, MadadPayment
 
 
 def signup(request):
@@ -199,14 +197,6 @@ def userprofile(request):
     return render(request, 'afterLogin/userprofile.html', {})
 
 
-@csrf_exempt
-def userpayment(request):
-    return render(request, 'afterLogin/userpayment.html', {})
-
-
-selected_children = []
-
-
 class ShowPoorChildrenView(DashboardMixin, ListView):
     template_name = 'afterLogin/show_poor_children.html'
     model = MadadJou
@@ -265,15 +255,6 @@ class OutboxView(DashboardMixin, ListView):
         return self.request.user.outbox.all()
 
 
-@csrf_exempt
-def trans_history(request):
-    return render(request, 'afterLogin/trans_history.html', {})
-
-
-@csrf_exempt
-def letters(request):
-    return render(request, 'afterLogin/letters.html', {})
-
 
 class InformationPoorChildren(DetailView):
     model = MadadJou
@@ -292,22 +273,60 @@ class RegisterPoorChildrenView(CreateView):
     success_url = reverse_lazy('homepage')
 
 
-@csrf_exempt
-def submit_req_to_madadkar(request):
-    return render(request, 'madadJo/submit_req_to_madadkar.html')
+class ShowUnVerifiedRequests(ListView):
+    model = HelpRequest
+    template_name = 'afterLogin/inbox.html'
+    context_object_name = 'requests'
+
+    def get_queryset(self):
+        return self.model.objects.filter(is_verified=False)
 
 
-@csrf_exempt
-def submit_change_req_for_madadkar(request):
-    return render(request, 'madadJo/submit_change_req_for_madadkar.html')
+@method_decorator(csrf_exempt, name='dispatch')
+class VerifyRequest(FormView):
+    success_url = '/'
+
+    def post(self, request, *args, **kwargs):
+        pk = request.POST['request_id']
+        help_request = HelpRequest.objects.get(id=pk)
+        help_request.is_verified = True
+        help_request.save()
+        return redirect(self.success_url)
 
 
-@csrf_exempt
-def send_letter_to_hamyar(request):
-    return render(request, 'madadJo/send_letter_to_hamyar.html')
+class HamyarSupportedChildrenView(ListView):
+    model = MadadJou
+    template_name = 'afterLogin/supported_children.html'
+    context_object_name = 'supported_children'
+
+    def get_queryset(self):
+        return self.request.user.hamyar.supported_children.all()
 
 
-@csrf_exempt
-def send_letter_to_madadkar(request):
-    return render(request, 'madadJo/send_letter_to_madadkar.html')
+class ChildHelpRequestsListView(DetailView):
+    model = MadadJou
+    template_name = 'afterLogin/help_requests.html'
+    context_object_name = 'child'
 
+
+class CreatePayment(CreateView):
+    model = MadadPayment
+    fields = ['amount', 'payer', 'help_request']
+    template_name = 'payment.html'
+    success_url = reverse_lazy('homepage')
+
+    def dispatch(self, request, *args, **kwargs):
+        self.help_request = HelpRequest.objects.get(id=kwargs.get('pk'))
+        return super(CreatePayment, self).dispatch(request, *args, **kwargs)
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class=form_class)
+        form.fields['payer'].widget = HiddenInput()
+        form.fields['help_request'].widget = HiddenInput()
+        return form
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['payer'] = self.request.user
+        initial['help_request'] = self.help_request
+        return initial

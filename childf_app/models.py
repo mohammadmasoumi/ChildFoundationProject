@@ -72,6 +72,11 @@ class MadadJou(models.Model):
     def age(self):
         return datetime.datetime.now() - self.birth_date
 
+    @property
+    def accepted_help_requests(self):
+        return self.help_requests.filter(is_verified=True)
+
+
 
 class MadadKar(models.Model):
     user = models.OneToOneField('auth.User', related_name='madadkar')
