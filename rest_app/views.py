@@ -12,13 +12,13 @@ from django.shortcuts import render
 # from rest_framework.response import Response
 # from rest_framework.renderers import JSONRenderer
 # from rest_framework.parsers import JSONParser
-# from django.http import HttpResponse
+from django.http import HttpResponse
 # from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 # from rest_framework.permissions import IsAuthenticated
 # from rest_framework.response import Response
 # from rest_framework.views import APIView
-# from rest_framework.authtoken.models import Token
-# from django.contrib.auth.models import User
+from rest_framework.authtoken.models import Token
+from django.contrib.auth.models import User
 # from interpay.views import make_id
 # from Notification.views import NotificationClass
 # from interpay.views import get_currency
@@ -43,12 +43,11 @@ from django.shortcuts import render
 #         super(JSONResponse, self).__init__(content, **kwargs)
 #
 #
-# def generate_token(request):
-#     user = User.objects.get(username='arman')
-#     token = Token.objects.create(user=user)
-#     # token = Token.objects.get(user=user)
-#     print(token.key)
-#     return HttpResponse(token.key)
+def generate_token(request):
+    user = User.objects.get(username='admin')
+    token = Token.objects.create(user=user)
+    token.save()
+    return HttpResponse(token.key)
 #
 #
 # def check_validation(code):

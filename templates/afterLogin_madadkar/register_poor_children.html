@@ -165,35 +165,64 @@
     </aside>
 
 </section>
+
+
 <section class="content">
     <div class="container-fluid">
-        <!-- Tabs With Icon Title -->
+        <div class="block-header">
+            <h2 class="persian-font-size persian-text-style">
+                نمایش لیست مددجویان
+            </h2>
+        </div>
+        <!-- Basic Examples -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
-                    <div class="header">
-                        <h2 class="persian-text-style">
-                           تایید ثبت نام مددجو
-                        </h2>
-                    </div>
-                    <div class="body change-direction" ">
-                        <!-- Nav tabs -->
-                        <div class="body table-responsive" style="border: none;">
+                    <div class="row">
+                        <div class="body" style="float: right;direction: rtl;">
                             <form action="" method="post" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 {{ form.as_p }}
                                 <button class="btn-success persian-text-style" type="submit" value="submit">ثبت نام</button>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-        <!-- #END# Tabs With Icon Title -->
-
     </div>
 </section>
+
+{#test#}
+{#<section class="content">#}
+{#    <div class="container-fluid">#}
+{#        <!-- Tabs With Icon Title -->#}
+{#        <div class="row clearfix">#}
+{#            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">#}
+{#                <div class="card">#}
+{#                    <div class="body ">#}
+{#                        <div class="header">#}
+{#                            <h2 class="persian-text-style">#}
+{#                                نیازمندان انتخاب شده#}
+{#                            </h2>#}
+{#                        </div>#}
+{#                        <!-- Nav tabs -->#}
+{#                        <div class="body table-responsive" style="border: none;float: right;direction: rtl; margin-top: 40px">#}
+{#                            <form action="" method="post" enctype="multipart/form-data">#}
+{#                                {% csrf_token %}#}
+{#                                {{ form.as_p }}#}
+{#                                <button class="btn-success persian-text-style" type="submit" value="submit">ثبت نام</button>#}
+{#                            </form>#}
+{#                        </div>#}
+{##}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- #END# Tabs With Icon Title -->#}
+{##}
+{#    </div>#}
+{#</section>#}
 <!-- Jquery Core Js -->
 <script src="{% static 'afterLogin/plugins/jquery/jquery.min.js' %}"></script>
 
