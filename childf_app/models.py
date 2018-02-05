@@ -1,5 +1,6 @@
 import random
 
+import datetime
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 from django.db import models, transaction
@@ -66,6 +67,9 @@ class MadadJou(models.Model):
     tedad_baradaran = models.IntegerField(null=True, blank=True)
     tedad_khaharan = models.IntegerField(null=True, blank=True)
 
+    @property
+    def age(self):
+        return datetime.datetime.now() - self.birth_date
 
 
 class MadadKar(models.Model):

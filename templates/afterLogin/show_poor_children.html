@@ -242,27 +242,29 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-{#                                    TODO must completed from backend #}
-{#                                        {% for item in poor_children_list %}#}
-{#                                            <tr>#}
-{#                                                <td>#}
-{#                                                    TODO must add a url into pay to user#}
-{#                                                   <a href="#" id="{{ 0 }}" style="float: right;">#}
-{#                                                        <i class="material-icons">person_add</i>#}
-{#                                                   </a>#}
-{#                                                </td>#}
-{#                                                <td class="persian-text-style"> معلول</td>#}
-{#                                                <td class="persian-text-style"> مشهد</td>#}
-{#                                                <td class="persian-text-style">10</td>#}
-{#                                                <td class="persian-text-style">مونث</td>#}
-{#                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">زهرا</a></td>#}
-{#                                            </tr>#}
-{#                                        {% endfor %}#}
+                                        {% for item in poor_children_list %}
                                             <tr>
                                                 <td>
-                                                   <a href="#" id="{{ 0 }}" style="float: right;">
+{#                                                    TODO must add a url into pay to user#}
+                                                   <a href="#" id="{{ item.id }}" style="float: right;">
                                                         <i class="material-icons">person_add</i>
                                                    </a>
+                                                </td>
+                                                <td class="persian-text-style"> {{ item.sharaiet_jesmani }}</td>
+                                                <td class="persian-text-style"> {{ item.mahal_sokunat }}</td>
+                                                <td class="persian-text-style">{{ item.age }}</td>
+                                                <td class="persian-text-style">{{ item.gender }}</td>
+                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">{{ item.name }}</a></td>
+                                            </tr>
+                                        {% endfor %}
+                                            <tr>
+                                                <td>
+                                                    <form method="post" action="{% url 'support_child' %}">
+                                                        <input hidden name="madadjou_id" value="{{ item.id }}">
+                                                        <button type="submit">
+                                                            <i class="material-icons">person_add</i>
+                                                        </button>
+                                                    </form>
                                                 </td>
                                                 <td class="persian-text-style"> معلول</td>
                                                 <td class="persian-text-style"> مشهد</td>
