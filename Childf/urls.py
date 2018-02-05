@@ -13,11 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url
+from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+
 from childf_app import views
-from childf_app.views import BonyadPaymentView, HomepageView
+from childf_app.views import BonyadPaymentView, HomepageView, RegisterPoorChildrenView, signup
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -34,6 +38,7 @@ urlpatterns = [
     url(r'^activation_code/$', views.activation_code, name='activation_code'),
     url(r'^sms/$', views.resend_sms, name='resend_sms'),
     url(r'^login/$', auth_views.login, name='login'),
+    url(r'^signup/$', signup, name='signup'),
     url(r'^verification/$', views.verification, name='verification'),
     url(r'^payment/$', BonyadPaymentView.as_view(), name='payment'),
     # dash board
@@ -51,7 +56,7 @@ urlpatterns = [
     url(r'^information_poor_children/$', views.information_poor_children, name='information_poor_children'),
     url(r'pay_to_selected_children/$', views.pay_to_selected_children, name='pay_to_selected_children'),
     # url(r'madadkar_dashboard/$', views.madadkar_dashboard, name='madadkar_dashboard'),
-    url(r'register_poor_children/$', views.register_poor_children, name='register_poor_children'),
+    url(r'register_poor_children/$', RegisterPoorChildrenView.as_view(), name='register_poor_children'),
     # url(r'supported_children_madadkar/$', views.supported_children_madadkar, name='supported_children_madadkar'),
     # url(r'letters_madadkar/$', views.letters_madadkar, name='letters_madadkar'),
     # url(r'^show_poor_children_madadkar/$', views.show_poor_children_madadkar, name='show_poor_children'),
@@ -64,4 +69,4 @@ urlpatterns = [
     # url(r'madadjo_dashboard/$', views.madadjo_dashboard, name='madadjo_dashboard'),
 
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

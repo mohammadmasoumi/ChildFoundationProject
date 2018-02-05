@@ -1,5 +1,8 @@
 from django import forms
 from django.contrib.admin import forms
+from django.contrib.auth import authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import login
 from django.core.exceptions import PermissionDenied
 from django.forms import forms
 from django.forms.widgets import HiddenInput
@@ -14,8 +17,22 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
-from childf_app.models import HamYar, BonyadPayment
+from childf_app.models import HamYar, BonyadPayment, MadadJou
 
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('homepage')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/sign_up.html', {'form': form})
 
 def mainpage(request):
     return render(request, "mainpage.html", {})
@@ -321,9 +338,12 @@ def madadkar_dashboard(request):
     return render(request, 'afterLogin_madadkar/dashboard.html', {})
 
 
-@csrf_exempt
-def register_poor_children(request):
-    return render(request, 'afterLogin_madadkar/register_poor_children.html')
+
+class RegisterPoorChildrenView(CreateView):
+    template_name = 'afterLogin_madadkar/register_poor_children.html'
+    model = MadadJou
+    fields = '__all__'
+    success_url = reverse_lazy('homepage')
 
 
 @csrf_exempt
