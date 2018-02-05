@@ -6,6 +6,7 @@ from django.forms.widgets import HiddenInput
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls.base import reverse, reverse_lazy
+from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 import requests
 import json
@@ -120,10 +121,24 @@ class BonyadPaymentView(CreateView):
         return initial
 
 
+class DashboardMixin:
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        request.is_hamyar = False
+        request.is_madadkar = False
+        request.is_madadjou = False
+        if hasattr(user, 'hamyar'):
+            request.is_hamyar = True
+        if hasattr(user, 'madadkar'):
+            request.is_madadkar = True
+        if hasattr(user, 'madadjou'):
+            request.is_madadjou = True
+        # print(request.is_hamyar, request.is_madadkar, request.is_madadjou)
+        return super(DashboardMixin, self).get(request, *args, **kwargs)
 
-@csrf_exempt
-def homepage(request):
-    return render(request, 'afterLogin/homepage.html', {})
+
+class HomepageView(DashboardMixin, TemplateView):
+    template_name = 'afterLogin/homepage.html'
 
 
 @csrf_exempt

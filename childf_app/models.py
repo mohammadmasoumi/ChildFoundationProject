@@ -31,12 +31,6 @@ def random_string():
 class HamYarManager(models.Manager):
     @transaction.atomic
     def create(self, username, password, email=None, first_name=None, last_name=None, **kwargs):
-        print(username)
-        print(password)
-        print(email)
-        print(first_name)
-        print(last_name)
-        print(kwargs)
         user = User.objects.create_user(username, email, password,
                                         first_name=first_name, last_name=last_name)
         return super(HamYarManager, self).create(user=user, **kwargs)

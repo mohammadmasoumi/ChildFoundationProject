@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from childf_app import views
-from childf_app.views import BonyadPaymentView
+from childf_app.views import BonyadPaymentView, HomepageView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^verification/$', views.verification, name='verification'),
     url(r'^payment/$', BonyadPaymentView.as_view(), name='payment'),
     # dash board
-    url(r'^homepage/$', views.homepage, name='homepage'),
+    url(r'^homepage/$', HomepageView.as_view(), name='homepage'),
 
     url(r'^contact_us/$', views.contact_us, name='contact_us'),
     url(r'^forget_password/$', views.forget_password, name='forget_password'),
