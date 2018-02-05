@@ -31,21 +31,21 @@
 
 <body class="theme-red">
     <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-        <div class="loader">
-            <div class="preloader">
-                <div class="spinner-layer pl-red">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-            <p>Please wait...</p>
-        </div>
-    </div>
+{#    <div class="page-loader-wrapper">#}
+{#        <div class="loader">#}
+{#            <div class="preloader">#}
+{#                <div class="spinner-layer pl-red">#}
+{#                    <div class="circle-clipper left">#}
+{#                        <div class="circle"></div>#}
+{#                    </div>#}
+{#                    <div class="circle-clipper right">#}
+{#                        <div class="circle"></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <p>Please wait...</p>#}
+{#        </div>#}
+{#    </div>#}
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
@@ -253,7 +253,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="row header">
-                            <h2 class="persian-text-style col-sm-6">
+                            <h2 class="persian-text-style">
                                 لیست تراکنش ها
                             </h2>
 
@@ -278,6 +278,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                    {% for item in trans_histri %}
                                         <tr>
                                             <td class="persian-text-style">10000000</td>
                                             <td class="persian-text-style">1396/12/12</td>
