@@ -34,32 +34,28 @@ def signup(request):
         form = UserCreationForm()
     return render(request, 'registration/sign_up.html', {'form': form})
 
-def mainpage(request):
-    return render(request, "mainpage.html", {})
+class MainPageView(TemplateView):
+    template_name = "mainpage.html"
 
 
-def development_team(request):
-    return render(request, "development_team.html", {})
+class DevelopmentTeamView(TemplateView):
+    template_name = "development_team.html"
 
 
-def history(request):
-    return render(request, "history.html", {})
+class HistoryView(TemplateView):
+    template_name = "history.html"
 
 
-def organizational_chart(request):
-    return render(request, 'organizational_chart.html', {})
+class OrganizationalChart(TemplateView):
+    template_name = 'organizational_chart.html'
 
 
-def goals(request):
-    return render(request, 'goals.html', {})
+class GoalsView(TemplateView):
+    template_name = 'goals.html'
 
 
-def activities(request):
-    return render(request, 'activities.html', {})
-
-
-def test(request):
-    return render(request, 'sidebar test.html', {})
+class ActivitiesView(TemplateView):
+    template_name = 'activities.html'
 
 
 @csrf_exempt
@@ -86,8 +82,8 @@ def registration(request):
     return PermissionDenied
 
 
-def accept_registration_terms(request):
-    return render(request, 'accept_registration_terms.html', {})
+class AcceptRegistrationTerms(TemplateView):
+    template_name = 'accept_registration_terms.html'
 
 
 @csrf_exempt
