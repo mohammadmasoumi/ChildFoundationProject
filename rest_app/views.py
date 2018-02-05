@@ -16,9 +16,13 @@ from django.http import HttpResponse
 # from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 # from rest_framework.permissions import IsAuthenticated
 # from rest_framework.response import Response
-# from rest_framework.views import APIView
+from rest_framework.decorators import api_view
+from rest_framework.parsers import JSONParser
+from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
+
+
 # from interpay.views import make_id
 # from Notification.views import NotificationClass
 # from interpay.views import get_currency
@@ -32,24 +36,39 @@ from django.contrib.auth.models import User
 # from firstsite import settings
 # from interpay.Validation.Validation import Validation
 #
-# class JSONResponse(HttpResponse):
-#     """
-#     An HttpResponse that renders its content into JSON.
-#     """
-#
-#     def __init__(self, data, **kwargs):
-#         content = JSONRenderer().render(data)
-#         kwargs['content_type'] = 'application/json'
-#         super(JSONResponse, self).__init__(content, **kwargs)
-#
-#
+class JSONResponse(HttpResponse):
+    """
+    An HttpResponse that renders its content into JSON.
+    """
+
+    def __init__(self, data, **kwargs):
+        content = JSONRenderer().render(data)
+        kwargs['content_type'] = 'application/json'
+        super(JSONResponse, self).__init__(content, **kwargs)
+
+
 def generate_token(request):
-    user = User.objects.get(username='admin')
-    token = Token.objects.create(user=user)
-    token.save()
+    user_for_token = User.objects.get("admin")
+    token = Token.objects.get(user=user_for_token)
     return HttpResponse(token.key)
-#
-#
+
+@api_view(['GET', 'POST'])
+def signup(request):
+    response = []
+    if request.method == "POST":
+        data = JSONParser().parse(request)
+        username = data['username']
+        password = data['password']
+        mobile = data['mobile']
+        defaults = {"mobile":mobile, "password": password}
+        user, created = User.objects.get_or_create(defaults, username=username )
+
+        if created:
+            response["code"] = 201
+        else:
+            response["code"] = 404
+
+
 # def check_validation(code):
 #     return code
 #

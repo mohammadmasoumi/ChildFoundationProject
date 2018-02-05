@@ -4,7 +4,9 @@ from rest_app import views
 
 urlpatterns = [
     # # TODo must create functions in views
-    # url(r'^get_token/', views.generate_token),
+
+    url(r'^signup/', views.signup),
+    url(r'^generate_token/', views.generate_token),
     # url(r'^cash_out_order/', views.cash_out_order, name='cash_out'),
     # url(r'^get_order_status/', views.get_order_status, name='order_status'),
     # url(r'^cash_out_reversal/', views.cash_out_reversal, name='cash_out_reversal'),
