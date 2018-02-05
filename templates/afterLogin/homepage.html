@@ -96,8 +96,8 @@
                     <img src="{% static 'afterLogin/images/user.png' %}" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">محمد معصومی</div>
-                    <div class="email persian-text-style ">Mohammad.Masoumi@gmail.com</div>
+                    <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user.get_full_name }}</div>
+                    <div class="email persian-text-style ">{{ request.user.email }}</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -114,7 +114,7 @@
             <!-- #User Info -->
             <!-- Menu -->
 
-            {% if user_is_hamyar %}
+            {% if request.is_hamyar %}
                 <div class="menu">
                     <ul class="list">
                         <li class="header persian-text-style">نوار دسترسی</li>
@@ -156,7 +156,7 @@
                         </li>
                     </ul>
                 </div>
-            {%  elif user_is_madadkar %}
+            {%  elif request.is_madadkar %}
                 <div class="menu">
                     <ul class="list">
                         <li class="header persian-text-style">نوار دسترسی</li>
@@ -193,7 +193,7 @@
                         </li>
                     </ul>
                 </div>
-            {% elif user_is_madadjo %}
+            {% elif request.is_madadjou %}
                 <div class="menu">
                     <ul class="list">
                         <li class="header persian-text-style">نوار دسترسی</li>
