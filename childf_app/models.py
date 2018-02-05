@@ -77,7 +77,6 @@ class MadadJou(models.Model):
         return self.help_requests.filter(is_verified=True)
 
 
-
 class MadadKar(models.Model):
     user = models.OneToOneField('auth.User', related_name='madadkar')
 
@@ -92,6 +91,7 @@ class HamYarManager(models.Manager):
         user = User.objects.create_user(username, email, password,
                                         first_name=first_name, last_name=last_name)
         return super(HamYarManager, self).create(user=user, **kwargs)
+
 
 class HamYar(models.Model):
     supported_children = models.ManyToManyField('childf_app.MadadJou', related_name='hamian')

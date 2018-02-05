@@ -77,7 +77,7 @@ def registration(request):
                                   email=request.POST.get('email'),
                                   payment_period=request.POST.get('payment_period'),
                                   )
-            return redirect(reverse('mainpage'))
+            return redirect(reverse('login'))
         except:
             return render(request, 'registration.html', {})
     return PermissionDenied
@@ -256,7 +256,7 @@ class OutboxView(DashboardMixin, ListView):
 
 
 
-class InformationPoorChildren(DetailView):
+class InformationPoorChildren(DashboardMixin, DetailView):
     model = MadadJou
     template_name = 'afterLogin/information_poor_children.html'
     context_object_name = 'madadjou'
@@ -266,14 +266,14 @@ def pay_to_selected_children(request):
     return render(request, 'afterLogin/pay_to_selected_children.html', {})
 
 
-class RegisterPoorChildrenView(CreateView):
+class RegisterPoorChildrenView(DashboardMixin, CreateView):
     template_name = 'afterLogin_madadkar/register_poor_children.html'
     model = MadadJou
     fields = '__all__'
     success_url = reverse_lazy('homepage')
 
 
-class ShowUnVerifiedRequests(ListView):
+class ShowUnVerifiedRequests(DashboardMixin, ListView):
     model = HelpRequest
     template_name = 'afterLogin/inbox.html'
     context_object_name = 'requests'
@@ -294,7 +294,7 @@ class VerifyRequest(FormView):
         return redirect(self.success_url)
 
 
-class HamyarSupportedChildrenView(ListView):
+class HamyarSupportedChildrenView(DashboardMixin, ListView):
     model = MadadJou
     template_name = 'afterLogin/supported_children.html'
     context_object_name = 'supported_children'
@@ -303,13 +303,13 @@ class HamyarSupportedChildrenView(ListView):
         return self.request.user.hamyar.supported_children.all()
 
 
-class ChildHelpRequestsListView(DetailView):
+class ChildHelpRequestsListView(DashboardMixin, DetailView):
     model = MadadJou
     template_name = 'afterLogin/help_requests.html'
     context_object_name = 'child'
 
 
-class CreatePayment(CreateView):
+class CreatePayment(DashboardMixin, CreateView):
     model = MadadPayment
     fields = ['amount', 'payer', 'help_request']
     template_name = 'payment.html'
