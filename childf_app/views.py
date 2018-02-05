@@ -215,7 +215,7 @@ class ShowPoorChildrenView(DashboardMixin, ListView):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class SupportChild(FormView):
-    success_url = '/'
+    success_url = 'afterLogin/show_poor_children.html'
 
     def post(self, request, *args, **kwargs):
         pk = request.POST['madadjou_id']

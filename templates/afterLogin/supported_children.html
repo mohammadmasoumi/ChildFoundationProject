@@ -244,27 +244,26 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-{#                                        TODO must uncomment this part #}
-{#                                        {% for item in supported_children_list %}#}
-{#                                            <tr>#}
-{#                                                <td class="persian-text-style">سالم</td>#}
-{#                                                <td class="persian-text-style">ورامین_تهران</td>#}
-{#                                                <td class="persian-text-style">16</td>#}
-{#                                                <td class="persian-text-style"> مذکر</td>#}
-{#                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/1" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">علی</a></td>#}
-{#                                            </tr>#}
-{##}
-{##}
-{##}
-{#                                        {% endfor %}#}
-{#                                            TODO must remove this part after uncommenting #}
-                                          <tr>
-                                            <td class="persian-text-style"> معلول</td>
-                                            <td class="persian-text-style"> مشهد</td>
-                                            <td class="persian-text-style">10</td>
-                                            <td class="persian-text-style">مونث</td>
-                                            <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">زهرا</a></td>
-                                        </tr>
+{#                                    TODO need tobe completed#}
+                                          {% for item in supported_children %}
+                                              <tr>
+                                                    <td>
+{#                                                        child#}
+                                                        <form method="post" action="{% url 'support_child' %}">
+                                                            <input hidden name="madadjou_id" value="{{ item.id }}">
+                                                            <button type="submit">
+                                                                <i class="material-icons">person_add</i>
+                                                            </button>
+                                                        </form>
+                                                    </td>
+                                                    <td class="persian-text-style">1</td>
+                                                    <td class="persian-text-style"> مشهد</td>
+                                                    <td class="persian-text-style">10</td>
+                                                    <td class="persian-text-style">مونث</td>
+                                                    <td><a class="persian-text-style waves-effect" href="/information_poor_children/{{ item.id }}" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">زهرا</a></td>
+                                              </tr>
+                                          {% endfor %}
+
 
                                     </tbody>
                                 </table>
