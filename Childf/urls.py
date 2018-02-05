@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from telnetlib import SEND_URL
+
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
@@ -24,9 +26,9 @@ from childf_app import views
 from childf_app.views import BonyadPaymentView, HomepageView, RegisterPoorChildrenView, signup, \
     MainPageView, DevelopmentTeamView, OrganizationalChart, HistoryView, GoalsView, ActivitiesView, \
     AcceptRegistrationTerms, ShowPoorChildrenView, SupportChild, SupportedChildrenView, \
-    InformationPoorChildren
+    InformationPoorChildren, NewMessageView, OutboxView, InboxView
 
-urlpatterns =\
+urlpatterns = \
     [url(r'^admin/', admin.site.urls),
      url(r'^$', MainPageView.as_view(), name='mainpage'),
      url(r'^development_team/', DevelopmentTeamView.as_view(),
@@ -67,7 +69,7 @@ urlpatterns =\
          name='pay_to_selected_children'),
      url(r'register_poor_children/$', RegisterPoorChildrenView.as_view(),
          name='register_poor_children'),
-     url(r'send_letter_to_hamyar/$', views.send_letter_to_hamyar,
+     url(r'send_letter_to_hamyar/$', NewMessageView.as_view(),
          name='send_letter_to_hamyar'),
      url(r'send_letter_to_madadkar/$', views.send_letter_to_madadkar,
          name='send_letter_to_madadkar'),
@@ -75,5 +77,6 @@ urlpatterns =\
          name='submit_req_to_madadkar'),
      url(r'submit_change_req_for_madadkar/$', views.submit_change_req_for_madadkar,
          name='submit_change_req_for_madadkar'),
-
+     url(r'outbox/$', OutboxView.as_view(), name='outbox'),
+     url(r'inbox/$', InboxView.as_view(), name='inbox'),
      ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

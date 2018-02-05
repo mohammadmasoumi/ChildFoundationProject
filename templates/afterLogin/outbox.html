@@ -248,21 +248,13 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        {% for item in poor_children_list %}
+                                        {% for item in messages %}
                                             <tr>
                                                 <td>
-                                                    <form method="post" action="{% url 'support_child' %}">
-                                                        <input hidden name="madadjou_id" value="{{ item.id }}">
-                                                        <button type="submit">
-                                                            <i class="material-icons">person_add</i>
-                                                        </button>
-                                                    </form>
+                                                    {{ item.receiver }}
                                                 </td>
-                                                <td class="persian-text-style"> {{ item.sharaiet_jesmani }}</td>
-                                                <td class="persian-text-style"> {{ item.mahal_sokunat }}</td>
-                                                <td class="persian-text-style">{{ item.birth_date }}</td>
-                                                <td class="persian-text-style">{{ item.gender }}</td>
-                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/{{ item.id }}" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">{{ item.name }}</a></td>
+                                                <td class="persian-text-style"> {{ item.subject }}</td>
+                                                <td class="persian-text-style"> {{ item.body }}</td>
                                             </tr>
                                         {% endfor %}
                                     </tbody>

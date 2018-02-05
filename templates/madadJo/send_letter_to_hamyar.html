@@ -174,33 +174,42 @@
                             <h2 class="persian-text-style">ایمیل</h2>
                         </div>
                         <div class="body">
-                            <form id="form_validation" method="POST">
-                                <div class="form-group form-float">
-                                    <div class="form-line" style="direction: rtl">
-                                        <input type="text" class="form-control" name="from" required>
-                                        <label class="form-label persian-text-style" >از</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float" >
-                                    <div class="form-line" style="direction: rtl">
-                                        <input type="text" class="form-control" name="to" required>
-                                        <label class="form-label persian-text-style">به</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line" style="direction: rtl">
-                                        <input type="email" class="form-control" name="subject" required>
-                                        <label class="form-label persian-text-style">موضوع</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line" style="direction: rtl">
-                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
-                                        <label class="form-label persian-text-style">متن ایمیل</label>
-                                    </div>
-                                </div>
-                                <button class="btn btn-primary waves-effect persian-text-style" type="submit">ارسال</button>
-                            </form>
+{#                            <form id="form_validation" method="POST">#}
+
+                                <form method="post" action="">
+                                    {{ form.as_p }}
+                                    {% csrf_token %}
+{#                                    <input hidden name="madadjou_id" value="{{ item.id }}">#}
+                                    <button type="submit">
+                                        <i class="material-icons">person_add</i>
+                                    </button>
+                                </form>
+{#                                <div class="form-group form-float">#}
+{#                                    <div class="form-line" style="direction: rtl">#}
+{#                                        <input type="text" class="form-control" name="from" required>#}
+{#                                        <label class="form-label persian-text-style" >از</label>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="form-group form-float" >#}
+{#                                    <div class="form-line" style="direction: rtl">#}
+{#                                        <input type="text" class="form-control" name="to" required>#}
+{#                                        <label class="form-label persian-text-style">به</label>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="form-group form-float">#}
+{#                                    <div class="form-line" style="direction: rtl">#}
+{#                                        <input type="email" class="form-control" name="subject" required>#}
+{#                                        <label class="form-label persian-text-style">موضوع</label>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <div class="form-group form-float">#}
+{#                                    <div class="form-line" style="direction: rtl">#}
+{#                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>#}
+{#                                        <label class="form-label persian-text-style">متن ایمیل</label>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                                <button class="btn btn-primary waves-effect persian-text-style" type="submit">ارسال</button>#}
+{#                            </form>#}
                         </div>
                     </div>
                 </div>

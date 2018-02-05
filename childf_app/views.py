@@ -250,7 +250,7 @@ class NewMessageView(DashboardMixin, CreateView):
 
 class InboxView(DashboardMixin, ListView):
     model = Message
-    template_name = ''
+    template_name = 'afterLogin/inbox.html'
     context_object_name = 'messages'
 
     def get_queryset(self):
@@ -258,7 +258,7 @@ class InboxView(DashboardMixin, ListView):
 
 class OutboxView(DashboardMixin, ListView):
     model = Message
-    template_name = ''
+    template_name = 'afterLogin/outbox.html'
     context_object_name = 'messages'
 
     def get_queryset(self):
