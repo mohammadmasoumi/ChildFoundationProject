@@ -36,6 +36,7 @@ class MadadJou(models.Model):
     ejare = models.IntegerField(null=True, blank=True)
     vaziat_sokunat = models.CharField(max_length=20, null=True, blank=True)
     vaziat_eshteghal_pedar = models.CharField(max_length=20, null=True, blank=True)
+    vaziat_eshteghal_madar = models.CharField(max_length=20, null=True, blank=True)
     daramad_pedar = models.IntegerField(null=True, blank=True)
     daramad_madar = models.IntegerField(null=True, blank=True)
     shoghl_pedar = models.CharField(max_length=20, null=True, blank=True)
