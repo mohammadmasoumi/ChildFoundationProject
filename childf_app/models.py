@@ -10,7 +10,62 @@ from django.db import models, transaction
 
 class MadadJou(models.Model):
     user = models.OneToOneField('auth.User', related_name='madadjou')
-    code_melli = models.CharField(max_length=10, unique=True)
+    picture = models.ImageField(upload_to='madadju')
+    shomare_parvande = models.CharField(max_length=10, null=True)
+    name = models.CharField(max_length=10, null=True)
+    gender = models.CharField(max_length=2, default='1', choices=[
+        ('1', 'مذکر'),
+        ('2', 'مونث'),
+    ])
+    birth_date = models.DateTimeField(null=True, blank=True)
+    sharaiet_jesmani = models.CharField(max_length=2, default='1', choices=[
+        ('1', 'سالم'),
+        ('2', 'معلول'),
+    ])
+    bimari = models.CharField(max_length=20, null=True, blank=True)
+    vaziat_omumi = models.CharField(max_length=20, null=True, blank=True)
+    mahal_sokunat = models.CharField(max_length=20, null=True, blank=True)
+    malekiat_maskan = models.CharField(max_length=2, default='1', choices=[
+        ('1', 'دارد'),
+        ('2', 'ندارد'),
+    ])
+    tedad_otagh = models.IntegerField(null=True, blank=True)
+    ejare = models.IntegerField(null=True, blank=True)
+    vaziat_sokunat = models.CharField(max_length=20, null=True, blank=True)
+    vaziat_eshteghal_pedar = models.CharField(max_length=20, null=True, blank=True)
+    daramad_pedar = models.IntegerField(null=True, blank=True)
+    daramad_madar = models.IntegerField(null=True, blank=True)
+    shoghl_pedar = models.CharField(max_length=20, null=True, blank=True)
+    shoghl_madar = models.CharField(max_length=20, null=True, blank=True)
+    tarighe_komake_digar = models.CharField(max_length=2, default='1', choices=[
+        ('1', 'دارد'),
+        ('2', 'ندارد'),
+    ])
+    manbae_komake_digar = models.CharField(max_length=20, null=True, blank=True)
+    meghdar_komake_digar = models.IntegerField(null=True, blank=True)
+    tozihat = models.CharField(max_length=20, null=True, blank=True)
+    tahsilat_madar = models.CharField(max_length=20, null=True, blank=True)
+    tahsilat_pedar = models.CharField(max_length=20, null=True, blank=True)
+    birth_date_madar = models.DateTimeField(null=True, blank=True)
+    birth_date_pedar = models.DateTimeField(null=True, blank=True)
+    vaziat_jesmani_madar = models.CharField(max_length=2, default='1', choices=[
+        ('1', 'سالم'),
+        ('2', 'معلول'),
+    ])
+    vaziat_jesmani_pedar = models.CharField(max_length=2, default='1', choices=[
+        ('1', 'سالم'),
+        ('2', 'معلول'),
+    ])
+    bimari_madar = models.CharField(max_length=20, null=True, blank=True)
+    bimari_pedar = models.CharField(max_length=20, null=True, blank=True)
+    elat_fot_madar = models.CharField(max_length=20, null=True, blank=True)
+    elat_fot_pedar = models.CharField(max_length=20, null=True, blank=True)
+    ghaiem_feli = models.CharField(max_length=20, null=True, blank=True)
+    tedad_baradaran = models.IntegerField(null=True, blank=True)
+    tedad_khaharan = models.IntegerField(null=True, blank=True)
+    niaz_mahane = models.IntegerField(null=True, blank=True)
+    niaz_avalie = models.IntegerField(null=True, blank=True)
+
 
 
 class MadadKar(models.Model):
