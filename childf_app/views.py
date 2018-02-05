@@ -213,7 +213,7 @@ class ShowPoorChildrenView(DashboardMixin, ListView):
 
 
 @method_decorator(csrf_exempt, name='dispatch')
-class SupportedChild(FormView):
+class SupportChild(FormView):
     success_url = '/'
 
     def form_valid(self, form):
