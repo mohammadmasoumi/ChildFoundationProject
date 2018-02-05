@@ -123,27 +123,33 @@
                         </a>
                     </li>
                     <li class="active">
-                        <a class="persian-text-style" href="/register_poor_children">
-                            <i class="material-icons">person_add</i>
-                            <span>ثبت نام نیازمند</span>
+                        <a class="persian-text-style" href="/trans_history_madadJo">
+                            <i class="material-icons">payment</i>
+                            <span>مشاهده پرداخت ها</span>
                         </a>
                     </li>
                     <li class="active">
-                        <a class="persian-text-style" href="/supported_children_madadkar">
-                            <i class="material-icons">supervisor_account</i>
-                            <span>نیازمند تحت سرپرستی</span>
+                        <a class="persian-text-style" href="/send_letter_to_hamyar">
+                            <i class="material-icons">email</i>
+                            <span>ارسال نامه برای همیاران</span>
                         </a>
                     </li>
                     <li class="active">
-                        <a class="persian-text-style" href="/show_poor_children">
-                            <i class="material-icons">face</i>
-                            <span>کودکان نیازمند</span>
+                        <a class="persian-text-style" href="/send_letter_to_madadkar">
+                            <i class="material-icons">email</i>
+                            <span>ارسال نامه برای مددکاران</span>
                         </a>
                     </li>
                     <li class="active">
-                        <a class="persian-text-style" href="/poor_children_letters">
+                        <a class="persian-text-style" href="/submit_req_to_madadkar">
                             <i class="material-icons">drafts</i>
-                            <span>نامه های نیازمندان</span>
+                            <span>ارسال درخواست به مددکار</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/submit_change_req_for_madadkar">
+                            <i class="material-icons">drafts</i>
+                            <span>ارسال درخواست تغیر مددکار</span>
                         </a>
                     </li>
                 </ul>
@@ -155,61 +161,55 @@
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header persian-text-style">
-                <h2 class="persian-font-size">داشبورد</h2>
+            <div class="block-header">
+                <h2 class="persian-text-style">
+                    ارسال نامه الکترونیکی
+                </h2>
             </div>
-
-            <!-- Widgets -->
+            <!-- Basic Validation -->
             <div class="row clearfix">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-pink hover-expand-effect">
-                        <div class="icon ">
-                            <i class="material-icons">credit_card</i>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2 class="persian-text-style">ایمیل</h2>
                         </div>
-                        <div class="content">
-                            <div class="text persian-text-style">کل پرداختی ها</div>
-                            <div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-cyan hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">date_range</i>
-                        </div>
-                        <div class="content">
-                            <div class="text persian-text-style">مدت زمان عضویت</div>
-                            <div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-light-green hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">forum</i>
-                        </div>
-                        <div class="content">
-                            <div class="text persian-text-style">تعداد نامه های دریافتی</div>
-                            <div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-orange hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">person_add</i>
-                        </div>
-                        <div class="content">
-                            <div class="text persian-text-style">تعداد کودکان تحت تکفل</div>
-                            <div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
+                        <div class="body">
+                            <form id="form_validation" method="POST">
+                                <div class="form-group form-float">
+                                    <div class="form-line" style="direction: rtl">
+                                        <input type="text" class="form-control" name="from" required>
+                                        <label class="form-label persian-text-style" >از</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" >
+                                    <div class="form-line" style="direction: rtl">
+                                        <input type="text" class="form-control" name="to" required>
+                                        <label class="form-label persian-text-style">به</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line" style="direction: rtl">
+                                        <input type="email" class="form-control" name="subject" required>
+                                        <label class="form-label persian-text-style">موضوع</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line" style="direction: rtl">
+                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
+                                        <label class="form-label persian-text-style">متن ایمیل</label>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary waves-effect persian-text-style" type="submit">ارسال</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- #END# Basic Validation -->
         </div>
     </section>
 
-    <!-- Jquery Core Js -->
+<!-- Jquery Core Js -->
     <script src="{% static 'afterLogin/plugins/jquery/jquery.min.js' %}"></script>
 
     <!-- Bootstrap Core Js -->
@@ -224,29 +224,12 @@
     <!-- Waves Effect Plugin Js -->
     <script src="{% static 'afterLogin/plugins/node-waves/waves.js' %}"></script>
 
-    <!-- Jquery CountTo Plugin Js -->
-    <script src="{% static 'afterLogin/plugins/jquery-countto/jquery.countTo.js' %}"></script>
-
-    <!-- Morris Plugin Js -->
-    <script src="{% static 'afterLogin/plugins/raphael/raphael.min.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/morrisjs/morris.js' %}"></script>
-
-    <!-- ChartJs -->
-    <script src="{% static 'afterLogin/plugins/chartjs/Chart.bundle.js' %}"></script>
-
-    <!-- Flot Charts Plugin Js -->
-    <script src="{% static 'afterLogin/plugins/flot-charts/jquery.flot.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/flot-charts/jquery.flot.resize.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/flot-charts/jquery.flot.pie.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/flot-charts/jquery.flot.categories.js' %}"></script>
-    <script src="{% static 'afterLogin/plugins/flot-charts/jquery.flot.time.js' %}"></script>
-
-    <!-- Sparkline Chart Plugin Js -->
-    <script src="{% static 'afterLogin/plugins/jquery-sparkline/jquery.sparkline.js' %}"></script>
+     <!-- Ckeditor -->
+    <script src="{% static 'afterLogin/plugins/ckeditor/ckeditor.js' %}"></script>
 
     <!-- Custom Js -->
     <script src="{% static 'afterLogin/js/admin.js' %}"></script>
-    <script src="{% static 'afterLogin/js/pages/index.js' %}"></script>
+    <script src="{% static 'afterLogin/js/pages/tables/jquery-datatable.js' %}"></script>
 
     <!-- Demo Js -->
     <script src="{% static 'afterLogin/js/demo.js' %}"></script>
