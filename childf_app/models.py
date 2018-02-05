@@ -10,7 +10,7 @@ from django.db import models, transaction
 
 class MadadJou(models.Model):
     user = models.OneToOneField('auth.User', related_name='madadjou')
-    picture = models.ImageField(upload_to='madadju')
+    picture = models.ImageField(upload_to='madadju', null=True, blank=True)
     shomare_parvande = models.CharField(max_length=10, null=True)
     name = models.CharField(max_length=10, null=True)
     gender = models.CharField(max_length=2, default='1', choices=[

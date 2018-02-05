@@ -123,7 +123,6 @@ USE_TZ = True
 LOGIN_REDIRECT_URL = '/homepage/'
 
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
-
 MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
