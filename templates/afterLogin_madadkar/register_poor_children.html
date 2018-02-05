@@ -219,7 +219,7 @@
                             <div role="tabpanel" class="tab-pane fade in active"
                                  id="personal_information">
                                 <div class="body table-responsive" style="border: none">
-                                    <form action="" method="post">
+                                    <form action="" method="post" enctype="multipart/form-data">
                                         {% csrf_token %}
                                         {{ form.as_p }}
                                         <button type="submit" value="submit"></button>
