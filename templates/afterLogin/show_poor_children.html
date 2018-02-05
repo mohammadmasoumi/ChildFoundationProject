@@ -229,75 +229,71 @@
                             مددجویان
                         </h2>
 
-                    </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                <thead>
-                                <tr>
-                                    <th class="persian-text-style-thead">حمایت</th>
-                                    <th class="persian-text-style-thead">وضعیت جسمانی</th>
-                                    <th class="persian-text-style-thead">محل زندگی</th>
-                                    <th class="persian-text-style-thead"> سن</th>
-                                    <th class="persian-text-style-thead">جنسیت</th>
-                                    <th class="persian-text-style-thead">اسم</th>
-                                </tr>
-                                </thead>
-                                <tfoot>
-                                <tr>
-                                    <th class="persian-text-style-thead">حمایت</th>
-                                    <th class="persian-text-style">وضعیت جسمانی</th>
-                                    <th class="persian-text-style">محل زندگی</th>
-                                    <th class="persian-text-style">سن</th>
-                                    <th class="persian-text-style">جنسیت</th>
-                                    <th class="persian-text-style">اسم</th>
-                                </tr>
-                                </tfoot>
-                                <tbody>
-                                {% for item in poor_children_list %}
-                                    <tr>
-                                        <td>
-                                            <form method="post" action="{% url 'support_child' %}">
-                                                <input hidden name="madadjou_id"
-                                                       value="{{ item.id }}">
-                                                <button type="submit">
-                                                    <i class="material-icons">person_add</i>
-                                                </button>
-                                            </form>
-                                        </td>
-                                        <td class="persian-text-style"> {{ item.sharaiet_jesmani }}</td>
-                                        <td class="persian-text-style"> {{ item.mahal_sokunat }}</td>
-                                        <td class="persian-text-style">{{ item.birth_date }}</td>
-                                        <td class="persian-text-style">{{ item.gender }}</td>
-                                        <td><a class="persian-text-style waves-effect"
-                                               href="/information_poor_children/4"
-                                               data-toggle="tooltip" data-placement="right"
-                                               title="حمایت از مددجو">{{ item.name }}</a></td>
-                                    </tr>
-                                {% endfor %}
-                                {#                                            <tr>#}
-                                {#                                                <td>#}
-                                {#                                                    <form method="post" action="{% url 'support_child' %}">#}
-                                {#                                                        <input hidden name="madadjou_id" value="{{ item.id }}">#}
-                                {#                                                        <button type="submit">#}
-                                {#                                                            <i class="material-icons">person_add</i>#}
-                                {#                                                        </button>#}
-                                {#                                                    </form>#}
-                                {#                                                </td>#}
-                                {#                                                <td class="persian-text-style"> معلول</td>#}
-                                {#                                                <td class="persian-text-style"> مشهد</td>#}
-                                {#                                                <td class="persian-text-style">10</td>#}
-                                {#                                                <td class="persian-text-style">مونث</td>#}
-                                {#                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">زهرا</a></td>#}
-                                {#                                            </tr>#}
-                                </tbody>
-                            </table>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th class="persian-text-style-thead">حمایت</th>
+                                            <th class="persian-text-style-thead">وضعیت جسمانی</th>
+                                            <th class="persian-text-style-thead">محل زندگی</th>
+                                            <th class="persian-text-style-thead"> سن</th>
+                                            <th class="persian-text-style-thead">جنسیت</th>
+                                            <th class="persian-text-style-thead">اسم</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th class="persian-text-style-thead">حمایت</th>
+                                            <th class="persian-text-style">وضعیت جسمانی</th>
+                                            <th class="persian-text-style">محل زندگی</th>
+                                            <th class="persian-text-style">سن</th>
+                                            <th class="persian-text-style">جنسیت</th>
+                                            <th class="persian-text-style">اسم</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        {% for item in poor_children_list %}
+                                            <tr>
+                                                <td>
+                                                <form method="post" action="{% url 'support_child' %}">
+                                                        <input hidden name="madadjou_id" value="{{ item.id }}">
+                                                        <button type="submit">
+                                                            <i class="material-icons">person_add</i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                                <td class="persian-text-style"> {{ item.sharaiet_jesmani }}</td>
+                                                <td class="persian-text-style"> {{ item.mahal_sokunat }}</td>
+                                                <td class="persian-text-style">{{ item.birth_date }}</td>
+                                                <td class="persian-text-style">{{ item.gender }}</td>
+                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">{{ item.name }}</a></td>
+                                            </tr>
+                                        {% endfor %}
+{#                                            <tr>#}
+{#                                                <td>#}
+{#                                                    <form method="post" action="{% url 'support_child' %}">#}
+{#                                                        <input hidden name="madadjou_id" value="{{ item.id }}">#}
+{#                                                        <button type="submit">#}
+{#                                                            <i class="material-icons">person_add</i>#}
+{#                                                        </button>#}
+{#                                                    </form>#}
+{#                                                </td>#}
+{#                                                <td class="persian-text-style"> معلول</td>#}
+{#                                                <td class="persian-text-style"> مشهد</td>#}
+{#                                                <td class="persian-text-style">10</td>#}
+{#                                                <td class="persian-text-style">مونث</td>#}
+{#                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">زهرا</a></td>#}
+{#                                            </tr>#}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- #END# Basic Examples -->
+            <!-- #END# Basic Examples -->
 
     </div>
 </section>
