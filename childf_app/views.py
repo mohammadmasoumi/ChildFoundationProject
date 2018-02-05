@@ -323,3 +323,35 @@ def supported_children_madadkar(request):
 @csrf_exempt
 def letters_madadkar(request):
     return render(request, 'afterLogin_madadkar/letters.html')
+
+
+@csrf_exempt
+def trans_history_madadJo(request):
+    return render(request, 'madadJo/trans_history_madadJo.html')
+
+
+@csrf_exempt
+def madadjo_dashboard(request):
+    return render(request, 'madadJo/dashboard.html')
+
+
+@csrf_exempt
+def submit_req_to_madadkar(request):
+    return render(request, 'madadJo/submit_req_to_madadkar.html')
+
+
+@csrf_exempt
+def submit_change_req_for_madadkar(request):
+    return render(request, 'madadJo/submit_change_req_for_madadkar.html')
+
+
+@csrf_exempt
+def send_letter_to_hamyar(request):
+    return render(request, 'madadJo/send_letter_to_hamyar.html')
+
+
+@csrf_exempt
+def send_letter_to_madadkar(request):
+    return render(request, 'madadJo/send_letter_to_madadkar.html')
+
+

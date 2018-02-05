@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <!--
+    Document Title
+    =============================================
+    -->
+    <title>داشبورد</title>
+    <!--
+    Favicons
+    =============================================
+    -->
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'assets/images/favicons/logo-icon-final.png' %}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <link rel="manifest" href="{% static 'assets/images/favicons/manifest.json' %}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'assets/images/favicons/logo-icon-final.png' %}">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Favicon-->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="{% static 'afterLogin/plugins/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="{% static 'afterLogin/plugins/node-waves/waves.css' %}" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="{% static 'afterLogin/plugins/animate-css/animate.css' %}" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="{% static 'afterLogin/plugins/morrisjs/morris.css' %}" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="{% static 'afterLogin/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body class="theme-red">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand persian-text-style" href="homepage.html">مددکار گرامی خوش آمدید </a>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="{% static 'afterLogin/images/user.png' %}" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">محمد معصومی</div>
+                    <div class="email persian-text-style ">Mohammad.Masoumi@gmail.com</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a class="persian-text-style" href="/userprofile"><i class="material-icons">person</i>اطلاعات کاربری</a></li>
+                            <li role="seperator" class="divider"></li>
+                            <li><a class="persian-text-style" href="/userpayment"><i class="material-icons">shopping_cart</i>گزارش پرداخت </a></li>
+{#                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>#}
+                            <li role="seperator" class="divider"></li>
+                            <li><a class="persian-text-style" href="/login"><i class="material-icons">input</i>خروج</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header persian-text-style">نوار دسترسی</li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/">
+                            <i class="material-icons">home</i>
+                            <span>صفحه اصلی</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/trans_history_madadJo">
+                            <i class="material-icons">payment</i>
+                            <span>مشاهده پرداخت ها</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/send_letter_to_hamyar">
+                            <i class="material-icons">email</i>
+                            <span>ارسال نامه برای همیاران</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/send_letter_to_madadkar">
+                            <i class="material-icons">email</i>
+                            <span>ارسال نامه برای مددکاران</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/submit_req_to_madadkar">
+                            <i class="material-icons">drafts</i>
+                            <span>ارسال درخواست به مددکار</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a class="persian-text-style" href="/submit_change_req_for_madadkar">
+                            <i class="material-icons">drafts</i>
+                            <span>ارسال درخواست تغیر مددکار</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Footer -->
+        </aside>
+
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2 class="persian-text-style">
+                    ارسال نامه الکترونیکی
+                </h2>
+            </div>
+            <!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2 class="persian-text-style">ایمیل</h2>
+                        </div>
+                        <div class="body">
+                            <form id="form_validation" method="POST">
+                                <div class="form-group form-float">
+                                    <div class="form-line" style="direction: rtl">
+                                        <input type="text" class="form-control" name="from" required>
+                                        <label class="form-label persian-text-style" >از</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float" >
+                                    <div class="form-line" style="direction: rtl">
+                                        <input type="text" class="form-control" name="to" required>
+                                        <label class="form-label persian-text-style">به</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line" style="direction: rtl">
+                                        <input type="email" class="form-control" name="subject" required>
+                                        <label class="form-label persian-text-style">موضوع</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line" style="direction: rtl">
+                                        <textarea name="description" cols="30" rows="5" class="form-control no-resize" required></textarea>
+                                        <label class="form-label persian-text-style">متن ایمیل</label>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary waves-effect persian-text-style" type="submit">ارسال</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Validation -->
+        </div>
+    </section>
+
+<!-- Jquery Core Js -->
+    <script src="{% static 'afterLogin/plugins/jquery/jquery.min.js' %}"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="{% static 'afterLogin/plugins/bootstrap/js/bootstrap.js' %}"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="{% static 'afterLogin/plugins/bootstrap-select/js/bootstrap-select.js' %}"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="{% static 'afterLogin/plugins/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="{% static 'afterLogin/plugins/node-waves/waves.js' %}"></script>
+
+     <!-- Ckeditor -->
+    <script src="{% static 'afterLogin/plugins/ckeditor/ckeditor.js' %}"></script>
+
+    <!-- Custom Js -->
+    <script src="{% static 'afterLogin/js/admin.js' %}"></script>
+    <script src="{% static 'afterLogin/js/pages/tables/jquery-datatable.js' %}"></script>
+
+    <!-- Demo Js -->
+    <script src="{% static 'afterLogin/js/demo.js' %}"></script>
+</body>
+
+</html>
