@@ -20,7 +20,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
-from childf_app.models import HamYar, BonyadPayment, MadadJou
+from childf_app.models import HamYar, BonyadPayment, MadadJou, Message
 
 
 def signup(request):
@@ -231,6 +231,38 @@ class SupportedChildrenView(DashboardMixin, ListView):
 
     def get_queryset(self):
         return self.request.user.hamyar.supported_children.all()
+
+class NewMessageView(DashboardMixin, CreateView):
+    model = Message
+    fields = '__all__'
+    template_name = 'madadJo/send_letter_to_hamyar.html'
+    success_url = reverse_lazy('outbox')
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class=form_class)
+        form.fields['sender'].widget = HiddenInput()
+        return form
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['sender'] = self.request.user
+        return initial
+
+class InboxView(DashboardMixin, ListView):
+    model = Message
+    template_name = ''
+    context_object_name = 'messages'
+
+    def get_queryset(self):
+        return self.request.user.inbox.all()
+
+class OutboxView(DashboardMixin, ListView):
+    model = Message
+    template_name = ''
+    context_object_name = 'messages'
+
+    def get_queryset(self):
+        return self.request.user.outbox.all()
 
 
 @csrf_exempt

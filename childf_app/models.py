@@ -145,3 +145,10 @@ class HelpRequest(models.Model):
 
 class MadadPayment(IPayment):
     help_request = models.ForeignKey('childf_app.HelpRequest', related_name='payments')
+
+
+class Message(models.Model):
+    sender = models.ForeignKey('auth.User', related_name='outbox')
+    receiver = models.ForeignKey('auth.User', related_name='inbox')
+    subject = models.CharField(max_length=100, default='پیام جدید')
+    body = models.TextField(null=True, blank=True)
