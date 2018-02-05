@@ -343,3 +343,7 @@ def send_letter_to_madadkar(request):
     return render(request, 'madadJo/send_letter_to_madadkar.html')
 
 
+@csrf_exempt
+def show_poor_children_madadkar(request):
+    return render(request, 'afterLogin_madadkar/show_poor_children.html')
+
