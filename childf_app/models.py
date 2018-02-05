@@ -9,6 +9,8 @@ from django.db import models, transaction
 
 
 class MadadJou(models.Model):
+    last_periodic_request_created_date = models.DateTimeField(null=True, blank=True)
+    niaz_mahane = models.IntegerField()
     user = models.OneToOneField('auth.User', related_name='madadjou')
     picture = models.ImageField(upload_to='madadju', null=True, blank=True)
     shomare_parvande = models.CharField(max_length=10, null=True)
@@ -63,8 +65,6 @@ class MadadJou(models.Model):
     ghaiem_feli = models.CharField(max_length=20, null=True, blank=True)
     tedad_baradaran = models.IntegerField(null=True, blank=True)
     tedad_khaharan = models.IntegerField(null=True, blank=True)
-    niaz_mahane = models.IntegerField(null=True, blank=True)
-    niaz_avalie = models.IntegerField(null=True, blank=True)
 
 
 
@@ -122,5 +122,20 @@ class BonyadPayment(IPayment):
     pass
 
 
-class MadadjuPayment(IPayment):
-    madadju = models.ForeignKey('childf_app.MadadJou', related_name='payments')
+class HelpRequest(models.Model):
+    madadjou = models.ForeignKey('childf_app.MadadJou', related_name='help_requests')
+    amount = models.IntegerField()
+    is_verified = models.BooleanField(default=False)
+    critical = models.BooleanField(default=False)
+
+    @property
+    def payed_sum(self):
+        return sum([p.amount for p in self.payments.all()])
+
+    @property
+    def needed(self):
+        return self.amount - self.payed_sum
+
+
+class MadadPayment(IPayment):
+    help_request = models.ForeignKey('childf_app.HelpRequest', related_name='payments')
