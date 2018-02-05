@@ -11,6 +11,7 @@ from django.shortcuts import render, redirect
 from django.urls.base import reverse, reverse_lazy
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
 import requests
 import json
 from django.views.decorators.csrf import csrf_exempt
@@ -204,16 +205,10 @@ def userpayment(request):
 selected_children = []
 
 
-@csrf_exempt
-def show_poor_children(request):
-    print(request.method)
-    if request.is_ajax():
-        if request.method == "GET":
-            selected_children.clear()
-        else:
-            selected_children.append(request.POST.get['id'])
-
-    return render(request, 'afterLogin/show_poor_children.html', {})
+class ShowPoorChildrenView(DashboardMixin, ListView):
+    template_name = 'afterLogin/show_poor_children.html'
+    model = MadadJou
+    context_object_name = 'poor_children_list'
 
 
 @csrf_exempt

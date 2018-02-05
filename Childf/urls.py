@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls import url
-from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 
@@ -24,7 +23,7 @@ from django.contrib.auth import views as auth_views
 from childf_app import views
 from childf_app.views import BonyadPaymentView, HomepageView, RegisterPoorChildrenView, signup, \
     MainPageView, DevelopmentTeamView, OrganizationalChart, HistoryView, GoalsView, ActivitiesView, \
-    AcceptRegistrationTerms
+    AcceptRegistrationTerms, ShowPoorChildrenView
 
 urlpatterns =\
     [url(r'^admin/', admin.site.urls),
@@ -42,6 +41,7 @@ urlpatterns =\
      url(r'^activation_code/$', views.activation_code, name='activation_code'),
      url(r'^sms/$', views.resend_sms, name='resend_sms'),
      url(r'^login/$', auth_views.login, name='login'),
+     url(r'^logout/$', auth_views.logout, name='logout'),
      url(r'^signup/$', signup, name='signup'),
      url(r'^verification/$', views.verification, name='verification'),
      url(r'^payment/$', BonyadPaymentView.as_view(), name='payment'),
@@ -51,7 +51,7 @@ urlpatterns =\
      url(r'^forget_password/$', views.forget_password, name='forget_password'),
      url(r'^userprofile/$', views.userprofile, name='userprofile'),
      url(r'^userpayment/$', views.userpayment, name='userpayment'),
-     url(r'^show_poor_children/$', views.show_poor_children,
+     url(r'^show_poor_children/$', ShowPoorChildrenView.as_view(),
          name='show_poor_children'),
      # url(r'^show_poor_children/$', ShowPoorChildrenView.as_view(), name='show_poor_children'),
      url(r'^supported_children/$', views.supported_children,

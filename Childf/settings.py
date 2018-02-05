@@ -121,6 +121,7 @@ USE_L10N = True
 
 USE_TZ = True
 LOGIN_REDIRECT_URL = '/homepage/'
+LOGOUT_REDIRECT_URL = '/'
 
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 MEDIA_URL = '/media/'
