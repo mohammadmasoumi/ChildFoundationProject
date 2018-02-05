@@ -1,6 +1,7 @@
 import random
 
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
 from django.db import models, transaction
 
 
@@ -66,8 +67,18 @@ class HamYar(models.Model):
     ])
 
 
-class Payment(models.Model):
-    amount = models.IntegerField()
-    payer = models.ForeignKey('auth.User', related_name='pays')
+class IPayment(models.Model):
+    amount = models.IntegerField(validators=[MinValueValidator(1)])
+    payer = models.ForeignKey('auth.User')
     date = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        abstract = True
+
+
+class BonyadPayment(IPayment):
+    pass
+
+
+class MadadjuPayment(IPayment):
+    madadju = models.ForeignKey('childf_app.MadadJou', related_name='payments')
