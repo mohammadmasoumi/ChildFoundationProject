@@ -1,14 +1,15 @@
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.urls.base import reverse
+from django.urls.base import reverse, reverse_lazy
+from django.views.generic.edit import CreateView
 import requests
 import json
 from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
-from childf_app.models import HamYar
+from childf_app.models import HamYar, BonyadPayment
 
 
 def mainpage(request):
@@ -105,24 +106,11 @@ def verification(request):
         return HttpResponse(json.dumps(result))
 
 
-@csrf_exempt
-def payment(request):
-    if request.is_ajax():
-        swal_type = 'success'
-        text = 'پرداخت شما با موفقیت ارسال شد.'
-        html = '<p class="swal-text alert alert-success" style>%s</p>' % text
-        name = request.POST.get("name", "")
-        email = request.POST.get("email", "")
-        mobileNo = request.POST.get("mobileNo", "")
-        national_code = request.POST.get("national_code", "")
-        amount = request.POST.get("amount", "")
-        if not name or not email or not amount or not national_code or not mobileNo:
-            swal_type = 'error'
-            text = 'لطفا فرم را کامل کنید.'
-            html = '<p class="swal-text alert alert-danger" style>%s</p>' % text
-        result = {'html': html, 'swal_type': swal_type}
-        return HttpResponse(json.dumps(result))
-    return render(request, 'payment.html', {})
+class BonyadPaymentView(CreateView):
+    model = BonyadPayment
+    fields = ['amount']
+    template_name = 'payment.html'
+    success_url = reverse_lazy('homepage')
 
 
 @csrf_exempt

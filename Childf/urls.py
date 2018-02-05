@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from childf_app import views
+from childf_app.views import BonyadPaymentView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -33,7 +34,7 @@ urlpatterns = [
     url(r'^sms/$', views.resend_sms, name='resend_sms'),
     url(r'^login/$', views.login, name='login'),
     url(r'^verification/$', views.verification, name='verification'),
-    url(r'^payment/$', views.payment, name='payment'),
+    url(r'^payment/$', BonyadPaymentView.as_view(), name='payment'),
     url(r'^homepage/$', views.homepage, name='homepage'),
     url(r'^contact_us/$', views.contact_us, name='contact_us'),
     url(r'^forget_password/$', views.forget_password, name='forget_password'),

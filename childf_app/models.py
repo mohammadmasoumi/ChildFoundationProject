@@ -1,6 +1,7 @@
 import random
 
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
 from django.db import models, transaction
 
 
@@ -15,7 +16,8 @@ class HasUserMixin:
 
 class MadadJou(HasUserMixin, models.Model):
     user_relate_name = 'madadjou'
-
+    user = models.OneToOneField('auth.User', related_name=user_relate_name)
+    code_melli = models.CharField(max_length=10, unique=True)
 
 
 class MadadKar(HasUserMixin, models.Model):
@@ -63,3 +65,20 @@ class HamYar(models.Model):
         (3, '۳ ماهه'),
         (6, '۶ ماهه'),
     ])
+
+
+class IPayment(models.Model):
+    amount = models.IntegerField(validators=[MinValueValidator(1)])
+    payer = models.ForeignKey('auth.User')
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
+
+class BonyadPayment(IPayment):
+    pass
+
+
+class MadadjuPayment(IPayment):
+    madadju = models.ForeignKey('childf_app.MadadJou', related_name='payments')
