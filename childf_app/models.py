@@ -15,7 +15,8 @@ class HasUserMixin:
 
 class MadadJou(HasUserMixin, models.Model):
     user_relate_name = 'madadjou'
-
+    user = models.OneToOneField('auth.User', related_name=user_relate_name)
+    code_melli = models.CharField(max_length=10, unique=True)
 
 
 class MadadKar(HasUserMixin, models.Model):
@@ -63,3 +64,10 @@ class HamYar(models.Model):
         (3, '۳ ماهه'),
         (6, '۶ ماهه'),
     ])
+
+
+class Payment(models.Model):
+    amount = models.IntegerField()
+    payer = models.ForeignKey('auth.User', related_name='pays')
+    date = models.DateTimeField(auto_now_add=True)
+
