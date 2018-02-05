@@ -72,14 +72,13 @@
         <div class="navbar-header">
             <a href="javascript:void(0);" class="bars"></a>
             <a class="navbar-brand persian-text-style" href="homepage.html">
-                {#                    TODO must uncomment this part after adding request#}
-                {#                    {% if request.is_hamyar %}#}
-                {#                    همیار#}
-                {#                    {% elif request.is_madadkar %}#}
-                {#                    مددکار#}
-                {#                    {% elif request.is_madadjou %}#}
-                {#                    مددجو#}
-                {#                    {% endif %}#}
+                                    {% if request.is_hamyar %}
+                                    همیار
+                                    {% elif request.is_madadkar %}
+                                    مددکار
+                                    {% elif request.is_madadjou %}
+                                    مددجو
+                                    {% endif %}
 
                 گرامی خوش آمدید
 
@@ -98,22 +97,17 @@
                      alt="User"/>
             </div>
             <div class="info-container">
-                <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true"
-                     aria-expanded="false"></div>
-                <div class="email persian-text-style ">Mohammad.Masoumi@gmail.com</div>
+                <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user.get_full_name }}</div>
+                <div class="email persian-text-style ">{{ request.user.email }}</div>
                 <div class="btn-group user-helper-dropdown">
-                    <i class="material-icons" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="true">keyboard_arrow_down</i>
+                    <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                     <ul class="dropdown-menu pull-right">
-                        <li><a class="persian-text-style" href="/userprofile"><i
-                                class="material-icons">person</i>اطلاعات کاربری</a></li>
+                        <li><a class="persian-text-style" href="/userprofile"><i class="material-icons">person</i>اطلاعات کاربری</a></li>
                         <li role="seperator" class="divider"></li>
-                        <li><a class="persian-text-style" href="/userpayment"><i
-                                class="material-icons">shopping_cart</i>گزارش پرداخت </a></li>
-                        {#                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>#}
+                        <li><a class="persian-text-style" href="/userpayment"><i class="material-icons">shopping_cart</i>گزارش پرداخت </a></li>
+{#                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>#}
                         <li role="seperator" class="divider"></li>
-                        <li><a class="persian-text-style" href="/login"><i class="material-icons">input</i>خروج</a>
-                        </li>
+                        <li><a class="persian-text-style" href="/login"><i class="material-icons">input</i>خروج</a></li>
                     </ul>
                 </div>
             </div>
@@ -221,9 +215,9 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="row header">
-                        <h2 class="persian-text-style col-sm-6">
-                            تعداد کودکان انتخاب شده :{{ 0 }}
-                        </h2>
+{#                        <h2 class="persian-text-style col-sm-6">#}
+{#                            تعداد کودکان انتخاب شده :{{ 0 }}#}
+{#                        </h2>#}
 
                         <h2 class="persian-text-style col-sm-6">
                             مددجویان
@@ -268,24 +262,9 @@
                                                 <td class="persian-text-style"> {{ item.mahal_sokunat }}</td>
                                                 <td class="persian-text-style">{{ item.birth_date }}</td>
                                                 <td class="persian-text-style">{{ item.gender }}</td>
-                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">{{ item.name }}</a></td>
+                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/{{ item.id }}" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">{{ item.name }}</a></td>
                                             </tr>
                                         {% endfor %}
-{#                                            <tr>#}
-{#                                                <td>#}
-{#                                                    <form method="post" action="{% url 'support_child' %}">#}
-{#                                                        <input hidden name="madadjou_id" value="{{ item.id }}">#}
-{#                                                        <button type="submit">#}
-{#                                                            <i class="material-icons">person_add</i>#}
-{#                                                        </button>#}
-{#                                                    </form>#}
-{#                                                </td>#}
-{#                                                <td class="persian-text-style"> معلول</td>#}
-{#                                                <td class="persian-text-style"> مشهد</td>#}
-{#                                                <td class="persian-text-style">10</td>#}
-{#                                                <td class="persian-text-style">مونث</td>#}
-{#                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">زهرا</a></td>#}
-{#                                            </tr>#}
                                     </tbody>
                                 </table>
                             </div>

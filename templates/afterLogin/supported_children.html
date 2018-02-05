@@ -91,15 +91,15 @@
                     <img src="{% static 'afterLogin/images/user.png' %}" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">محمد معصومی</div>
-                    <div class="email persian-text-style ">Mohammad.Masoumi@gmail.com</div>
+                    <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user.get_full_name }}</div>
+                    <div class="email persian-text-style ">{{ request.user.email }}</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
                             <li><a class="persian-text-style" href="/userprofile"><i class="material-icons">person</i>اطلاعات کاربری</a></li>
                             <li role="seperator" class="divider"></li>
                             <li><a class="persian-text-style" href="/userpayment"><i class="material-icons">shopping_cart</i>گزارش پرداخت </a></li>
-{#                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>#}
+    {#                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>#}
                             <li role="seperator" class="divider"></li>
                             <li><a class="persian-text-style" href="/login"><i class="material-icons">input</i>خروج</a></li>
                         </ul>
