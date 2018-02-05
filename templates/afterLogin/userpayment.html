@@ -85,7 +85,18 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand persian-text-style" href="homepage.html">همیار گرامی خوش آمدید </a>
+                <a class="navbar-brand persian-text-style" href="homepage.html">
+                    {% if request.is_hamyar %}
+                    همیار
+                    {% elif request.is_madadkar %}
+                    مددکار
+                    {% elif request.is_madadjou %}
+                    مددجو
+                    {% endif %}
+
+                    گرامی خوش آمدید
+
+                </a>
             </div>
         </div>
     </nav>

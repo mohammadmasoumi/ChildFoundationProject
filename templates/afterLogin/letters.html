@@ -66,7 +66,17 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand persian-text-style" href="homepage.html">همیار گرامی خوش آمدید </a>
+                <a class="navbar-brand persian-text-style" href="homepage.html">
+                   {% if request.is_hamyar %}
+                    همیار
+                    {% elif request.is_madadkar %}
+                    مددکار
+                    {% elif request.is_madadjou %}
+                    مددجو
+                    {% endif %}
+                    گرامی خوش آمدید
+
+                </a>
             </div>
         </div>
     </nav>
@@ -80,8 +90,8 @@
                     <img src="{% static 'afterLogin/images/user.png' %}" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">محمد معصومی</div>
-                    <div class="email persian-text-style ">Mohammad.Masoumi@gmail.com</div>
+                    <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user.get_full_name }}</div>
+                    <div class="email persian-text-style ">{{ request.user.email }}</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -139,16 +149,6 @@
                 </ul>
             </div>
             <!-- #Menu -->
-            <!-- Footer -->
-{#            <div class="legal">#}
-{#                <div class="copyright">#}
-{#                    &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.#}
-{#                </div>#}
-{#                <div class="version">#}
-{#                    <b>Version: </b> 1.0.5#}
-{#                </div>#}
-{#            </div>#}
-            <!-- #Footer -->
         </aside>
         <!-- #END# Left Sidebar -->
     </section>
@@ -225,135 +225,60 @@
             </div>
             <!-- Basic Example -->
             <div class="row clearfix">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <div class="header bg-red">
-                            <h2>
-                                محمد معصومی <small>تشکر بابت کمکهانتون</small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">add_alert</i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body persian-text-style">
-                            سلام
-                            <br>
-                            خوبی مرسی که پول دادی
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <div class="header bg-cyan">
-                            <h2>
-                                محمد معصومی <small>تشکر بابت کمکهانتون</small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">add_alert</i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body persian-text-style">
-                            سلام
-                            <br>
-                            خوبی مرسی که پول دادی
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <div class="header bg-green">
-                            <h2>
-                                محمد معصومی <small>تشکر بابت کمکهانتون</small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">add_alert</i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body persian-text-style">
-                            سلام
-                            <br>
-                            خوبی مرسی که پول دادی
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <div class="header bg-orange">
-                            <h2>
-                                محمد معصومی <small>تشکر بابت کمکهانتون</small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">add_alert</i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body persian-text-style">
-                            سلام
-                            <br>
-                            خوبی مرسی که پول دادی
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <div class="header bg-blue-grey">
-                            <h2>
-                                محمد معصومی <small>تشکر بابت کمکهانتون</small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">add_alert</i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body persian-text-style">
-                            سلام
-                            <br>
-                            خوبی مرسی که پول دادی
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                    <div class="card">
-                        <div class="header bg-pink">
-                            <h2>
-                                محمد معصومی <small>تشکر بابت کمکهانتون</small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">add_alert</i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body persian-text-style">
-                            سلام
-                            <br>
-                            خوبی مرسی که پول دادی
-                        </div>
-                    </div>
-                </div>
+                    {% if request.is_hamyar %}
+{#                        TODO msut get req from backend and for on it#}
+                        {% for item in transaaction_list %}
+
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="card">
+                                    <div class="header bg-cyan">
+                                        <h2>
+                                            item.message_decscription
+                                            محمد معصومی <small>تشکر بابت کمکهانتون</small>
+                                        </h2>
+                                        <ul class="header-dropdown m-r--5">
+                                            <li class="dropdown">
+                                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="material-icons">add_alert</i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="body persian-text-style">
+                                        item .message.body
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+
+                    {% elif request.is_madadkar %}
+                        {% for item in transaction_list %}
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="card">
+                                    <div class="header bg-cyan">
+                                        <h2>
+                                            item.message_decscription
+                                            محمد معصومی <small>تشکر بابت کمکهانتون</small>
+                                        </h2>
+                                        <ul class="header-dropdown m-r--5">
+                                            <li class="dropdown">
+                                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="material-icons">add_alert</i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="body persian-text-style">
+                                        item .message.body
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
             </div>
-            <!-- #END# Basic Example -->
         </div>
+
     </section>
 
 <!-- Jquery Core Js -->

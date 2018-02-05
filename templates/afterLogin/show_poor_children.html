@@ -31,21 +31,21 @@
 
 <body class="theme-red">
     <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-        <div class="loader">
-            <div class="preloader">
-                <div class="spinner-layer pl-red">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-            <p>Please wait...</p>
-        </div>
-    </div>
+{#    <div class="page-loader-wrapper">#}
+{#        <div class="loader">#}
+{#            <div class="preloader">#}
+{#                <div class="spinner-layer pl-red">#}
+{#                    <div class="circle-clipper left">#}
+{#                        <div class="circle"></div>#}
+{#                    </div>#}
+{#                    <div class="circle-clipper right">#}
+{#                        <div class="circle"></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            <p>Please wait...</p>#}
+{#        </div>#}
+{#    </div>#}
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
@@ -66,7 +66,19 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand persian-text-style" href="homepage.html">همیار گرامی خوش آمدید </a>
+                <a class="navbar-brand persian-text-style" href="homepage.html">
+{#                    TODO must uncomment this part after adding request#}
+{#                    {% if request.is_hamyar %}#}
+{#                    همیار#}
+{#                    {% elif request.is_madadkar %}#}
+{#                    مددکار#}
+{#                    {% elif request.is_madadjou %}#}
+{#                    مددجو#}
+{#                    {% endif %}#}
+
+                    گرامی خوش آمدید
+
+                </a>
             </div>
         </div>
     </nav>
@@ -80,7 +92,7 @@
                     <img src="{% static 'afterLogin/images/user.png' %}" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">محمد معصومی</div>
+                    <div class="name persian-text-style " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
                     <div class="email persian-text-style ">Mohammad.Masoumi@gmail.com</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -98,9 +110,132 @@
             <!-- #User Info -->
             <!-- Menu -->
 
-            <!-- Footer -->
-        </aside>
+{#        TODO after setting request must remove this part#}
+            <div class="menu">
+                    <ul class="list">
+                        <li class="header persian-text-style">نوار دسترسی</li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/">
+                                <i class="material-icons">home</i>
+                                <span>صفحه اصلی</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/show_poor_children">
+                                <i class="material-icons">person_add</i>
+                                <span> کودکان نیازمند</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/supported_children">
+                                <i class="material-icons">supervisor_account</i>
+                                <span>کودکان تحت تکفل</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/trans_history">
+                                <i class="material-icons">content_paste</i>
+                                <span> پرداختی ها</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/letters">
+                                <i class="material-icons">drafts</i>
+                                <span>نامه ها</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/payment">
+                                <i class="material-icons">payment</i>
+                                <span>پرداخت به موسسه</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+{#        TODO must be removed #}
 
+{#        TODO must remain this part#}
+            {% if request.is_hamyar %}
+                <div class="menu">
+                    <ul class="list">
+                        <li class="header persian-text-style">نوار دسترسی</li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/">
+                                <i class="material-icons">home</i>
+                                <span>صفحه اصلی</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/show_poor_children">
+                                <i class="material-icons">person_add</i>
+                                <span> کودکان نیازمند</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/supported_children">
+                                <i class="material-icons">supervisor_account</i>
+                                <span>کودکان تحت تکفل</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/trans_history">
+                                <i class="material-icons">content_paste</i>
+                                <span> پرداختی ها</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/letters">
+                                <i class="material-icons">drafts</i>
+                                <span>نامه ها</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/payment">
+                                <i class="material-icons">payment</i>
+                                <span>پرداخت به موسسه</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {%  elif request.is_madadkar %}
+                <div class="menu">
+                    <ul class="list">
+                        <li class="header persian-text-style">نوار دسترسی</li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/">
+                                <i class="material-icons">home</i>
+                                <span>صفحه اصلی</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/register_poor_children">
+                                <i class="material-icons">person_add</i>
+                                <span>ثبت نام نیازمند</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/supported_children_madadkar">
+                                <i class="material-icons">supervisor_account</i>
+                                <span>نیازمند تحت سرپرستی</span>
+                            </a>
+                        </li>
+
+                        <li class="active">
+                            <a class="persian-text-style" href="/show_poor_children">
+                                <i class="material-icons">face</i>
+                                <span>کودکان نیازمند</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/poor_children_letters">
+                                <i class="material-icons">drafts</i>
+                                <span>نامه های نیازمندان</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+        </aside>
     </section>
 
     <section class="content">
@@ -147,78 +282,34 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                               <a href="#" style="float: right;">
-                                                    <i class="material-icons">person_add</i>
-                                               </a>
-                                            </td>
-                                            <td class="persian-text-style">سالم</td>
-                                            <td class="persian-text-style">ورامین_تهران</td>
-                                            <td class="persian-text-style">16</td>
-                                            <td class="persian-text-style"> مذکر</td>
-                                            <td><a class="persian-text-style waves-effect" href="/information_poor_children/1" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">علی</a></td>
-                                        </tr>
-                                          <tr>
-                                            <td>
-                                               <a href="#" id="{{ 0 }}" style="float: right;">
-                                                    <i class="material-icons">person_add</i>
-                                               </a>
-                                            </td>
-                                            <td class="persian-text-style"> معلول</td>
-                                            <td class="persian-text-style"> مشهد</td>
-                                            <td class="persian-text-style">10</td>
-                                            <td class="persian-text-style">مونث</td>
-                                            <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">زهرا</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                               <a href="#" id="{{ 0 }}" style="float: right;">
-                                                    <i class="material-icons">person_add</i>
-                                               </a>
-                                            </td>
-                                            <td class="persian-text-style"> معلول</td>
-                                            <td class="persian-text-style"> مشهد</td>
-                                            <td class="persian-text-style">10</td>
-                                            <td class="persian-text-style">مونث</td>
-                                            <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">زهرا</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                               <a href="#" id="{{ 2 }}" style="float: right;">
-                                                    <i class="material-icons">person_add</i>
-                                               </a>
-                                            </td>
-                                            <td class="persian-text-style"> سالم</td>
-                                            <td class="persian-text-style"> ورامین_تهران</td>
-                                            <td class="persian-text-style">8</td>
-                                            <td class="persian-text-style">مذکر</td>
-                                            <td><a class="persian-text-style waves-effect" href="/information_poor_children/5" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">مهدی</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                               <a href="#" id="{{ 1 }}" style="float: right;">
-                                                    <i class="material-icons">person_add</i>
-                                               </a>
-                                            </td>
-                                            <td class="persian-text-style"> سالم</td>
-                                            <td class="persian-text-style">بوشهر </td>
-                                            <td class="persian-text-style">6</td>
-                                            <td class="persian-text-style">مونث</td>
-                                            <td><a class="persian-text-style waves-effect" href="/information_poor_children/6" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">فاطمه</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                               <a href="#" id="{{ 0 }}" style="float: right;">
-                                                    <i class="material-icons">person_add</i>
-                                               </a>
-                                            </td>
-                                            <td class="persian-text-style"> سالم</td>
-                                            <td class="persian-text-style"> ورامین_تهران</td>
-                                            <td class="persian-text-style">15</td>
-                                            <td class="persian-text-style">مونث</td>
-                                            <td><a class="persian-text-style waves-effect" href="/information_poor_children/7" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">مائده</a></td>
-                                        </tr>
+{#                                    TODO must completed from backend #}
+{#                                        {% for item in poor_children_list %}#}
+{#                                            <tr>#}
+{#                                                <td>#}
+{#                                                    TODO must add a url into pay to user#}
+{#                                                   <a href="#" id="{{ 0 }}" style="float: right;">#}
+{#                                                        <i class="material-icons">person_add</i>#}
+{#                                                   </a>#}
+{#                                                </td>#}
+{#                                                <td class="persian-text-style"> معلول</td>#}
+{#                                                <td class="persian-text-style"> مشهد</td>#}
+{#                                                <td class="persian-text-style">10</td>#}
+{#                                                <td class="persian-text-style">مونث</td>#}
+{#                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">زهرا</a></td>#}
+{#                                            </tr>#}
+{#                                        {% endfor %}#}
+                                            <tr>
+                                                <td>
+                                                   <a href="#" id="{{ 0 }}" style="float: right;">
+                                                        <i class="material-icons">person_add</i>
+                                                   </a>
+                                                </td>
+                                                <td class="persian-text-style"> معلول</td>
+                                                <td class="persian-text-style"> مشهد</td>
+                                                <td class="persian-text-style">10</td>
+                                                <td class="persian-text-style">مونث</td>
+                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/4" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">زهرا</a></td>
+                                            </tr>
                                     </tbody>
                                 </table>
                             </div>
