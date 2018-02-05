@@ -1,12 +1,11 @@
-from django import forms
-from django.contrib.admin import forms
+import json
+
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import login
 from django.core.exceptions import PermissionDenied
-from django.forms import forms
 from django.forms.widgets import HiddenInput
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls.base import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
@@ -14,13 +13,12 @@ from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, FormView
 from django.views.generic.list import ListView
-import requests
-import json
 from django.views.decorators.csrf import csrf_exempt
 
 
+
 # Create your views here.
-from childf_app.models import HamYar, BonyadPayment, MadadJou, Message
+from childf_app.models import HamYar, BonyadPayment, MadadJou, Message, HelpRequest
 
 
 def signup(request):
@@ -290,6 +288,27 @@ class RegisterPoorChildrenView(CreateView):
     model = MadadJou
     fields = '__all__'
     success_url = reverse_lazy('homepage')
+
+
+class ShowUnVerifiedRequests(ListView):
+    model = HelpRequest
+    template_name = 'afterLogin/inbox.html'
+    context_object_name = 'requests'
+
+    def get_queryset(self):
+        return self.model.objects.filter(is_verified=False)
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class VerifyRequest(FormView):
+    success_url = '/'
+
+    def post(self, request, *args, **kwargs):
+        pk = request.POST['request_id']
+        help_request = HelpRequest.objects.get(id=pk)
+        help_request.is_verified = True
+        help_request.save()
+        return redirect(self.success_url)
 
 
 @csrf_exempt
