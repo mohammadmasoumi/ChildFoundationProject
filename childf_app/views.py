@@ -216,10 +216,11 @@ class ShowPoorChildrenView(DashboardMixin, ListView):
 class SupportChild(FormView):
     success_url = '/'
 
-    def form_valid(self, form):
-        pk = form.cleaned_data['madadjou_id']
-        self.request.user.hamyar.supported_children.add(pk)
-        return super(SupportedChild, self).form_valid(form)
+    def post(self, request, *args, **kwargs):
+        pk = request.POST['madadjou_id']
+        madadjou = MadadJou.objects.get(id=pk)
+        self.request.user.hamyar.supported_children.add(madadjou)
+        return redirect(self.success_url)
 
 
 @csrf_exempt
