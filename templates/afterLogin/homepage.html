@@ -113,47 +113,131 @@
             </div>
             <!-- #User Info -->
             <!-- Menu -->
-            <div class="menu">
-                <ul class="list">
-                    <li class="header persian-text-style">نوار دسترسی</li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/">
-                            <i class="material-icons">home</i>
-                            <span>صفحه اصلی</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/show_poor_children">
-                            <i class="material-icons">person_add</i>
-                            <span> کودکان نیازمند</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/supported_children">
-                            <i class="material-icons">supervisor_account</i>
-                            <span>کودکان تحت تکفل</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/trans_history">
-                            <i class="material-icons">content_paste</i>
-                            <span> پرداختی ها</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/letters">
-                            <i class="material-icons">drafts</i>
-                            <span>نامه ها</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a class="persian-text-style" href="/payment">
-                            <i class="material-icons">payment</i>
-                            <span>پرداخت به موسسه</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+
+            {% if user_is_hamyar %}
+                <div class="menu">
+                    <ul class="list">
+                        <li class="header persian-text-style">نوار دسترسی</li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/">
+                                <i class="material-icons">home</i>
+                                <span>صفحه اصلی</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/show_poor_children">
+                                <i class="material-icons">person_add</i>
+                                <span> کودکان نیازمند</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/supported_children">
+                                <i class="material-icons">supervisor_account</i>
+                                <span>کودکان تحت تکفل</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/trans_history">
+                                <i class="material-icons">content_paste</i>
+                                <span> پرداختی ها</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/letters">
+                                <i class="material-icons">drafts</i>
+                                <span>نامه ها</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/payment">
+                                <i class="material-icons">payment</i>
+                                <span>پرداخت به موسسه</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {%  elif user_is_madadkar %}
+                <div class="menu">
+                    <ul class="list">
+                        <li class="header persian-text-style">نوار دسترسی</li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/">
+                                <i class="material-icons">home</i>
+                                <span>صفحه اصلی</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/register_poor_children">
+                                <i class="material-icons">person_add</i>
+                                <span>ثبت نام نیازمند</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/supported_children_madadkar">
+                                <i class="material-icons">supervisor_account</i>
+                                <span>نیازمند تحت سرپرستی</span>
+                            </a>
+                        </li>
+
+                        <li class="active">
+                            <a class="persian-text-style" href="/show_poor_children_madadkar">
+                                <i class="material-icons">face</i>
+                                <span>کودکان نیازمند</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/poor_children_letters">
+                                <i class="material-icons">drafts</i>
+                                <span>نامه های نیازمندان</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% elif user_is_madadjo %}
+                <div class="menu">
+                    <ul class="list">
+                        <li class="header persian-text-style">نوار دسترسی</li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/">
+                                <i class="material-icons">home</i>
+                                <span>صفحه اصلی</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/trans_history_madadJo">
+                                <i class="material-icons">payment</i>
+                                <span>مشاهده پرداخت ها</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/send_letter_to_hamyar">
+                                <i class="material-icons">email</i>
+                                <span>ارسال نامه برای همیاران</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/send_letter_to_madadkar">
+                                <i class="material-icons">email</i>
+                                <span>ارسال نامه برای مددکاران</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/submit_req_to_madadkar">
+                                <i class="material-icons">drafts</i>
+                                <span>ارسال درخواست به مددکار</span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="persian-text-style" href="/submit_change_req_for_madadkar">
+                                <i class="material-icons">drafts</i>
+                                <span>ارسال درخواست تغیر مددکار</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+
+
             <!-- #Menu -->
             <!-- Footer -->
 {#            <div class="legal">#}
