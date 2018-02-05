@@ -333,37 +333,11 @@ def pay_to_selected_children(request):
     return render(request, 'afterLogin/pay_to_selected_children.html', {})
 
 
-@csrf_exempt
-def madadkar_dashboard(request):
-    return render(request, 'afterLogin_madadkar/dashboard.html', {})
-
-
-
 class RegisterPoorChildrenView(CreateView):
     template_name = 'afterLogin_madadkar/register_poor_children.html'
     model = MadadJou
     fields = '__all__'
     success_url = reverse_lazy('homepage')
-
-
-@csrf_exempt
-def supported_children_madadkar(request):
-    return render(request, 'afterLogin_madadkar/supported_children_madadkar.html')
-
-
-@csrf_exempt
-def letters_madadkar(request):
-    return render(request, 'afterLogin_madadkar/letters.html')
-
-
-@csrf_exempt
-def trans_history_madadJo(request):
-    return render(request, 'madadJo/trans_history_madadJo.html')
-
-
-@csrf_exempt
-def madadjo_dashboard(request):
-    return render(request, 'madadJo/dashboard.html')
 
 
 @csrf_exempt
@@ -384,9 +358,4 @@ def send_letter_to_hamyar(request):
 @csrf_exempt
 def send_letter_to_madadkar(request):
     return render(request, 'madadJo/send_letter_to_madadkar.html')
-
-
-@csrf_exempt
-def show_poor_children_madadkar(request):
-    return render(request, 'afterLogin_madadkar/show_poor_children.html')
 

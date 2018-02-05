@@ -43,30 +43,22 @@ urlpatterns = [
     url(r'^payment/$', BonyadPaymentView.as_view(), name='payment'),
     # dash board
     url(r'^homepage/$', HomepageView.as_view(), name='homepage'),
-
     url(r'^contact_us/$', views.contact_us, name='contact_us'),
     url(r'^forget_password/$', views.forget_password, name='forget_password'),
     url(r'^userprofile/$', views.userprofile, name='userprofile'),
     url(r'^userpayment/$', views.userpayment, name='userpayment'),
     url(r'^show_poor_children/$', views.show_poor_children, name='show_poor_children'),
+    # url(r'^show_poor_children/$', ShowPoorChildrenView.as_view(), name='show_poor_children'),
     url(r'^supported_children/$', views.supported_children, name='supported_children'),
     url(r'^trans_history/$', views.trans_history, name='trans_history'),
     url(r'^letters/$', views.letters, name='letters'),
     url(r'^information_poor_children/(?P<children_id>\d+)/$', views.information_poor_children, name='information_poor_children'),
     url(r'^information_poor_children/$', views.information_poor_children, name='information_poor_children'),
     url(r'pay_to_selected_children/$', views.pay_to_selected_children, name='pay_to_selected_children'),
-    # url(r'madadkar_dashboard/$', views.madadkar_dashboard, name='madadkar_dashboard'),
     url(r'register_poor_children/$', RegisterPoorChildrenView.as_view(), name='register_poor_children'),
-    # url(r'supported_children_madadkar/$', views.supported_children_madadkar, name='supported_children_madadkar'),
-    # url(r'letters_madadkar/$', views.letters_madadkar, name='letters_madadkar'),
-    # url(r'^show_poor_children_madadkar/$', views.show_poor_children_madadkar, name='show_poor_children'),
-    # madadJO
-    # url(r'trans_history_madadJo/$', views.trans_history_madadJo, name='trans_history_madadJo'),
     url(r'send_letter_to_hamyar/$', views.send_letter_to_hamyar, name='send_letter_to_hamyar'),
     url(r'send_letter_to_madadkar/$', views.send_letter_to_madadkar, name='send_letter_to_madadkar'),
     url(r'submit_req_to_madadkar/$', views.submit_req_to_madadkar, name='submit_req_to_madadkar'),
     url(r'submit_change_req_for_madadkar/$', views.submit_change_req_for_madadkar, name='submit_change_req_for_madadkar'),
-    # url(r'madadjo_dashboard/$', views.madadjo_dashboard, name='madadjo_dashboard'),
-
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
