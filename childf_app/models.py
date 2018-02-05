@@ -8,20 +8,13 @@ from django.db import models, transaction
 # Create your models here.
 
 
-class HasUserMixin:
-    user_relate_name = None
-    user = models.OneToOneField('auth.User', related_name=user_relate_name)
+class MadadJou(models.Model):
+    user = models.OneToOneField('auth.User', related_name='madadjou')
     code_melli = models.CharField(max_length=10, unique=True)
 
 
-class MadadJou(HasUserMixin, models.Model):
-    user_relate_name = 'madadjou'
-    user = models.OneToOneField('auth.User', related_name=user_relate_name)
-    code_melli = models.CharField(max_length=10, unique=True)
-
-
-class MadadKar(HasUserMixin, models.Model):
-    user_relate_name = 'madadkar'
+class MadadKar(models.Model):
+    user = models.OneToOneField('auth.User', related_name='madadkar')
 
 
 def random_string():
