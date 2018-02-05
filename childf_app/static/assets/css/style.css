@@ -820,7 +820,7 @@ a,
 /* Forms common style */
 .form-control {
   font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   letter-spacing: normal;
   font-size: 11px;
   margin-top: 5px;
@@ -916,10 +916,14 @@ blockquote {
 .rtl-direction {
     direction: rtl;
 }
+.change-direction{
+  direction: rtl;
+}
+
 
 .font-alt {
   font-family: "B Nazanin";
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
   letter-spacing: normal;
 }
 
