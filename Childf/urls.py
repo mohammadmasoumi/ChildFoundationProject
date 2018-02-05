@@ -23,7 +23,7 @@ from django.contrib.auth import views as auth_views
 from childf_app import views
 from childf_app.views import BonyadPaymentView, HomepageView, RegisterPoorChildrenView, signup, \
     MainPageView, DevelopmentTeamView, OrganizationalChart, HistoryView, GoalsView, ActivitiesView, \
-    AcceptRegistrationTerms, ShowPoorChildrenView
+    AcceptRegistrationTerms, ShowPoorChildrenView, SupportedChild
 
 urlpatterns =\
     [url(r'^admin/', admin.site.urls),
@@ -54,7 +54,7 @@ urlpatterns =\
      url(r'^show_poor_children/$', ShowPoorChildrenView.as_view(),
          name='show_poor_children'),
      # url(r'^show_poor_children/$', ShowPoorChildrenView.as_view(), name='show_poor_children'),
-     url(r'^supported_children/$', views.supported_children,
+     url(r'^supported_children/$', SupportedChild.as_view(),
          name='supported_children'),
      url(r'^trans_history/$', views.trans_history, name='trans_history'),
      url(r'^letters/$', views.letters, name='letters'),

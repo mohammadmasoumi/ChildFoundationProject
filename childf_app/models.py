@@ -84,6 +84,7 @@ class HamYarManager(models.Manager):
         return super(HamYarManager, self).create(user=user, **kwargs)
 
 class HamYar(models.Model):
+    supported_children = models.ManyToManyField('childf_app.MadadJou', related_name='hamian')
     user = models.OneToOneField('auth.User', related_name='hamyar')
     code_melli = models.CharField(max_length=10, null=True)
     objects = HamYarManager()
