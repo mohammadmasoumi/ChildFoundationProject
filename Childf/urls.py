@@ -50,6 +50,7 @@ urlpatterns = [
     url(r'register_poor_children/$', views.register_poor_children, name='register_poor_children'),
     url(r'supported_children_madadkar/$', views.supported_children_madadkar, name='supported_children_madadkar'),
     url(r'letters_madadkar/$', views.letters_madadkar, name='letters_madadkar'),
+    # url(r'^show_poor_children_madadkar/$', views.show_poor_children_madadkar, name='show_poor_children'),
     # madadJO
     url(r'trans_history_madadJo/$', views.trans_history_madadJo, name='trans_history_madadJo'),
     url(r'send_letter_to_hamyar/$', views.send_letter_to_hamyar, name='send_letter_to_hamyar'),
