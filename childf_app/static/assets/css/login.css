@@ -1,0 +1,27 @@
+
+#id_username , #id_password{
+  font-size: 11px;
+  height: 37px;
+  border: 1px solid #EAEAEA;
+  border-radius: 2px;
+  transition: all 0.4s ease-in-out 0s;
+  font-family: "B Nazanin";
+  letter-spacing: normal;
+  /*float: right;*/
+  direction: rtl;
+  margin: 10px;
+}
+
+#id_username:focus ,  #id_password:focus{
+  border-color: #CACACA;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+

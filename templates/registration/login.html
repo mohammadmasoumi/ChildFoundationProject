@@ -44,6 +44,7 @@
     <!-- Main stylesheet and color file-->
 
     <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/login.css' %}" rel="stylesheet">
     <link id="color-scheme" href="{% static 'assets/css/colors/default.css' %}" rel="stylesheet">
   </head>
   <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
@@ -92,29 +93,21 @@
         <section class="module" style="padding: 140px;">
           <div class="container">
             <div class="row">
-              <div class="col-sm-6 col-sm-offset-2 form-border">
+              <div class="col-sm-6 col-sm-offset-2 form-border change-direction">
                 <h4 class="font-alt mb-0" style="float: right;font-weight: bold; padding-right: 10px ">ورود</h4>
                 <hr class="divider-w mt-10 mb-20">
                 <hr class="divider-w mt-10 mb-20">
                 <form class="form" role="form" method="post">
                     {% csrf_token %}
-                    {{ form.as_p }}
-{#                  <div class="form-group">#}
-{#                    <input class="form-control font-alt persian-direction" id="username" type="text" name="username" placeholder="نام کاربری"/>#}
-{#                  </div>#}
-{#                  <div class="form-group">#}
-{#                    <input class="form-control font-alt persian-direction" id="password" type="password" name="password" placeholder="کلمه عبور"/>#}
-{#                  </div>#}
-{#                  <div class="form-group">#}
+                  <div class="form-group">
+                          {{ form.as_p }}
+                  </div>
                     <input id="submit_btn" type="submit" class="form-control font-alt persian-direction btn btn-round btn-b" style="margin-top: 10px" value="ورود"/>
-{#                  </div>#}
-{#                  <div class="form-group"><a class="form-control font-alt persian-direction" style="border: none!important;"  href="/forget_password">کلمه عبور را فراموش کردم</a></div>#}
                 </form>
               </div>
             </div>
           </div>
         </section>
-
 
         <div class="module-small bg-dark">
           <div class="container">
