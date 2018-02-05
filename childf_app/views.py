@@ -1,4 +1,8 @@
+from django import forms
+from django.contrib.admin import forms
 from django.core.exceptions import PermissionDenied
+from django.forms import forms
+from django.forms.widgets import HiddenInput
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls.base import reverse, reverse_lazy
@@ -87,13 +91,6 @@ def send_code(request):
 
 
 @csrf_exempt
-def login(request):
-    if request.method == 'POST':
-        return HttpResponseRedirect('/homepage')
-    return render(request, 'login.html', {})
-
-
-@csrf_exempt
 def verification(request):
     if request.is_ajax():
         entered_code = request.POST.get('code', False)
@@ -108,9 +105,20 @@ def verification(request):
 
 class BonyadPaymentView(CreateView):
     model = BonyadPayment
-    fields = ['amount']
+    fields = ['amount', 'payer']
     template_name = 'payment.html'
     success_url = reverse_lazy('homepage')
+
+    def get_form(self, form_class=None):
+        form = super(BonyadPaymentView, self).get_form(form_class=form_class)
+        form.fields['payer'].widget = HiddenInput()
+        return form
+
+    def get_initial(self):
+        initial = super(BonyadPaymentView, self).get_initial()
+        initial['payer'] = self.request.user
+        return initial
+
 
 
 @csrf_exempt

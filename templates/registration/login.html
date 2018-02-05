@@ -97,16 +97,18 @@
                 <hr class="divider-w mt-10 mb-20">
                 <hr class="divider-w mt-10 mb-20">
                 <form class="form" role="form" method="post">
-                  <div class="form-group">
-                    <input class="form-control font-alt persian-direction" id="username" type="text" name="username" placeholder="نام کاربری"/>
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control font-alt persian-direction" id="password" type="password" name="password" placeholder="کلمه عبور"/>
-                  </div>
-                  <div class="form-group">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+{#                  <div class="form-group">#}
+{#                    <input class="form-control font-alt persian-direction" id="username" type="text" name="username" placeholder="نام کاربری"/>#}
+{#                  </div>#}
+{#                  <div class="form-group">#}
+{#                    <input class="form-control font-alt persian-direction" id="password" type="password" name="password" placeholder="کلمه عبور"/>#}
+{#                  </div>#}
+{#                  <div class="form-group">#}
                     <input id="submit_btn" type="submit" class="form-control font-alt persian-direction btn btn-round btn-b" style="margin-top: 10px" value="ورود"/>
-                  </div>
-                  <div class="form-group"><a class="form-control font-alt persian-direction" style="border: none!important;"  href="/forget_password">کلمه عبور را فراموش کردم</a></div>
+{#                  </div>#}
+{#                  <div class="form-group"><a class="form-control font-alt persian-direction" style="border: none!important;"  href="/forget_password">کلمه عبور را فراموش کردم</a></div>#}
                 </form>
               </div>
             </div>

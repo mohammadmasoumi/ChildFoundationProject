@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from childf_app import views
 from childf_app.views import BonyadPaymentView
 
@@ -32,7 +33,7 @@ urlpatterns = [
     url(r'^accept_registration_terms/', views.accept_registration_terms, name='accept_registration_terms'),
     url(r'^activation_code/$', views.activation_code, name='activation_code'),
     url(r'^sms/$', views.resend_sms, name='resend_sms'),
-    url(r'^login/$', views.login, name='login'),
+    url(r'^login/$', auth_views.login, name='login'),
     url(r'^verification/$', views.verification, name='verification'),
     url(r'^payment/$', BonyadPaymentView.as_view(), name='payment'),
     url(r'^homepage/$', views.homepage, name='homepage'),
