@@ -1,0 +1,15 @@
+{% for item in child.accepted_help_requests %}
+    <tr>
+
+        <td class="persian-text-style">{{ item.needed }}</td>
+        <td class="persian-text-style">{{ item.payed_sum }}</td>
+        <td>
+            <form method="post" action="{% url 'support_child' %}">
+                <input hidden name="madadjou_id" value="{{ item.id }}">
+                <button type="submit">
+                    <i class="material-icons">credit_card</i>
+                </button>
+            </form>
+        </td>
+    </tr>
+{% endfor %}

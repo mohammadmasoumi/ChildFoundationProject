@@ -18,7 +18,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
-from childf_app.models import HamYar, BonyadPayment, MadadJou, Message, HelpRequest
+from childf_app.models import HamYar, BonyadPayment, MadadJou, Message, HelpRequest, MadadPayment
 
 
 def signup(request):
@@ -197,14 +197,6 @@ def userprofile(request):
     return render(request, 'afterLogin/userprofile.html', {})
 
 
-@csrf_exempt
-def userpayment(request):
-    return render(request, 'afterLogin/userpayment.html', {})
-
-
-selected_children = []
-
-
 class ShowPoorChildrenView(DashboardMixin, ListView):
     template_name = 'afterLogin/show_poor_children.html'
     model = MadadJou
@@ -263,15 +255,6 @@ class OutboxView(DashboardMixin, ListView):
         return self.request.user.outbox.all()
 
 
-@csrf_exempt
-def trans_history(request):
-    return render(request, 'afterLogin/trans_history.html', {})
-
-
-@csrf_exempt
-def letters(request):
-    return render(request, 'afterLogin/letters.html', {})
-
 
 class InformationPoorChildren(DetailView):
     model = MadadJou
@@ -311,22 +294,39 @@ class VerifyRequest(FormView):
         return redirect(self.success_url)
 
 
-@csrf_exempt
-def submit_req_to_madadkar(request):
-    return render(request, 'madadJo/submit_req_to_madadkar.html')
+class HamyarSupportedChildrenView(ListView):
+    model = MadadJou
+    template_name = 'afterLogin/supported_children.html'
+    context_object_name = 'supported_children'
+
+    def get_queryset(self):
+        return self.request.user.hamyar.supported_children.all()
 
 
-@csrf_exempt
-def submit_change_req_for_madadkar(request):
-    return render(request, 'madadJo/submit_change_req_for_madadkar.html')
+class ChildHelpRequestsListView(DetailView):
+    model = MadadJou
+    template_name = 'afterLogin/help_requests.html'
+    context_object_name = 'child'
 
 
-@csrf_exempt
-def send_letter_to_hamyar(request):
-    return render(request, 'madadJo/send_letter_to_hamyar.html')
+class CreatePayment(CreateView):
+    model = MadadPayment
+    fields = ['amount', 'payer', 'help_request']
+    template_name = 'payment.html'
+    success_url = reverse_lazy('homepage')
 
+    def dispatch(self, request, *args, **kwargs):
+        self.help_request = HelpRequest.objects.get(id=kwargs.get('pk'))
+        return super(CreatePayment, self).dispatch(request, *args, **kwargs)
 
-@csrf_exempt
-def send_letter_to_madadkar(request):
-    return render(request, 'madadJo/send_letter_to_madadkar.html')
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class=form_class)
+        form.fields['payer'].widget = HiddenInput()
+        form.fields['help_request'].widget = HiddenInput()
+        return form
 
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['payer'] = self.request.user
+        initial['help_request'] = self.help_request
+        return initial
