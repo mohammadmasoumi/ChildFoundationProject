@@ -30,7 +30,7 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('homepage')
+            return redirect('login')
     else:
         form = UserCreationForm()
     return render(request, 'registration/sign_up.html', {'form': form})
@@ -205,10 +205,11 @@ class ShowPoorChildrenView(DashboardMixin, ListView):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class SupportChild(FormView):
-    success_url = 'afterLogin/show_poor_children.html'
+    success_url = '/show_poor_children'
 
     def post(self, request, *args, **kwargs):
         pk = request.POST['madadjou_id']
+        print("pk",pk)
         madadjou = MadadJou.objects.get(id=pk)
         self.request.user.hamyar.supported_children.add(madadjou)
         return redirect(self.success_url)

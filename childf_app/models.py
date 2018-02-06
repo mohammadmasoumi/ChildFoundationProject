@@ -76,10 +76,20 @@ class MadadJou(models.Model):
     def accepted_help_requests(self):
         return self.help_requests.filter(is_verified=True)
 
+    def __str__(self):
+        return self.user.username
+
+    def __unicode__(self):
+        return str(self)
 
 class MadadKar(models.Model):
     user = models.OneToOneField('auth.User', related_name='madadkar')
 
+    def __str__(self):
+        return self.user.username
+
+    def __unicode__(self):
+        return str(self)
 
 def random_string():
     return str(random.randint(10000, 99999))
