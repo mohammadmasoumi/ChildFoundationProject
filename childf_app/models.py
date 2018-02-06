@@ -130,6 +130,13 @@ class HamYar(models.Model):
     ])
 
 
+    def __str__(self):
+        return self.user.username
+
+    def __unicode__(self):
+        return str(self)
+
+
 class IPayment(models.Model):
     amount = models.IntegerField(validators=[MinValueValidator(1)])
     payer = models.ForeignKey('auth.User')
@@ -137,6 +144,13 @@ class IPayment(models.Model):
 
     class Meta:
         abstract = True
+
+
+    def __str__(self):
+        return '{amount}+{payer}+{date}'.format(amount=self.amount, payer=self.payer, date=self.date)
+
+    def __unicode__(self):
+        return str(self)
 
 
 class BonyadPayment(IPayment):

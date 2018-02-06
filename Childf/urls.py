@@ -73,4 +73,5 @@ urlpatterns = \
         url(r'inbox/$', InboxView.as_view(), name='inbox'),
         url(r'child/(?P<pk>\d+)/$', ChildHelpRequestsListView.as_view(), name='help_requests'),
         url(r'help/(?P<pk>\d+)/$', CreatePayment.as_view(), name='help'),
+
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
