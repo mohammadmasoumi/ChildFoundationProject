@@ -60,6 +60,7 @@ after_script:
 script:
   - python manage.py test
 
+
 notifications:
 
   email:
