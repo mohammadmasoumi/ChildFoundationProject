@@ -86,9 +86,10 @@ def signin(request):
         user = User.objects.filter(username=username, password=password)
 
         if user:
-            response['code'] = 201
+            response['code'] = 200
         else:
             response['code'] = 404
+            response['error'] = "username or password is not correct"
 
         return HttpResponse(json.dumps(response), content_type="application/json")
     return HttpResponse(None)
