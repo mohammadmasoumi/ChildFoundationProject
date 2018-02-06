@@ -225,8 +225,7 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-{#                                            <th class="persian-text-style-thead">حمایت</th>#}
-                                            <th class="persian-text-style-thead">وضعیت جسمانی</th>
+                                            <th class="persian-text-style-thead">نیازمندی ها</th>
                                             <th class="persian-text-style-thead">محل زندگی</th>
                                             <th class="persian-text-style-thead"> سن</th>
                                             <th class="persian-text-style-thead">جنسیت</th>
@@ -235,8 +234,7 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
-{#                                            <th class="persian-text-style-thead">حمایت</th>#}
-                                            <th class="persian-text-style">وضعیت جسمانی</th>
+                                            <th class="persian-text-style">نیازمندی ها</th>
                                             <th class="persian-text-style">محل زندگی</th>
                                             <th class="persian-text-style">سن</th>
                                             <th class="persian-text-style">جنسیت</th>
@@ -244,27 +242,20 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-{#                                    TODO need tobe completed#}
-                                          {% for item in supported_children %}
+                                          {% for item in poor_children_list %}
                                               <tr>
-                                                    <td>
-{#                                                        child#}
-                                                        <form method="post" action="{% url 'support_child' %}">
-                                                            <input hidden name="madadjou_id" value="{{ item.id }}">
-                                                            <button type="submit">
-                                                                <i class="material-icons">person_add</i>
-                                                            </button>
-                                                        </form>
-                                                    </td>
-                                                    <td class="persian-text-style">1</td>
-                                                    <td class="persian-text-style"> مشهد</td>
-                                                    <td class="persian-text-style">10</td>
-                                                    <td class="persian-text-style">مونث</td>
-                                                    <td><a class="persian-text-style waves-effect" href="/information_poor_children/{{ item.id }}" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">زهرا</a></td>
-                                              </tr>
+                                                <td>
+                                                    <a href="/child/{{ item.id }}" >
+                                                        <i class="material-icons">receipt</i>
+                                                    </a>
+                                                </td>
+                                                <td class="persian-text-style"> {{ item.sharaiet_jesmani }}</td>
+                                                <td class="persian-text-style"> {{ item.mahal_sokunat }}</td>
+                                                <td class="persian-text-style">{{ item.birth_date }}</td>
+                                                <td class="persian-text-style">{{ item.gender }}</td>
+                                                <td><a class="persian-text-style waves-effect" href="/information_poor_children/{{ item.id }}" data-toggle="tooltip" data-placement="right" title="حمایت از مددجو">{{ item.name }}</a></td>
+                                            </tr>
                                           {% endfor %}
-
-
                                     </tbody>
                                 </table>
                             </div>

@@ -218,7 +218,7 @@
 {#                        <h2 class="persian-text-style col-sm-6">#}
 {#                            تعداد کودکان انتخاب شده :{{ 0 }}#}
 {#                        </h2>#}
-
+{#                        {{ poor_children_list }}#}
                         <h2 class="persian-text-style col-sm-6">
                             مددجویان
                         </h2>
@@ -249,6 +249,7 @@
                                     </tfoot>
                                     <tbody>
                                         {% for item in poor_children_list %}
+
                                             <tr>
                                                 <td>
                                                     <form method="post" action="{% url 'support_child' %}">
