@@ -5,6 +5,7 @@ from rest_app import views
 urlpatterns = [
     # # TODo must create functions in views
 
+    url(r'^signin/', views.signin),
     url(r'^signup/', views.signup),
     url(r'^generate_token/', views.generate_token),
     # url(r'^cash_out_order/', views.cash_out_order, name='cash_out'),

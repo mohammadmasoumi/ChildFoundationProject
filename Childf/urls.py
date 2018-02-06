@@ -29,7 +29,7 @@ from childf_app.views import BonyadPaymentView, HomepageView, RegisterPoorChildr
 
 urlpatterns = \
     [
-        url(r'^rest_framework/', include('rest_app.urls')),
+        url(r'^api/', include('rest_app.urls')),
         url(r'^admin/', admin.site.urls),
         url(r'^$', MainPageView.as_view(), name='mainpage'),
         url(r'^development_team/', DevelopmentTeamView.as_view(),

@@ -18,16 +18,18 @@ from django.http import HttpResponse
 # from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
+from rest_framework.renderers import JSONRenderer
 from rest_framework.views import APIView
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
-
 
 # from interpay.views import make_id
 # from Notification.views import NotificationClass
 # from interpay.views import get_currency
 # import datetime
-# import json
+import json
+
+
 # from django.utils import timezone
 # from interpay.Email import Email
 # from smtplib import SMTPRecipientsRefused
@@ -48,25 +50,50 @@ class JSONResponse(HttpResponse):
 
 
 def generate_token(request):
-    user_for_token = User.objects.get("admin")
+    response = {}
+    user_for_token = User.objects.get(username="admin")
     token = Token.objects.get(user=user_for_token)
-    return HttpResponse(token.key)
+    response["token"] = token.key
+    return HttpResponse(json.dumps(response), content_type="application/json")
+
 
 @api_view(['GET', 'POST'])
 def signup(request):
-    response = []
+    response = {}
     if request.method == "POST":
         data = JSONParser().parse(request)
         username = data['username']
         password = data['password']
         mobile = data['mobile']
-        defaults = {"mobile":mobile, "password": password}
-        user, created = User.objects.get_or_create(defaults, username=username )
+        defaults = {"mobile": mobile, "password": password}
+        user, created = User.objects.get_or_create(defaults, username=username)
 
         if created:
             response["code"] = 201
         else:
             response["code"] = 404
+        return HttpResponse(json.dumps(response), content_type="application/json")
+    return HttpResponse(None)
+
+
+@api_view(['GET', 'POST'])
+def signin(request):
+    response = {}
+    if request.method == "POST":
+        data = JSONParser().parse(request)
+        username = data['username']
+        password = data['password']
+        user = User.objects.filter(username=username, password=password)
+
+        if user:
+            response['code'] = 201
+        else:
+            response['code'] = 404
+
+        return HttpResponse(json.dumps(response), content_type="application/json")
+    return HttpResponse(None)
+
+
 
 
 # def check_validation(code):
